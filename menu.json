@@ -1,0 +1,466 @@
+{
+    "Robot Scalpel": {
+        "Initiation": {
+            "What's the Idea": [
+                {
+                    "task": "Document Innovation Summary",
+                    "description": "A simple, but sophisticated, semi automated scalpel for finger surgery. ",
+                    "artifact": "Innovation Summary",
+                    "links": "https://www.google.com",
+                    "tool":"MALUE_NOTE",
+                    "artefact-locations":["Initiation-Summary.md"]
+                }
+            ],
+            "Create the Team": [
+                {
+                    "task": "Collect details of the team",
+                    "description": "The details of the founder",
+                    "artifact": "Founder details",
+                    "links": null,
+                    "tool":"MALUE_CONTACT",
+                    "artefact-locations":["Johnathan Blake.md"]
+                },
+                {
+                    "task": "Collect details of the team",
+                    "description": "List of Team members with all of their details including CVs, Contact details etc.",
+                    "artifact": "Team Contacts",
+                    "links": null,
+                    "tool":"MALUE_CONTACTS",
+                    "artefact-locations":["Initial Team.md"]
+                }
+            ],
+            "Background Research": [
+                {
+                    "task": "Collaboration",
+                    "description": "Record of messaging that pertains to the project",
+                    "artifact": "MessageLog",
+                    "links": null,
+                    "tool":"MALUE_MESSENGER",
+                    "artefact-locations":["GroupForumDiscussionRoboticScalpelsInHandSurgery.md"]
+                },
+                {
+                    "task": "Collaboration",
+                    "description": "Malue initiated news feed",
+                    "artifact": "NewsFeed",
+                    "links": null,
+                    "tool":"MALUE_FEED",
+                    "artefact-locations":["Feeds-01.md"]
+                },
+                {
+                    "task": "Collaboration",
+                    "description": "Brainstorming Session",
+                    "artifact": "Canvas",
+                    "links": null,
+                    "tool":"MALUE_CANVAS",
+                    "artefact-locations":["BrainstormingSession.md"]
+                },
+                {
+                    "task": "Investigate Prior art",
+                    "description": "Publicly available catalog of ACME products",
+                    "artifact": "Catalog",
+                    "links": null,
+                    "tool":"MALUE_DB",
+                    "artefact-locations":["ACME-Product-Catalogue-Full.pdf"]
+                },
+                {
+                    "task": "Investigate Prior art",
+                    "description": "ACME's public website",
+                    "artifact": "Website",
+                    "links": null,
+                    "tool":"MALUE_WEB_VIEWER",
+                    "artefact-locations":["https://ACMEWebsite/index.html"]
+                },
+                {
+                    "task": "Investigate Prior art",
+                    "description": "International Medical Council reviews of ACME products",
+                    "artifact": "Reviews",
+                    "links": null,
+                    "tool":"MALUE_PDF_VIEWER",
+                    "artefact-locations":["ACME-mecha-scalpel-review.pdf"]
+                },
+                {
+                    "task": "Investigate Prior art",
+                    "description": "A clinical trial of the efficacy of the ACME smart Scalpel",
+                    "artifact": "Clinical Trial",
+                    "links": null,
+                    "tool":"MALUE_PDF_VIEWER",
+                    "artefact-locations":["ACME-mecha-scalpel-clinical-trial.pdf"]
+                },
+                {
+                    "task": "Investigate Prior art",
+                    "description": "Overview of the researches made",
+                    "artifact": "Research Summary",
+                    "links": null,
+                    "tool":"MALUE_PDF_VIEWER",
+                    "artefact-locations":["Research-Summary.pdf"]
+                },
+                {
+                    "task": "Investigate Prior art",
+                    "description": "Report for founders",
+                    "artifact": "Research Findings",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["Report-for-founders.docx"]
+                },
+                {
+                    "task": "Understand the competitors currently in the market",
+                    "description": "Dun & Bradstreet or similar report services",
+                    "artifact": "Website",
+                    "links": null,
+                    "tool":"MALUE_WEB_VIEWER",
+                    "artefact-locations":["https://www.dnb.co.uk/duns-number/lookup/request-a-duns-number.html"]
+                }
+            ],
+            "Market Analysis": [
+                {
+                    "task": "Review of the market",
+                    "description": "Report sharing the analysis and stating the strategy for bringing the innovation to market. ",
+                    "artifact": "Market Findings",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://malue.sharepoint.com/sites/MalueArchtecture/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FMalueArchtecture%2FShared%20Documents%2FIdea%20Forge%2FWorkedExample%2FPDFs%2FMarket%20Analysis%20for%20a%20Robotic%20Scalpel%20for%20Hand%20Surgery%2Epdf&parent=%2Fsites%2FMalueArchtecture%2FShared%20Documents%2FIdea%20Forge%2FWorkedExample%2FPDFs&p=true&ga=1"]
+                }
+            ],
+            "Determine business model": [
+                {
+                    "task": "Explore options",
+                    "description": "Report to founders",
+                    "artifact": "Research Findings",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EfsHGUDsQuBHjZKWCXpUQzcBixPKXoK3wZ-d4UoAHt0zeQ?e=3CWQgK&wdLOR=c36FB62F9-6F77-498B-BF9A-7A9734989A18"]
+                }
+            ],
+            "Create Outline Plan": [
+                {
+                    "task": "Create an initial plan ",
+                    "description": "A very high level plan of the main elements that will need to be done. ",
+                    "artifact": "Outline Plan",
+                    "links": null,
+                    "tool":"MALUE_PLANNER",
+                    "artefact-locations":["High-Level-Gantt-Chart-for-Robotic-Scalpel-Development.png"]
+                }
+            ],
+            "Set up a company": [
+                {
+                    "task": "Determine appropriate company structure",
+                    "description": "Incorporate a new company",
+                    "artifact": "Business Set up",
+                    "links": null,
+                    "tool":"MALUE_PROCESS",
+                    "artefact-locations":["https://www.gov.uk/set-up-business"]
+                }
+            ]
+        },
+        "Evidence": {
+            "Conduct trials of the device": [
+                {
+                    "task": "Trial the device in accordance with trial standards",
+                    "description": "Clinical trial protocol outlining the requirements",
+                    "artifact": "Clinical Trial/ Research protocol",
+                    "links": null,
+                    "tool":"MALUE_PDF_VIEWER",
+                    "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/Ef3DK5yRrc5PsbO0N_LjJ7cBvY2Q5SbHIUu2YW6N1T0oPg?e=qYOJpJ"]
+                }
+            ],
+            "Identify funding to support clinical trials": [
+                {
+                    "task": "Identify sponsors or funding available to support clinical trials",
+                    "description": "Overview of funding available to support clinical trials in the UK",
+                    "artifact": "Funding sources",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/Ecuc1RxdOARAi230yVFF2RgBgZigI5MtF0GGXZa7VaSxdQ?e=GGhUyL"]
+                }
+            ],
+            "Identify hospitals/clinicians to collaborate on conducting the clinical trials": [
+                {
+                    "task": "Identify partners for clinical trials",
+                    "description": "Search of different expertise across hospitals",
+                    "artifact": "Search",
+                    "links": null,
+                    "tool":"MALUE_DB",
+                    "artefact-locations":[ "https://www.nhs.uk/nhs-services/services-near-you/",
+                                            "https://www.bssh.ac.uk/",
+                                            "https://www.nihr.ac.uk/",
+                                            "https://www.handsurgeryconsultant.co.uk/"]
+                }
+            ],
+            "Invitation to partner on clinical trial": [
+                {
+                    "task": "Outreach to possible partners",
+                    "description": "Invitation to partner on clinical trials",
+                    "artifact": "Partnership request",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EXWSE0F-cENCnBcpPVs4BtQBnDbviskWoqeRVjpi-96lxw?e=va2ev4"]
+                }
+            ],
+            "Customer Relationship Management": [
+                {
+                    "task": "Maintain records of relationships that have been built through the trial process",
+                    "description": "Customer Relationship Management system",
+                    "artifact": "CRM",
+                    "links": null,
+                    "tool":"MALUE_DB",
+                    "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EYlFzcS9nmROhrpKZwPUF10BeSK9gIRY_eAUjurk4yZoMA?e=DKg4hQ"]
+                }
+            ],
+            "Equality and Health Inequalities Impact Assessment (EHIA)": [
+                {
+                    "task": "Complete template",
+                    "description": "A summary of the potential impact of the innovation for protected characteristic groups",
+                    "artifact": "EHIA Template",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/Ec1xhDCE-U9Fi6aCAj730PEBZqMGWVUWXwki4neX_p5p9w?e=pwgNHx"]
+                }
+            ],
+            "Case Studies": [
+                {
+                    "task": "Develop a case study demonstrating the benefits of the product",
+                    "description": "An overview of the product, benefits of using it from a clinician and patient perspective. ",
+                    "artifact": "Case study",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EZUCT9lG4cRJjY8P-Fn3mB4B_ypBcLV7LWKARdOwGe_Ovw?e=4ognYK"]
+                }
+            ],
+            "Health Economic Case": [
+                {
+                    "task": "Develop the health economic case demonstrating the benefits of the product",
+                    "description": "An overview of the health economic benefits of using a robotic scalpel",
+                    "artifact": "Health Economic Case Study",
+                    "links": null,
+                    "tool":"MALUE_SHEET",
+                    "artefact-locations":["hhttps://malue.sharepoint.com/:w:/s/MalueArchtecture/Ea7Wv9dl4gZHuCQHBllJ-ZwB3Bm7iZexKu9O1T3phN3Uog?e=tt92OQ"]
+                }
+            ]
+        },
+        "Development": {
+            "Detailed design and prototyping": [
+                {
+                    "task": "Design the product",
+                    "description": "The drawings outline the progression from the initial concept to the final design.",
+                    "artifact": "Product design",
+                    "links": null,
+                    "tool":"MALUE_PROCESS",
+                    "artefact-locations":[  "https://malue.sharepoint.com/:u:/s/MalueArchtecture/EROkpViszYpPoauPbYGqTgYBiTTxXSgOc7_LTe_l9MDZxQ?e=VqMTXy",
+                                            "https://malue.sharepoint.com/:u:/s/MalueArchtecture/Ee8P2QgOl-dJnY_w5vfVYV0BC_eF3FdD3Fgqkp8F7xb8eQ?e=LgaQdZ"]
+                }
+            ],
+            "Check IP and existing Patents for product design": [
+                {
+                    "task": "IP/Patent research",
+                    "description": "Review patent library for any existing patents",
+                    "artifact": "IP/Patent search",
+                    "links": null,
+                    "tool":"MALUE_PROCESS",
+                    "artefact-locations":["Intellectual Property Office - GOV.UK (www.gov.uk)"]
+                }
+            ],
+            "Register IP/Patent": [
+                {
+                    "task": "IP/Patent registration",
+                    "description": "Register the design",
+                    "artifact": "IP/Patent registration",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://www.gov.uk/government/organisations/intellectual-property-office"]
+                }
+            ]
+        },
+        "Regulation": {
+            "Medical Device Regulations": [
+                {
+                    "task": "Create a plan for meeting regulation requirements",
+                    "description": "Regulation plan",
+                    "artifact": "Outline Plan",
+                    "links": null,
+                    "tool":"MALUE_PLANNER",
+                    "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EegJATcpyRdDmOHYW7dTCs4BfH78OnpSM8y51c6CbAYMzA?e=uZYu5a "]
+                },
+                {
+                    "task": "Review regulation requirements",
+                    "description": "An overview of the requirements to meet regulatory standards",
+                    "artifact": "Medical device regulations",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://www.gov.uk/guidance/regulating-medical-devices-in-the-uk"]
+                },
+                {
+                    "task": "Review regulation requirements",
+                    "description": "An overview of the requirements to meet regulatory standards",
+                    "artifact": "Medical device regulations",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://www.fda.gov/medical-devices"]
+                },
+                {
+                    "task": "Review regulation requirements",
+                    "description": "An overview of the requirements to meet regulatory standards",
+                    "artifact": "Medical device regulations",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://www.ema.europa.eu/en/human-regulatory-overview/medical-devices"]
+                }
+            ],
+            "Register IP/Patent": [
+                {
+                    "task": "Complete the application to register the design, IP and functions of the innovation",
+                    "description": "An application to protect IP and design of the robot scalpel",
+                    "artifact": "Patent Application",
+                    "links": null,
+                    "tool":"MALUE_PROCESS",
+                    "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EeLAs4pdmbhLr-0i1mvvCJEB8PJ_LDLEAOsYGALzDp_ikQ?e=V2VmmQ"]
+                }
+            ]
+        },
+        "Commissioning + Adoption": {
+            "Launch Plan": [
+                {
+                    "task": "Create a plan for launch",
+                    "description": "A very high level plan of the main elements that will need to be done. ",
+                    "artifact": "Outline Plan",
+                    "links": null,
+                    "tool":"MALUE_PLANNER",
+                    "artefact-locations":["https://malue.sharepoint.com/:x:/s/MalueArchtecture/EYow13ogvHNEtXNnUZmW0GMB1XiU1IVWscv1G41l2c4Gjw?e=1BJkzB"]
+                }
+            ],
+            "Business Case": [
+                {
+                    "task": "Build a business case for adoption",
+                    "description": "A business case in support of adopting the robot scalpel",
+                    "artifact": "Business Case template",
+                    "links": null,
+                    "tool":"MALUE_SHEET",
+                    "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/Ef6T5BarVD9CrX1AH6hzQVMBs27wnQLOtPU3zxdvsHV-ag?e=a7lVjS"]
+                }
+            ],
+            "Procurement": [
+                {
+                    "task": "Determine the appropriate procurement framework",
+                    "description": "Determine which  procurement framework to apply for",
+                    "artifact": "Procurement Framework",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://www.sbs.nhs.uk/services/framework-agreements-categories/"]
+                },
+                {
+                    "task": "Register as a supplier ",
+                    "description": "Single registration to be a supplier to the Government",
+                    "artifact": "Government Supplier Registration",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://supplierregistration.cabinetoffice.gov.uk/"]
+                },
+                {
+                    "task": "Register for the appropriate procurement framework",
+                    "description": "Register for the appropriate procurement framework to beon",
+                    "artifact": "Procurement Framework",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://www.sbs.nhs.uk/services/framework-agreements-categories/"]
+                },
+                {
+                    "task": "Review procurement requirements ",
+                    "description": "Review of the necessary standards required to be on the Government procurement framework",
+                    "artifact": "Procurement Standards",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://www.gov.uk/government/publications/ppn-0324-standard-selection-questionnaire-sq"]
+                }
+            ],
+            "DUNS Number": [
+                {
+                    "task": "Obtain DUNS Number ",
+                    "description": "Obtain DUNS Number for supplier registration purposes",
+                    "artifact": "DUNS Number",
+                    "links": null,
+                    "tool":"MALUE_PROCESS",
+                    "artefact-locations":["https://www.dnb.co.uk/duns-number/lookup.html"]
+                }
+            ],
+            "Sustainability": [
+                {
+                    "task": "Register to Artamis e-procurement system",
+                    "description": "Evergreen sustainable supplier assessment ",
+                    "artifact": "Registration document ",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://supplierregistration.cabinetoffice.gov.uk/"]
+                }
+            ],
+            "Competency Framework": [
+                {
+                    "task": "Outline competences required for using the device",
+                    "description": "A checklist for the required competences needed to use the device",
+                    "artifact": "Competence Framework",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EaP-ggXrhQRAiGb_lhIaunoBfY19oiVh0gtgN8xICReG7w?e=1V6uGE"]
+                }
+            ],
+            "Structured Assessment Checklist": [
+                {
+                    "task": "Assess competency against checklist",
+                    "description": "Template for assessing comptency",
+                    "artifact": "Assessment checklist",
+                    "links": null,
+                    "tool":"MALUE_DB",
+                    "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/ETAwlIOKn69Al6vEv1HkKP0BktV3_vqLVcH-P6O8tCwurQ?e=P5pr54"]
+                }
+            ],
+            "Training module": [
+                {
+                    "task": "Create training module to upskill new users",
+                    "description": "A training module to support upskilling new users",
+                    "artifact": "Training module",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":[""]
+                }
+            ],
+            "Standard Operating Procedures": [
+                {
+                    "task": "Create standard operating procedures for the full life cycle of the product",
+                    "description": "Standard operating procedure for using the product from ordering through to disposal",
+                    "artifact": "SOP",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EbTsKe_RVElJpyzL0luZhiIBZEC8jTfZ7bApfz5fcVJGSQ?e=wTlTgv"]
+                }
+            ],
+            "Evaluation": [
+                {
+                    "task": "Evaluate the product",
+                    "description": "Evaluate the product",
+                    "artifact": "Evaluation",
+                    "links": null,
+                    "tool":"MALUE_EVALUATION",
+                    "artefact-locations":[""]
+                }
+            ],
+            "Reviews": [
+                {
+                    "task": "Review of the product",
+                    "description": "Review of the product",
+                    "artifact": "Review",
+                    "links": null,
+                    "tool":"MALUE_REVIEW",
+                    "artefact-locations":[""]
+                }
+            ],
+            "Product Description": [
+                {
+                    "task": "Log product in Product Store in Malue",
+                    "description": "Product Overview ",
+                    "artifact": "Product overview",
+                    "links": null,
+                    "tool":"MALUE_DOCUMENT",
+                    "artefact-locations":[""]
+                }
+            ]
+        }
+    }
+}
