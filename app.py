@@ -31,23 +31,15 @@ def generate_menu_html(structure):
         for key, value in data.items():
             if isinstance(value, dict):  # If it's another dictionary, go deeper
                 for sub_key, sub_value in value.items():
-                    html_content += f'<h3 onclick="toggleMenu(\'{clean_string(sub_key)}\',\'{sub_key}\',\'\')">{sub_key}</h3>'
-                    html_content += f'<ul id="{clean_string(sub_key)}" class="collapsed">'
+                    html_content += f"""<h3 onclick="toggleMenu('{clean_string(sub_key)}','{sub_key}','')">{sub_key}</h3>"""
+
+                    html_content += f"""<ul id="{clean_string(sub_key)}" class="collapsed">"""
                     for step_key, tasks in sub_value.items():
-                        html_content += f'  <li onclick="toggleMenu(\'{clean_string(step_key)}\',\'{sub_key}\',\'{step_key}\')">{step_key}'
-                        html_content += f'    <ul id="{clean_string(step_key)}" class="collapsed">'
-                        for task in tasks:
-                            # html_content += f'<span >Task: {task["task"]}</span>'
-                            # html_content += f'<br><span class="leaf">Description: {task["description"]}</span>'
-                            # html_content += f'<br><span class="leaf"><strong>Artifact: {task["artifact"]}</strong></span>'
-                            # html_content += f'<br><span class="leaf">Links: {task["links"]}</span>'
-                            # html_content += f'<br><span class="leaf">Tool: {task["tool"]}</span>'
-                            # for artefact_location in task["artefact-locations"]:
-                            #     html_content += f'<br><span class="leaf">Location: {artefact_location}</span>'
-                            
-                            # html_content += '    </ul>'
-                            html_content += '  </li>'
-                            html_content += '</ul>'
+                        html_content += f"""  <li onclick="toggleMenu(\'{clean_string(step_key)}\',\'{sub_key}\',\'{step_key}\')">{step_key}"""
+                        html_content += f"""    <ul id="{clean_string(step_key)}" class="collapsed">"""
+                        html_content += '    </ul>'
+                        html_content += '  </li>'
+                        html_content += '</ul>'
         html_content += '</div>'
         html_content += '</nav>'
 
@@ -94,18 +86,18 @@ def generate_html_items(stage, step):
         matchItem = artifactRecord['tool']
         
         match matchItem:
-            case 'MALUE_NOTE' | 'MALUE_FEED' | 'MALUE_CANVAS' | 'MALUE_CONTACTS': 
+            case 'MALUE_NOTE' | 'MALUE_FEED' | 'MALUE_CANVAS' | 'MALUE_CONTACTS' | 'MALUE_CONTACT': 
                 location = path + '\\static\\documents\\' + artifactRecord['artefact-locations'][0]
                 try:
                     with open(location, 'r') as f:
                             note_content = f.read()
-                            html = markdown.markdown(note_content,extensions=['extra'])
+                            note_content = markdown.markdown(note_content,extensions=['extra'])
                 except:
                     note_content = ''  
                 html_content += f'<fieldset id="note01" class="window" style="z-index: 3; top: {ypos}px; left: {xpos}px;">'
                 html_content += f'                    <legend>Notes</legend>'
                 html_content += f'                    <textarea style="height: 100%;width:800px;" id="mytextarea">'
-                html_content += f'                    <div>{html}</div>'
+                html_content += f'                    <div>{note_content}</div>'
                 html_content += f'                    </textarea>'
                 html_content += f'</fieldset>'
                 ypos += 50
