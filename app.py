@@ -12,14 +12,14 @@ note_file = 'initialteam.md'
 with open(json_file, 'r') as f:
     menu_structure = json.load(f)
 
-command = [r"mmdc.cmd", "-i", f"{path}/artefacts/{note_file}", "-o", f"{path}/artefacts/out_{note_file}"]
-# Run the command and capture the output
-result = subprocess.run(command, capture_output=True, text=True)
+# command = [r"mmdc.cmd", "-i", f"{path}/artefacts/{note_file}", "-o", f"{path}/artefacts/out_{note_file}"]
+# # Run the command and capture the output
+# result = subprocess.run(command, capture_output=True, text=True)
 
-with open(f"{path}/artefacts//out_{note_file}", 'r' ) as note:
-    html = markdown.markdown(note.read(),extensions=['extra'])
-    note_content = html
-    
+# with open(f"{path}/artefacts//out_{note_file}", 'r' ) as note:
+#     html = markdown.markdown(note.read(),extensions=['extra'])
+#     note_content = html
+note_content = 'empty note'   
    
 # Define the generate_menu_html function
 def generate_menu_html(structure):
