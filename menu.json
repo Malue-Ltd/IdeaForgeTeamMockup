@@ -59,8 +59,8 @@
                     "description": "Publicly available catalog of ACME products",
                     "artifact": "Catalog",
                     "links": null,
-                    "tool":"MALUE_DB",
-                    "artefact-locations":["ACME-Product-Catalogue-Full.pdf"]
+                    "tool":"MALUE_PDF_VIEWER",
+                    "artefact-locations":["https://stmaluepocsharewesteu.blob.core.windows.net/ideaforgemockupdocuments/Paradigms of Artificial Intelligence Programming Case Studies in Common Lisp.pdf"]
                 },
                 {
                     "task": "Investigate Prior art",
@@ -68,7 +68,7 @@
                     "artifact": "Website",
                     "links": null,
                     "tool":"MALUE_WEB_VIEWER",
-                    "artefact-locations":["https://ACMEWebsite/index.html"]
+                    "artefact-locations":["https://malue.co.uk"]
                 },
                 {
                     "task": "Investigate Prior art",
@@ -76,7 +76,7 @@
                     "artifact": "Reviews",
                     "links": null,
                     "tool":"MALUE_PDF_VIEWER",
-                    "artefact-locations":["ACME-mecha-scalpel-review.pdf"]
+                    "artefact-locations":["https://stmaluepocsharewesteu.blob.core.windows.net/ideaforgemockupdocuments/Paradigms of Artificial Intelligence Programming Case Studies in Common Lisp.pdf"]
                 },
                 {
                     "task": "Investigate Prior art",
@@ -84,7 +84,7 @@
                     "artifact": "Clinical Trial",
                     "links": null,
                     "tool":"MALUE_PDF_VIEWER",
-                    "artefact-locations":["ACME-mecha-scalpel-clinical-trial.pdf"]
+                    "artefact-locations":["https://stmaluepocsharewesteu.blob.core.windows.net/ideaforgemockupdocuments/PA-W1410 is a portable personal.pdf"]
                 },
                 {
                     "task": "Investigate Prior art",
@@ -92,7 +92,7 @@
                     "artifact": "Research Summary",
                     "links": null,
                     "tool":"MALUE_PDF_VIEWER",
-                    "artefact-locations":["Research-Summary.pdf"]
+                    "artefact-locations":["https://stmaluepocsharewesteu.blob.core.windows.net/ideaforgemockupdocuments/Paradigms of Artificial Intelligence Programming Case Studies in Common Lisp.pdf"]
                 },
                 {
                     "task": "Investigate Prior art",

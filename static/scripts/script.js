@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         toggler[i].addEventListener("click", function () {
             this.parentElement.querySelector(".nested").classList.toggle("active");
             this.classList.toggle("caret-down");
+            console.log("adding click nested  ??")
         });
     }
 
@@ -51,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
     function SetupNotePad() {
+        tinymce.remove('#mytextarea');
         tinymce.init({
             selector: "#mytextarea",
             promotion: false,
@@ -65,20 +67,23 @@ document.addEventListener("DOMContentLoaded", function () {
     function SetupSpreadsheet() {
         const myData = localStorage.getItem("sheetdata");
         let sheet = document.getElementById("sheet");
-        let widthOfBox = 500;//sheet.offsetWidth;
-        console.log(widthOfBox);
-        const options = {
-            mode: "edit", // edit | read
-            showToolbar: true,
-            showGrid: true,
-            showContextmenu: true,
-            view: {
-                height: () => 500,
-                width: () => widthOfBox,
-            },
-        };
+        if(sheet){
+            let widthOfBox = 500;//sheet.offsetWidth;
+            console.log(widthOfBox);
+            const options = {
+                mode: "edit", // edit | read
+                showToolbar: true,
+                showGrid: true,
+                showContextmenu: true,
+                view: {
+                    height: () => 500,
+                    width: () => widthOfBox,
+                }
+            }
+            x_spreadsheet("#xspreadsheet", options).loadData(JSON.parse(myData));
+        }
 
-        x_spreadsheet("#xspreadsheet", options).loadData(JSON.parse(myData));
+        
     }
     function OutputFieldSetPositions() {
         const fieldsets = document.querySelectorAll("fieldset.window");
@@ -97,9 +102,18 @@ document.addEventListener("DOMContentLoaded", function () {
         for (const element of togglers) {
             element.addEventListener("click", function () {
                 this.parentElement
-                    .querySelector(".nested")
-                    .classList.toggle("active");
-                this.classList.toggle("caret-down");
+                    .querySelector(".nested");
+                    //.classList.toggle("active");
+                console.log("clicked on nested: " + element.innerHTML)
+                let main_pane = document.querySelector("#main-pane");
+                fetch('/get-main-pane-contents?selected=' + element.innerText)
+                    .then(response => response.text())
+                    .then(data => {
+                        main_pane.innerHTML = data;
+                        SetupSpreadsheet()
+                        SetupNotePad();
+                    })
+                    .catch(error => console.error('Error:', error));
             });
         }
     }
@@ -322,6 +336,23 @@ document.addEventListener("DOMContentLoaded", function () {
             { name: "sheet-test" },];
         localStorage.setItem("sheetdata", JSON.stringify(myData));
     }
+    function toggleMenu(levelId,stage,step) {
+        const level = document.getElementById(levelId);
+        const currentDate = new Date();
+        const milliseconds = currentDate.getMilliseconds();
+        console.log(`Milliseconds: ${milliseconds}, ${levelId} , ${stage} , ${step})`);
+        level.classList.toggle('collapsed');
+        let main_pane = document.querySelector("#main-pane");
+                fetch('/get-main-pane-contents?stage=' + stage + '&step=' + step)
+                    .then(response => response.text())
+                    .then(data => {
+                        main_pane.innerHTML = data;
+                        SetupSpreadsheet()
+                        SetupNotePad();
+                    })
+                    .catch(error => console.error('Error:', error));
+    }
+    window.toggleMenu = toggleMenu;
     window.closeDialog = closeDialog;
     window.openDialog = openDialog;
     window.reflowBlocks = reflowBlocks;
