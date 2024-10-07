@@ -58,14 +58,7 @@ def extract(data, stage, step):
                         print(sub_key)
                         for step_key, tasks in sub_value.items():  
                             if step_key == step or step == "":      
-                                for task in tasks: 
-                                    # print(f'Stage  {sub_key }')     
-                                    # print(f'  Step  {step_key} Task: {task["task"]}')                    
-                                    # print(f'    Task:                {task["task"]}')
-                                    # print(f'    description :        {task["description"]}')
-                                    # print(f'    artifact :           {task["artifact"]}')
-                                    # print(f'    tool:                {task["tool"]}')
-                                    # print(f'    artefact-locations : {task["artefact-locations"]}', [])
+                                for task in tasks:                                     
                                     main_pane_contents.append({ 'stage':               sub_key,
                                                                 'step':                step_key,
                                                                 'task':                task["task"],
@@ -117,20 +110,19 @@ def generate_html_items(stage, step):
                 
             #     html_content += f'<fieldset id="pdf01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:500px;width:50%">'
             #     html_content += f'                    <legend>Document</legend>'
-            #     html_content += f'                    <iframe src="{location}"'
-            #     html_content += f'                    width="100%" height="100%" ><iframe>'
+            #     html_content += f'                    <iframe src="{location}"</iframe>'
+            #     # html_content += f'                    width="100%" height="100%" >'
             #     html_content += f'</fieldset>'
             #     ypos += 50
             #     xpos += 50
-            # case 'MALUE_WEB_VIEWER':
-            #     location = artifactRecord['artefact-locations'][0]
-            #     html_content += f'<fieldset id="pdf01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:500px;width:50%">'
-            #     html_content += f'                    <legend>Website</legend>'
-            #     html_content += f'                    <iframe src="{location}"'
-            #     html_content += f'                    width="100%" height="100%"><iframe>'
-            #     html_content += f'</fieldset>'
-            #     ypos += 50
-            #     xpos += 50
+            case 'MALUE_WEB_VIEWER':
+                location = artifactRecord['artefact-locations'][0]
+                html_content += f'<fieldset id="pdf01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:500px;width:50%">'
+                html_content += f'                    <legend>Website  {location}</legend>'
+                html_content += f'                    <iframe src="{location}" width="100%" height="100%"></iframe>'
+                html_content += f'</fieldset>'
+                ypos += 50
+                xpos += 50                
             case _ :
                 pass
     html_content += f'</div>'
