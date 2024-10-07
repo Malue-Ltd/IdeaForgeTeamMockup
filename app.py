@@ -120,16 +120,16 @@ def generate_html_items(stage, step):
                 html_content += f'</fieldset>'
                 ypos += 50
                 xpos += 50
-            case 'MALUE_DOCUMENT' :
-                location = artifactRecord['artefact-locations'][0]
+            # case 'MALUE_DOCUMENT' :
+            #     location = artifactRecord['artefact-locations'][0]
                 
-                html_content += f'<fieldset id="pdf01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:500px;width:50%">'
-                html_content += f'                    <legend>Document</legend>'
-                html_content += f'                    <iframe src="{location}"'
-                html_content += f'                    width="100%" height="100%" ><iframe>'
-                html_content += f'</fieldset>'
-                ypos += 50
-                xpos += 50
+            #     html_content += f'<fieldset id="pdf01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:500px;width:50%">'
+            #     html_content += f'                    <legend>Document</legend>'
+            #     html_content += f'                    <iframe src="{location}"'
+            #     html_content += f'                    width="100%" height="100%" ><iframe>'
+            #     html_content += f'</fieldset>'
+            #     ypos += 50
+            #     xpos += 50
             # case 'MALUE_WEB_VIEWER':
             #     location = artifactRecord['artefact-locations'][0]
             #     html_content += f'<fieldset id="pdf01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:500px;width:50%">'
