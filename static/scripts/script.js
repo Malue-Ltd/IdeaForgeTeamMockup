@@ -341,7 +341,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const currentDate = new Date();
         const milliseconds = currentDate.getMilliseconds();
         console.log(`Milliseconds: ${milliseconds}, ${levelId} , ${stage} , ${step})`);
-        level.classList.toggle('collapsed');
+        if(level != null){
+            level.classList.toggle('collapsed');
+        };
         let main_pane = document.querySelector("#main-pane");
                 fetch('/get-main-pane-contents?stage=' + stage + '&step=' + step)
                     .then(response => response.text())

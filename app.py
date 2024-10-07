@@ -36,8 +36,8 @@ def generate_menu_html(structure):
                     html_content += f"""<ul id="{clean_string(sub_key)}" class="collapsed">"""
                     for step_key, tasks in sub_value.items():
                         html_content += f"""  <li onclick="toggleMenu(\'{clean_string(step_key)}\',\'{sub_key}\',\'{step_key}\')">{step_key}"""
-                        html_content += f"""    <ul id="{clean_string(step_key)}" class="collapsed">"""
-                        html_content += '    </ul>'
+                        # html_content += f"""    <ul id="{clean_string(step_key)}" class="collapsed">"""
+                        # html_content += '    </ul>'
                         html_content += '  </li>'
                         html_content += '</ul>'
         html_content += '</div>'
