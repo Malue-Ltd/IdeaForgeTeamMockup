@@ -129,9 +129,10 @@ def generate_html_items(stage, step):
 
             case _ :
                 location = artifactRecord['artefact-locations'][0]
-                html_content += f'<fieldset id="pdf01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:100px;width:50%">'
-                html_content += f'                    <legend>Not Supported or not found  {location}</legend>'
-                html_content += f'Artifact not found or not suported'
+                html_content += f'<fieldset id="pdf01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:150px;width:50%">'
+                html_content += f'                    <legend>{matchItem} Not Supported or not found </legend>'
+                html_content += f'                    <p>{description}</p>'
+                html_content += f'                    <p>{location}</p>'
                 html_content += f'</fieldset>'
         ypos += 50
         xpos += 50 
@@ -141,8 +142,9 @@ def generate_html_items(stage, step):
     html_content += f'</div>'
     return html_content
 
+def old_main_pane_code():
 
-#     return f"""
+     return f"""
 # <div id="main-pane" style="position: relative;">
 #                         main pane
 #                         <fieldset id="miro1" class="window" style="z-index: 1; height: 200px; width: 500px ;top: 5px; left: 550px;">
