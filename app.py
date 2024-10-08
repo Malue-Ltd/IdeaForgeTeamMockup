@@ -124,7 +124,13 @@ def generate_html_items(stage, step):
                 ypos += 50
                 xpos += 50                
             case _ :
-                pass
+                location = artifactRecord['artefact-locations'][0]
+                html_content += f'<fieldset id="pdf01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:100px;width:50%">'
+                html_content += f'                    <legend>Website  {location}</legend>'
+                html_content += f'NOT YET SUPPORTED'
+                html_content += f'</fieldset>'
+                ypos += 50
+                xpos += 50 
     html_content += f'</div>'
     return html_content
 
