@@ -77,7 +77,7 @@ def generate_html_items(stage, step):
     html_content = '<div id="main-pane" style="position: relative;">'
     for artifactRecord in main_pane_contents:
         matchItem = artifactRecord['tool']
-        
+        description = artifactRecord['description']
         match matchItem:
             case 'MALUE_NOTE' | 'MALUE_FEED' | 'MALUE_CANVAS' | 'MALUE_CONTACTS' | 'MALUE_CONTACT': 
                 location = path + '\\static\\documents\\' + artifactRecord['artefact-locations'][0]
@@ -88,7 +88,7 @@ def generate_html_items(stage, step):
                 except:
                     note_content = ''  
                 html_content += f'<fieldset id="note01" class="window" style="z-index: 3; top: {ypos}px; left: {xpos}px;">'
-                html_content += f'                    <legend>Notes</legend>'
+                html_content += f'                    <legend>Notes - {description}</legend>'
                 html_content += f'                    <textarea style="height: 100%;width:800px;" id="mytextarea">'
                 html_content += f'                    <div>{note_content}</div>'
                 html_content += f'                    </textarea>'
@@ -99,7 +99,7 @@ def generate_html_items(stage, step):
                 location = artifactRecord['artefact-locations'][0]
                 
                 html_content += f'<fieldset id="pdf01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:500px;width:50%">'
-                html_content += f'                    <legend>PDF</legend>'
+                html_content += f'                    <legend>PDF - {description}</legend>'
                 html_content += f'                    <embed src="{location}#view=FitH"'
                 html_content += f'                    width="100%" height="100%" type="application/pdf">'
                 html_content += f'</fieldset>'
@@ -118,7 +118,7 @@ def generate_html_items(stage, step):
             case 'MALUE_WEB_VIEWER':
                 location = artifactRecord['artefact-locations'][0]
                 html_content += f'<fieldset id="pdf01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:500px;width:50%">'
-                html_content += f'                    <legend>Website  {location}</legend>'
+                html_content += f'                    <legend>Website  {description}</legend>'
                 html_content += f'                    <iframe src="{location}" width="100%" height="100%"></iframe>'
                 html_content += f'</fieldset>'
                 ypos += 50
@@ -126,8 +126,8 @@ def generate_html_items(stage, step):
             case _ :
                 location = artifactRecord['artefact-locations'][0]
                 html_content += f'<fieldset id="pdf01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:100px;width:50%">'
-                html_content += f'                    <legend>Website  {location}</legend>'
-                html_content += f'NOT YET SUPPORTED'
+                html_content += f'                    <legend>Not Supported or not found  {location}</legend>'
+                html_content += f'Artifact not found or not suported'
                 html_content += f'</fieldset>'
                 ypos += 50
                 xpos += 50 
@@ -381,6 +381,30 @@ def generate_html_document(menu_html, items_html, note_content):
                                 </figure>
                             </a>
                         </li>
+                        <li>
+                            <a href="#document" onclick="openDialog('document')">
+                                <figure>
+                                    <img src="{url_for('static', filename='icons/document.svg')}" alt="documentlogo">
+                                    <figcaption>Document</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#sheet" onclick="openDialog('sheet')">
+                                <figure>
+                                    <img src="{url_for('static', filename='icons/spreadsheet.svg')}" alt="sheetlogo">
+                                    <figcaption>Spreadsheet</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#planner" onclick="openDialog('planner')">
+                                <figure>
+                                    <img src="{url_for('static', filename='icons/gantt-chart.svg')}" alt="plannerlogo">
+                                    <figcaption>Planner</figcaption>
+                                </figure>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="">
@@ -388,17 +412,13 @@ def generate_html_document(menu_html, items_html, note_content):
                 </div>
                 <div class="overlay" id="overlay" onclick="closeDialog()"></div>
                 <div class="search-container" id="searchDialog">
-                    <h2>Search Books and Journals</h2>
+                    <h2>Tools</h2>
                     <form>
-                        <input type="text" placeholder="Search for books or journals..." required>
-                        <div>
-                            <input type="radio" id="books" name="type" value="books" checked>
-                            <label for="books">Books</label>
-                            <input type="radio" id="journals" name="type" value="journals">
-                            <label for="journals">Journals</label>
+                        <div>                            
+                            <label for="books">Tool invocation</label>                            
                         </div>
                         <br>
-                        <button type="submit">Search</button>
+                        <button type="submit">Launch</button>
                         <button type="button" class="close-btn" onclick="closeDialog()">Close</button>
                     </form>
                 </div>

@@ -108,7 +108,7 @@
                     "artifact": "Website",
                     "links": null,
                     "tool":"MALUE_WEB_VIEWER",
-                    "artefact-locations":["https://www.dnb.co.uk/duns-number/lookup/request-a-duns-number.html"]
+                    "artefact-locations":["https://www.example.com/"]
                 }
             ],
             "Market Analysis": [
@@ -148,7 +148,7 @@
                     "artifact": "Business Set up",
                     "links": null,
                     "tool":"MALUE_WEB_VIEWER",
-                    "artefact-locations":["https://www.gov.uk/set-up-business/webhp?igu=1"]
+                    "artefact-locations":["https://www.example.com/"]
                 }
             ]
         },
@@ -378,7 +378,7 @@
                     "artifact": "DUNS Number",
                     "links": null,
                     "tool":"MALUE_PROCESS",
-                    "artefact-locations":["https://www.dnb.co.uk/duns-number/lookup.html"]
+                    "artefact-locations":["https://www.example.com/"]
                 }
             ],
             "Sustainability": [
@@ -387,8 +387,8 @@
                     "description": "Evergreen sustainable supplier assessment ",
                     "artifact": "Registration document ",
                     "links": null,
-                    "tool":"MALUE_DOCUMENT",
-                    "artefact-locations":["https://supplierregistration.cabinetoffice.gov.uk/"]
+                    "tool":"MALUE_WEB_VIEWER",
+                    "artefact-locations":["https://www.example.com/"]
                 }
             ],
             "Competency Framework": [

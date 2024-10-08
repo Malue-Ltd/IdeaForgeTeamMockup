@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53 53" id="gantt-chart">
+  <path fill="#d9defb" d="M15.991 2.5h.781v48h-.781zM2.5 2.5h.781v48H2.5zM9.246 2.5h.781v48h-.781zM22.737 2.5h.781v48h-.781zM36.227 2.5h.781v48h-.781zM29.482 2.5h.781v48h-.781zM42.973 2.5h.781v48h-.781zM49.718 2.5h.781v48h-.781z"></path>
+  <path fill="#ffa14e" d="M2.5 2.5h48v1.731h-48zM2.5 5.629h48V7.36h-48z"></path>
+  <path fill="#f45558" d="M4.745 9.11h7.33v3.212h-7.33zM32.562 47.284h17.156v3.212H32.562z"></path>
+  <path fill="#2196f3" d="M8.41 14.563h8.869v3.212H8.41z"></path>
+  <path fill="#ffd54f" d="M26.502 30.923h12.14v3.212h-12.14z"></path>
+  <path fill="#455a64" d="M34.295 41.83h13.968v3.212H34.295z"></path>
+  <path fill="#5bb774" d="M24.55 36.377h20.414v3.212H24.55zM15.686 20.017h8.417v3.212h-8.417z"></path>
+  <path fill="#ffa14e" d="M19.122 25.47h14.676v3.212H19.122z"></path>
+</svg>
