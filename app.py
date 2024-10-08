@@ -72,14 +72,14 @@ def extract(data, stage, step):
 
 def generate_html_items(stage, step):
     main_pane_contents = extract(menu_structure, stage, step)
-    ypos = 0
-    xpos = 0
+    ypos = 10
+    xpos = 10
     html_content = '<div id="main-pane" style="position: relative;">'
     for artifactRecord in main_pane_contents:
         matchItem = artifactRecord['tool']
         description = artifactRecord['description']
         match matchItem:
-            case 'MALUE_NOTE' | 'MALUE_FEED' | 'MALUE_CANVAS' | 'MALUE_CONTACTS' | 'MALUE_CONTACT': 
+            case 'MALUE_NOTE' | 'MALUE_FEED' | 'MALUE_CONTACTS' | 'MALUE_CONTACT': 
                 location = path + '\\static\\documents\\' + artifactRecord['artefact-locations'][0]
                 try:
                     with open(location, 'r') as f:
@@ -93,8 +93,7 @@ def generate_html_items(stage, step):
                 html_content += f'                    <div>{note_content}</div>'
                 html_content += f'                    </textarea>'
                 html_content += f'</fieldset>'
-                ypos += 50
-                xpos += 50
+                
             case 'MALUE_PDF_VIEWER' :
                 location = artifactRecord['artefact-locations'][0]
                 
@@ -103,8 +102,7 @@ def generate_html_items(stage, step):
                 html_content += f'                    <embed src="{location}#view=FitH"'
                 html_content += f'                    width="100%" height="100%" type="application/pdf">'
                 html_content += f'</fieldset>'
-                ypos += 50
-                xpos += 50
+                
             # case 'MALUE_DOCUMENT' :
             #     location = artifactRecord['artefact-locations'][0]
                 
@@ -113,24 +111,33 @@ def generate_html_items(stage, step):
             #     html_content += f'                    <iframe src="{location}"</iframe>'
             #     # html_content += f'                    width="100%" height="100%" >'
             #     html_content += f'</fieldset>'
-            #     ypos += 50
-            #     xpos += 50
+            
+            case 'MALUE_CANVAS':
+                location = artifactRecord['artefact-locations'][0]
+                html_content += f'<fieldset id="canvas01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:500px;width:50%">'
+                html_content += f'                    <legend>Canvas  {description}</legend>'
+                html_content += f'                    <iframe src="https://miro.com" width="100%" height="500px" allow="fullscreen; clipboard-read; clipboard-write" frameborder="0"></iframe>'
+                html_content += f'</fieldset>'
+
             case 'MALUE_WEB_VIEWER':
                 location = artifactRecord['artefact-locations'][0]
-                html_content += f'<fieldset id="pdf01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:500px;width:50%">'
+                html_content += f'<fieldset id="web01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:500px;width:50%">'
                 html_content += f'                    <legend>Website  {description}</legend>'
                 html_content += f'                    <iframe src="{location}" width="100%" height="100%"></iframe>'
                 html_content += f'</fieldset>'
-                ypos += 50
-                xpos += 50                
+                 
+
             case _ :
                 location = artifactRecord['artefact-locations'][0]
                 html_content += f'<fieldset id="pdf01" class="window" style="z-index: 4; top: {ypos}px; left:{xpos}px;height:100px;width:50%">'
                 html_content += f'                    <legend>Not Supported or not found  {location}</legend>'
                 html_content += f'Artifact not found or not suported'
                 html_content += f'</fieldset>'
-                ypos += 50
-                xpos += 50 
+        ypos += 50
+        xpos += 50 
+        if xpos > 400:
+            xpos = 20
+        
     html_content += f'</div>'
     return html_content
 
@@ -283,35 +290,19 @@ def generate_html_document(menu_html, items_html, note_content):
         {menu_html}
         <div id="page-wrapper" class="gray-bg">        
             <div class=" ">
-                <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
-                    <div class="navbar-header">
-                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i
-                                class="fa fa-bars"></i> </a>
-                        <form role="search" class="navbar-form-custom" method="post" action="#">
-                            <div class="form-group">
-                                <input type="text" placeholder="Search for something..." class="form-control"
-                                    name="top-search" id="top-search">
-                            </div>
-                        </form>
-                    </div>
-                    <ul class="nav navbar-top-links navbar-right">
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-sign-out"></i> Log out
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                
             </div>
             <div class="animated fadeInRight">
                 <div style="border: black;">
                     <nav class="navbar">
                         <ul>
+                            <li><a href="#"><i class="fa fa-sign-out"></i> Log out</a> 
                             <li><a href="#evaluations">Evaluations</a></li>
                             <li><a href="#iIdeaForge">Idea Forge</a></li>
                             <li><a href="#reviews">Reviews</a></li>
                             <li><a href="#library">Library</a></li>
                             <li><a href="#dashboard">Dashboard</a></li>
+                            
                         </ul>
                     </nav>
                 </div>

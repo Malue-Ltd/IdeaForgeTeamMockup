@@ -8,6 +8,7 @@ html, body {
     color: #ecf0f1;
     overflow-y: auto;
     padding: 20px;
+    height: 100vh;
   }
   
   .tree-menu h3 {
@@ -110,18 +111,18 @@ h2 {
 
 .resizable-movable {
     position: absolute;
-    border: 1px solid #000;
+    border: 2px solid #2c3e50;
 }
 
 .window {
-    border: 1px solid blue;
+    border: 2px solid #2c3e50;
     position: absolute;
     background-color: white;
 }
 
 legend {
     background-color: white;
-    color: black;
+    color: #2c3e50;
     padding: 2px 2px;
     border: 1px solid black;
 }
@@ -129,6 +130,7 @@ legend {
 .navbar {
     background-color: #fff;
     border-bottom: 1px solid #000;
+    border-top: 2px solid #2c3e50;
     overflow: hidden;
 }
 
@@ -144,7 +146,7 @@ legend {
 
             .navbar ul li a {
                 display: block;
-                color: blue;
+                color: #2c3e50;
                 text-align: center;
                 padding: 4px 10px;
                 text-decoration: none;
@@ -211,111 +213,13 @@ legend {
     overflow-y: auto;
     /* Optional: adds a scroll to the right column if content overflows */
 }
-/*
-.tree {
-    font-size: small;
-}
 
-    .tree ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        position: relative;
-        font-weight: 700;
-    }
-
-        .tree ul ul {
-            margin-left: 20px;
-        }
-
-    .tree li {
-        margin: 2px;
-        padding: 0px 0px;
-        line-height: 15px;
-        color: #369;
-        position: relative;
-    }
-
-        .tree li::before,
-        .tree li::after {
-            content: '';
-            position: absolute;
-            left: -20px;
-        }
-
-        .tree li::before {
-            border-left: 1px solid #ccc;
-            bottom: 0px;
-            height: 0%;
-            top: 0;
-            width: 1px;
-        }
-
-        .tree li::after {
-            border-top: 1px solid #ccc;
-            height: 0px;
-            top: 0px;
-            width: 25px;
-        }
-
-        .tree li span.icon {
-            margin-right: 5px;
-        }
-*/
 span.icon img {
     vertical-align: middle;
     width: 20px;
     height: 20px;
 }
 
-
-/* 
-.tree li a {
-    color: #369;
-    text-decoration: none;
-}
-
-    .tree li a:hover {
-        text-decoration: underline;
-    }
-
-.tree li:last-child::before {
-    height: 0px;
-}
-
-.tree li div.node-content {
-    display: inline-block;
-    max-width: 200px;
-    background-color: #f0f0f0;
-    padding: 5px;
-    border-radius: 0px;
-    word-wrap: break-word;
-    text-align: left;
-    font-size: 0.9em;
-    font-weight: 400;
-}
-
-.tree .nested {
-    display: none; 
-}
-
-.tree .active {
-    display: block;
-}
-
-.caret {
-    cursor: pointer;
-    user-select: none;
-}
-
-    .caret::before {
-        
-        display: inline-block;
-        margin-right: 6px;
-    }
-
-
- */
 
 
 table.blueTable {
@@ -404,11 +308,11 @@ figcaption {
 }
 
 .rounded-rect {
-    border-top: 2px solid blue;
-    border-bottom: 2px solid blue;
+    border-top: 2px solid #2c3e50;
+    border-bottom: 2px solid #2c3e50;
     border-radius: 0px; /* Rounded corners */
     width: 100%; /* Width of the div */
-    background-color: rgba(217, 233, 238, 0.813);
+    background-color: #f3f3f4;
 }
 
 .search-container {
@@ -586,39 +490,7 @@ main {
     right: 0.75rem;
     top: 0.5rem;
 }
-/*
-.navbar-static-side {
-    transition: width 0s;
-  }
 
-  .navbar-default {
-    background-color: transparent;
-    border-color: #2F4050;
-  }
-  .nav.navbar-right > li > a {
-    color: #999c9e;
-  }
-  .nav > li.active > a {
-    color: #ffffff;
-  }
-  .navbar-default .nav > li > a:hover,
-  .navbar-default .nav > li > a:focus {
-    background-color: #293846;
-    color: white;
-  }
-  .nav .open > a,
-  .nav .open > a:hover,
-  .nav .open > a:focus {
-    background: #fff;
-  }
-  .nav.navbar-top-links > li > a:hover,
-  .nav.navbar-top-links > li > a:focus {
-    background-color: transparent;
-  }
-  .nav > li > a i {
-    margin-right: 6px;
-  }
-*/
   #wrapper {
     width: 100%;
     height: 100vh;
@@ -634,14 +506,14 @@ main {
     padding: 20px 10px 40px;
   }
   #page-wrapper {
-    padding: 0 15px;
+    
     position: relative !important;
     flex-shrink: 1;
     width: calc(100% - 220px);
   }
   body {
     font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #91c1ed;
+    background-color: #ffffff;
     font-size: 13px;
     color: #676a6c;
     overflow-x: hidden;
