@@ -1,189 +1,883 @@
-'<nav class="navbar-default navbar-static-side" role="navigation">
-    <div class="sidebar-collapse">
-        <div class="tree-menu">
-            <h3 onclick="toggleMenu('INITIATION','Initiation','')">Initiation</h3>
-            <ul id="INITIATION" class="collapsed">
-                <li onclick="toggleMenu(\'WHATSTHEIDEA\',\'Initiation\',\'What\'s the Idea\')">What\'s the Idea <ul
-                        id="WHATSTHEIDEA" class="collapsed">
-                </li>
-            </ul>
-            <li onclick="toggleMenu(\'CREATETHETEAM\',\'Initiation\',\'Create the Team\')">Create the Team <ul
-                    id="CREATETHETEAM" class="collapsed">
-            </li>
-            </ul>
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'BACKGROUNDRESEARCH\',\'Initiation\',\'Background Research\')">Background Research
-                <ul id="BACKGROUNDRESEARCH" class="collapsed">
-            </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'MARKETANALYSIS\',\'Initiation\',\'Market Analysis\')">Market Analysis <ul
-                    id="MARKETANALYSIS" class="collapsed">
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'DETERMINEBUSINESSMODEL\',\'Initiation\',\'Determine business model\')">Determine
-                business model <ul id="DETERMINEBUSINESSMODEL" class="collapsed">
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'CREATEOUTLINEPLAN\',\'Initiation\',\'Create Outline Plan\')">Create Outline Plan
-                <ul id="CREATEOUTLINEPLAN" class="collapsed">
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'SETUPACOMPANY\',\'Initiation\',\'Set up a company\')">Set up a company <ul
-                    id="SETUPACOMPANY" class="collapsed">
-            </li>
-            </ul>
-            <h3 onclick="toggleMenu(\'EVIDENCE\',\'Evidence\',\'\')">Evidence</h3>
-            <ul id="EVIDENCE" class="collapsed">
-                <li onclick="toggleMenu(\'CONDUCTTRIALSOFTHEDEVICE\',\'Evidence\',\'Conduct trials of the device\')">
-                    Conduct trials of the device <ul id="CONDUCTTRIALSOFTHEDEVICE" class="collapsed">
-                </li>
-            </ul>
-            <li
-                onclick="toggleMenu(\'IDENTIFYFUNDINGTOSUPPORTCLINICALTRIALS\',\'Evidence\',\'Identify funding to support clinical trials\')">
-                Identify funding to support clinical trials <ul id="IDENTIFYFUNDINGTOSUPPORTCLINICALTRIALS"
-                    class="collapsed">
-            </li>
-            </ul>
-            <li
-                onclick="toggleMenu(\'IDENTIFYHOSPITALSCLINICIANSTOCOLLABORATEONCONDUCTINGTHECLINICALTRIALS\',\'Evidence\',\'Identify hospitals/clinicians to collaborate on conducting the clinical trials\')">
-                Identify hospitals/clinicians to collaborate on conducting the clinical trials <ul
-                    id="IDENTIFYHOSPITALSCLINICIANSTOCOLLABORATEONCONDUCTINGTHECLINICALTRIALS" class="collapsed">
-            </li>
-            </ul>
-            <li
-                onclick="toggleMenu(\'INVITATIONTOPARTNERONCLINICALTRIAL\',\'Evidence\',\'Invitation to partner on clinical trial\')">
-                Invitation to partner on clinical trial <ul id="INVITATIONTOPARTNERONCLINICALTRIAL" class="collapsed">
-            </li>
-            </ul>
-            <li
-                onclick="toggleMenu(\'CUSTOMERRELATIONSHIPMANAGEMENT\',\'Evidence\',\'Customer Relationship Management\')">
-                Customer Relationship Management <ul id="CUSTOMERRELATIONSHIPMANAGEMENT" class="collapsed">
-            </li>
-            </ul>
-            <li
-                onclick="toggleMenu(\'EQUALITYANDHEALTHINEQUALITIESIMPACTASSESSMENTEHIA\',\'Evidence\',\'Equality and Health Inequalities Impact Assessment (EHIA)\')">
-                Equality and Health Inequalities Impact Assessment (EHIA) <ul
-                    id="EQUALITYANDHEALTHINEQUALITIESIMPACTASSESSMENTEHIA" class="collapsed">
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'CASESTUDIES\',\'Evidence\',\'Case Studies\')">Case Studies <ul id="CASESTUDIES"
-                    class="collapsed">
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'HEALTHECONOMICCASE\',\'Evidence\',\'Health Economic Case\')">Health Economic Case
-                <ul id="HEALTHECONOMICCASE" class="collapsed">
-            </li>
-            </ul>
-            <h3 onclick="toggleMenu(\'DEVELOPMENT\',\'Development\',\'\')">Development</h3>
-            <ul id="DEVELOPMENT" class="collapsed">
-                <li
-                    onclick="toggleMenu(\'DETAILEDDESIGNANDPROTOTYPING\',\'Development\',\'Detailed design and prototyping\')">
-                    Detailed design and prototyping <ul id="DETAILEDDESIGNANDPROTOTYPING" class="collapsed">
-                </li>
-            </ul>
-            <li
-                onclick="toggleMenu(\'CHECKIPANDEXISTINGPATENTSFORPRODUCTDESIGN\',\'Development\',\'Check IP and existing Patents for product design\')">
-                Check IP and existing Patents for product design <ul id="CHECKIPANDEXISTINGPATENTSFORPRODUCTDESIGN"
-                    class="collapsed">
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'REGISTERIPPATENT\',\'Development\',\'Register IP/Patent\')">Register IP/Patent <ul
-                    id="REGISTERIPPATENT" class="collapsed">
-            </li>
-            </ul>
-            <h3 onclick="toggleMenu(\'REGULATION\',\'Regulation\',\'\')">Regulation</h3>
-            <ul id="REGULATION" class="collapsed">
-                <li onclick="toggleMenu(\'MEDICALDEVICEREGULATIONS\',\'Regulation\',\'Medical Device Regulations\')">
-                    Medical Device Regulations <ul id="MEDICALDEVICEREGULATIONS" class="collapsed">
-                </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'REGISTERIPPATENT\',\'Regulation\',\'Register IP/Patent\')">Register IP/Patent <ul
-                    id="REGISTERIPPATENT" class="collapsed">
-            </li>
-            </ul>
-            <h3 onclick="toggleMenu(\'COMMISSIONINGADOPTION\',\'Commissioning + Adoption\',\'\')">Commissioning +
-                Adoption</h3>
-            <ul id="COMMISSIONINGADOPTION" class="collapsed">
-                <li onclick="toggleMenu(\'LAUNCHPLAN\',\'Commissioning + Adoption\',\'Launch Plan\')">Launch Plan <ul
-                        id="LAUNCHPLAN" class="collapsed">
-                </li>
-            </ul>
-            <li onclick="toggleMenu(\'BUSINESSCASE\',\'Commissioning + Adoption\',\'Business Case\')">Business Case <ul
-                    id="BUSINESSCASE" class="collapsed">
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'PROCUREMENT\',\'Commissioning + Adoption\',\'Procurement\')">Procurement <ul
-                    id="PROCUREMENT" class="collapsed">
-            </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'DUNSNUMBER\',\'Commissioning + Adoption\',\'DUNS Number\')">DUNS Number <ul
-                    id="DUNSNUMBER" class="collapsed">
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'SUSTAINABILITY\',\'Commissioning + Adoption\',\'Sustainability\')">Sustainability
-                <ul id="SUSTAINABILITY" class="collapsed">
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'COMPETENCYFRAMEWORK\',\'Commissioning + Adoption\',\'Competency Framework\')">
-                Competency Framework <ul id="COMPETENCYFRAMEWORK" class="collapsed">
-            </li>
-            </ul>
-            <li
-                onclick="toggleMenu(\'STRUCTUREDASSESSMENTCHECKLIST\',\'Commissioning + Adoption\',\'Structured Assessment Checklist\')">
-                Structured Assessment Checklist <ul id="STRUCTUREDASSESSMENTCHECKLIST" class="collapsed">
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'TRAININGMODULE\',\'Commissioning + Adoption\',\'Training module\')">Training
-                module <ul id="TRAININGMODULE" class="collapsed">
-            </li>
-            </ul>
-            <li
-                onclick="toggleMenu(\'STANDARDOPERATINGPROCEDURES\',\'Commissioning + Adoption\',\'Standard Operating Procedures\')">
-                Standard Operating Procedures <ul id="STANDARDOPERATINGPROCEDURES" class="collapsed">
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'EVALUATION\',\'Commissioning + Adoption\',\'Evaluation\')">Evaluation <ul
-                    id="EVALUATION" class="collapsed">
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'REVIEWS\',\'Commissioning + Adoption\',\'Reviews\')">Reviews <ul id="REVIEWS"
-                    class="collapsed">
-            </li>
-            </ul>
-            <li onclick="toggleMenu(\'PRODUCTDESCRIPTION\',\'Commissioning + Adoption\',\'Product Description\')">
-                Product Description <ul id="PRODUCTDESCRIPTION" class="collapsed">
-            </li>
-            </ul>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovations</title>
+    <link href="/static/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/x-data-spreadsheet@1.1.5/dist/xspreadsheet.css" rel="stylesheet">
+
+    <script src="/static/scripts/interact.min.js"></script>
+    <script src="https://unpkg.com/x-data-spreadsheet@1.1.5/dist/xspreadsheet.js"></script>
+    <script src="/static/scripts/tinymce/js/tinymce/tinymce.min.js"></script>
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <div class="tree-menu">
+                    <h3 onclick="toggleMenu('INITIATION','Initiation','')">Initiation</h3>
+                    <ul id="INITIATION" class="collapsed">
+                        <li onclick="toggleMenu('WHATSTHEIDEA','Initiation','What's the Idea')">What's the Idea </li>
+                    </ul>
+                    <li onclick="toggleMenu('CREATETHETEAM','Initiation','Create the Team')">Create the Team </li>
+                    </ul>
+                    <li onclick="toggleMenu('BACKGROUNDRESEARCH','Initiation','Background Research')">Background
+                        Research </li>
+                    </ul>
+                    <li onclick="toggleMenu('MARKETANALYSIS','Initiation','Market Analysis')">Market Analysis </li>
+                    </ul>
+                    <li onclick="toggleMenu('DETERMINEBUSINESSMODEL','Initiation','Determine business model')">Determine
+                        business model </li>
+                    </ul>
+                    <li onclick="toggleMenu('CREATEOUTLINEPLAN','Initiation','Create Outline Plan')">Create Outline Plan
+                    </li>
+                    </ul>
+                    <li onclick="toggleMenu('SETUPACOMPANY','Initiation','Set up a company')">Set up a company </li>
+                    </ul>
+                    <h3 onclick="toggleMenu('EVIDENCE','Evidence','')">Evidence</h3>
+                    <ul id="EVIDENCE" class="collapsed">
+                        <li onclick="toggleMenu('CONDUCTTRIALSOFTHEDEVICE','Evidence','Conduct trials of the device')">
+                            Conduct trials of the device </li>
+                    </ul>
+                    <li
+                        onclick="toggleMenu('IDENTIFYFUNDINGTOSUPPORTCLINICALTRIALS','Evidence','Identify funding to support clinical trials')">
+                        Identify funding to support clinical trials </li>
+                    </ul>
+                    <li
+                        onclick="toggleMenu('IDENTIFYHOSPITALSCLINICIANSTOCOLLABORATEONCONDUCTINGTHECLINICALTRIALS','Evidence','Identify hospitals/clinicians to collaborate on conducting the clinical trials')">
+                        Identify hospitals/clinicians to collaborate on conducting the clinical trials </li>
+                    </ul>
+                    <li
+                        onclick="toggleMenu('INVITATIONTOPARTNERONCLINICALTRIAL','Evidence','Invitation to partner on clinical trial')">
+                        Invitation to partner on clinical trial </li>
+                    </ul>
+                    <li
+                        onclick="toggleMenu('CUSTOMERRELATIONSHIPMANAGEMENT','Evidence','Customer Relationship Management')">
+                        Customer Relationship Management </li>
+                    </ul>
+                    <li
+                        onclick="toggleMenu('EQUALITYANDHEALTHINEQUALITIESIMPACTASSESSMENTEHIA','Evidence','Equality and Health Inequalities Impact Assessment (EHIA)')">
+                        Equality and Health Inequalities Impact Assessment (EHIA) </li>
+                    </ul>
+                    <li onclick="toggleMenu('CASESTUDIES','Evidence','Case Studies')">Case Studies </li>
+                    </ul>
+                    <li onclick="toggleMenu('HEALTHECONOMICCASE','Evidence','Health Economic Case')">Health Economic
+                        Case </li>
+                    </ul>
+                    <h3 onclick="toggleMenu('DEVELOPMENT','Development','')">Development</h3>
+                    <ul id="DEVELOPMENT" class="collapsed">
+                        <li
+                            onclick="toggleMenu('DETAILEDDESIGNANDPROTOTYPING','Development','Detailed design and prototyping')">
+                            Detailed design and prototyping </li>
+                    </ul>
+                    <li
+                        onclick="toggleMenu('CHECKIPANDEXISTINGPATENTSFORPRODUCTDESIGN','Development','Check IP and existing Patents for product design')">
+                        Check IP and existing Patents for product design </li>
+                    </ul>
+                    <li onclick="toggleMenu('REGISTERIPPATENT','Development','Register IP/Patent')">Register IP/Patent
+                    </li>
+                    </ul>
+                    <h3 onclick="toggleMenu('REGULATION','Regulation','')">Regulation</h3>
+                    <ul id="REGULATION" class="collapsed">
+                        <li onclick="toggleMenu('MEDICALDEVICEREGULATIONS','Regulation','Medical Device Regulations')">
+                            Medical Device Regulations </li>
+                    </ul>
+                    <li onclick="toggleMenu('REGISTERIPPATENT','Regulation','Register IP/Patent')">Register IP/Patent
+                    </li>
+                    </ul>
+                    <h3 onclick="toggleMenu('COMMISSIONINGANDADOPTION','Commissioning and Adoption','')">Commissioning
+                        and Adoption</h3>
+                    <ul id="COMMISSIONINGANDADOPTION" class="collapsed">
+                        <li onclick="toggleMenu('LAUNCHPLAN','Commissioning and Adoption','Launch Plan')">Launch Plan
+                        </li>
+                    </ul>
+                    <li onclick="toggleMenu('BUSINESSCASE','Commissioning and Adoption','Business Case')">Business Case
+                    </li>
+                    </ul>
+                    <li onclick="toggleMenu('PROCUREMENT','Commissioning and Adoption','Procurement')">Procurement </li>
+                    </ul>
+                    <li onclick="toggleMenu('DUNSNUMBER','Commissioning and Adoption','DUNS Number')">DUNS Number </li>
+                    </ul>
+                    <li onclick="toggleMenu('SUSTAINABILITY','Commissioning and Adoption','Sustainability')">
+                        Sustainability </li>
+                    </ul>
+                    <li onclick="toggleMenu('COMPETENCYFRAMEWORK','Commissioning and Adoption','Competency Framework')">
+                        Competency Framework </li>
+                    </ul>
+                    <li
+                        onclick="toggleMenu('STRUCTUREDASSESSMENTCHECKLIST','Commissioning and Adoption','Structured Assessment Checklist')">
+                        Structured Assessment Checklist </li>
+                    </ul>
+                    <li onclick="toggleMenu('TRAININGMODULE','Commissioning and Adoption','Training module')">Training
+                        module </li>
+                    </ul>
+                    <li
+                        onclick="toggleMenu('STANDARDOPERATINGPROCEDURES','Commissioning and Adoption','Standard Operating Procedures')">
+                        Standard Operating Procedures </li>
+                    </ul>
+                    <li onclick="toggleMenu('EVALUATION','Commissioning and Adoption','Evaluation')">Evaluation </li>
+                    </ul>
+                    <li onclick="toggleMenu('REVIEWS','Commissioning and Adoption','Reviews')">Reviews </li>
+                    </ul>
+                    <li onclick="toggleMenu('PRODUCTDESCRIPTION','Commissioning and Adoption','Product Description')">
+                        Product Description </li>
+                    </ul>
+                </div>
+        </nav>
+        <div id="page-wrapper" class="gray-bg">
+            <div class="animated fadeInRight">
+                <div style="border: black;">
+                    <nav class="navbar">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-sign-out"></i> Log out</a>
+                            <li><a href="#evaluations">Evaluations</a></li>
+                            <li><a href="#iIdeaForge">Idea Forge</a></li>
+                            <li><a href="#reviews">Reviews</a></li>
+                            <li><a href="#library">Library</a></li>
+                            <li><a href="#dashboard">Dashboard</a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="navbar rounded-rect">
+                    <ul>
+                        <li>
+                            <a href="#web" onclick="openDialog('web')" alt="web">
+                                <figure>
+                                    <img src="/static/icons/web.svg" alt="web">
+                                    <figcaption>Web</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#chat" onclick="openDialog('chat')" alt="chat">
+                                <figure>
+                                    <img src="/static/icons/chat.svg" alt="chat">
+                                    <figcaption>Chat</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#search" onclick="openDialog('web')">
+                                <figure>
+                                    <img src="/static/icons/search.svg" alt="search">
+                                    <figcaption>Search</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#forum" onclick="openDialog('forum')">
+                                <figure>
+                                    <img src="/static/icons/forum.svg" alt="forum">
+                                    <figcaption>Forum</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#books" onclick="openDialog('books')">
+                                <figure>
+                                    <img src="/static/icons/books.svg" alt="books">
+                                    <figcaption>Books</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#academicPapers" onclick="openDialog('academicpapers')">
+                                <figure>
+                                    <img src="/static/icons/academicPapers.svg" alt="academicpapers">
+                                    <figcaption>Academic Papers</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#wikipedia" onclick="openDialog('wikipedia')">
+                                <figure>
+                                    <img src="/static/icons/wikipedia_svg_logo.svg" alt="wikipedia">
+                                    <figcaption>Wikipedia</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#youtube" onclick="openDialog('youtube')">
+                                <figure>
+                                    <img src="/static/icons/youtubelogo.svg" alt="youtubelogo">
+                                    <figcaption>YouTube</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#document" onclick="openDialog('document')">
+                                <figure>
+                                    <img src="/static/icons/document.svg" alt="documentlogo">
+                                    <figcaption>Document</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#sheet" onclick="openDialog('sheet')">
+                                <figure>
+                                    <img src="/static/icons/spreadsheet.svg" alt="sheetlogo">
+                                    <figcaption>Spreadsheet</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#planner" onclick="openDialog('planner')">
+                                <figure>
+                                    <img src="/static/icons/gantt-chart.svg" alt="plannerlogo">
+                                    <figcaption>Planner</figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="main-pane" style="position: relative;">
+                    <div class="tool-wrapper" id="note0"
+                        style="z-index: 0;  top: 10px; left:10px; height:500px; width:50%">
+                        <fieldset">
+                            <legend>Notes - A simple, but sophisticated, semi automated scalpel for finger surgery.
+                            </legend> <textarea style="height: 100%;width:800px;"
+                                id="mytextarea">                    <div><h3>Proposition: Development of an Automated Scalpel for Precision Hand Surgery</h3>
+<p>The proposed project aims to revolutionize hand surgery through the development of an automated scalpel system, designed to enhance the precision and efficiency of delicate surgical procedures. Hand surgeries demand unparalleled accuracy due to the intricate anatomy and the necessity to preserve the functionality of tendons, nerves, and blood vessels. Our innovation, the Automated Scalpel for Hand Surgery (ASHS), seeks to address these challenges by integrating advanced robotics, real-time imaging, and AI-driven decision-making into a single, cohesive tool.</p>
+<p>The ASHS will be equipped with a robotic arm guided by AI algorithms that can detect and adapt to minute anatomical variations in real-time. The system will use high-resolution imaging technologies, such as intraoperative 3D scanning, to continuously map the surgical field. This will allow the scalpel to make precise incisions with sub-millimeter accuracy, reducing the risk of human error, minimizing tissue damage, and enhancing postoperative recovery.</p>
+<p>Given the complexity of the project, we anticipate a development timeline spanning several years, with an estimated budget in the millions. The early stages will focus on designing and testing the core technology, followed by extensive clinical trials and regulatory approvals. Upon successful implementation, the ASHS has the potential to become a cornerstone of modern hand surgery, offering unparalleled precision and significantly improving patient outcomes.</p>
+<p>This project not only promises to push the boundaries of medical technology but also positions our institution at the forefront of surgical innovation. By investing in the ASHS, we are not just improving surgical tools; we are setting a new standard for the future of precision surgery.</p></div>                    </textarea>
+                            </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="note1"
+                        style="z-index: 1;  top: 60px; left:60px; height:500px; width:50%">
+                        <fieldset">
+                            <legend>Notes - The details of the founder</legend> <textarea
+                                style="height: 100%;width:800px;"
+                                id="mytextarea">                    <div><h3>CEO Entry for Team Table</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Position</strong></th>
+<th><strong>Mini-Biography</strong></th>
+<th><strong>Address</strong></th>
+<th><strong>Contact Email</strong></th>
+<th><strong>Phone Number</strong></th>
+<th><strong>Major Skills</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Johnathan Blake</strong></td>
+<td>Lead Engineer &amp; CEO</td>
+<td>Johnathan Blake is a visionary engineer with over 20 years of experience in robotics and medical device innovation. He has successfully led multiple startups in the medtech space, bringing cutting-edge technologies from concept to market. His expertise in engineering, combined with his strategic leadership, positions him to drive the development of the Automated Scalpel for Hand Surgery (ASHS).</td>
+<td>987 Pioneer Ln, London, UK</td>
+<td>jblake@example.com</td>
+<td>+44 20 7654 3210</td>
+<td>Robotics Engineering, Medical Devices, Strategic Leadership</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Resume for Johnathan Blake</h3>
+<h4><strong>Johnathan Blake</strong></h4>
+<p><strong>Address:</strong> 987 Pioneer Ln, London, UK<br />
+<strong>Phone:</strong> +44 20 7654 3210<br />
+<strong>Email:</strong> jblake@example.com<br />
+<strong>LinkedIn:</strong> linkedin.com/in/johnathanblake (Fictitious Link)</p>
+<hr />
+<h4><strong>Professional Summary</strong></h4>
+<p>Visionary CEO and Lead Engineer with over 20 years of experience in the medtech industry, specializing in robotics and medical device innovation. Proven track record of successfully leading startups from inception through to market entry and growth. Adept at translating complex technological concepts into commercially viable products, with a strong focus on improving patient outcomes through cutting-edge solutions.</p>
+<hr />
+<h4><strong>Professional Experience</strong></h4>
+<p><strong>CEO &amp; Lead Engineer</strong><br />
+<em>Robotic Surgery Innovations Ltd., London, UK</em><br />
+<em>April 2017 â€“ Present</em></p>
+<ul>
+<li>Founded and led a startup focused on developing robotic systems for minimally invasive surgery.</li>
+<li>Spearheaded the design and development of an advanced robotic-assisted surgical platform, resulting in a 30% reduction in operation times.</li>
+<li>Secured Â£10M in funding from venture capital firms, driving the project from concept through to clinical trials.</li>
+<li>Established key partnerships with leading hospitals and research institutions to pilot and refine surgical technologies.</li>
+<li>Navigated complex regulatory landscapes, successfully achieving CE marking and FDA approval for the companyâ€™s flagship product.</li>
+</ul>
+<p><strong>CTO &amp; Co-Founder</strong><br />
+<em>MedTech Innovations, Cambridge, UK</em><br />
+<em>January 2010 â€“ March 2017</em></p>
+<ul>
+<li>Co-founded a medical technology startup focusing on AI-driven diagnostic tools.</li>
+<li>Led a team of engineers and developers in creating a machine learning platform for early detection of neurological disorders.</li>
+<li>Played a critical role in securing Â£8M in series A funding, allowing for expansion of R&amp;D efforts and product development.</li>
+<li>Developed and implemented the companyâ€™s technology roadmap, resulting in three successful product launches.</li>
+<li>Managed cross-functional teams, including engineering, product management, and regulatory compliance.</li>
+</ul>
+<p><strong>Senior Robotics Engineer</strong><br />
+<em>Surgical Robotics Ltd., Oxford, UK</em><br />
+<em>June 2005 â€“ December 2009</em></p>
+<ul>
+<li>Worked as part of a multidisciplinary team to design and develop robotic instruments for minimally invasive surgery.</li>
+<li>Contributed to the development of a robotic arm with enhanced precision, leading to a 25% improvement in surgical outcomes.</li>
+<li>Collaborated with surgeons to refine the design and functionality of surgical tools, ensuring they met clinical needs.</li>
+<li>Published research papers on robotic surgery and presented findings at international conferences.</li>
+</ul>
+<hr />
+<h4><strong>Education</strong></h4>
+<p><strong>Master of Science in Robotics Engineering</strong><br />
+<em>Imperial College London, UK</em><br />
+<em>Graduated: 2004</em></p>
+<p><strong>Bachelor of Engineering in Mechanical Engineering</strong><br />
+<em>University of Cambridge, UK</em><br />
+<em>Graduated: 2002</em></p>
+<hr />
+<h4><strong>Skills</strong></h4>
+<ul>
+<li><strong>Technical Skills:</strong> Robotics Engineering, Medical Device Development, AI &amp; Machine Learning, Software Development, Systems Integration</li>
+<li><strong>Leadership:</strong> Strategic Planning, Team Leadership, Project Management, Startup Growth, Fundraising</li>
+<li><strong>Regulatory:</strong> CE Marking, FDA Approval, Medical Device Compliance</li>
+<li><strong>Communication:</strong> Public Speaking, Technical Writing, Stakeholder Engagement</li>
+</ul>
+<hr />
+<h4><strong>Certifications</strong></h4>
+<ul>
+<li><strong>Project Management Professional (PMP)</strong> â€“ Project Management Institute</li>
+<li><strong>Certified Professional in Healthcare Quality (CPHQ)</strong> â€“ NAHQ</li>
+</ul>
+<hr />
+<h4><strong>Professional Affiliations</strong></h4>
+<ul>
+<li>Member, Institute of Electrical and Electronics Engineers (IEEE)</li>
+<li>Member, Association for the Advancement of Medical Instrumentation (AAMI)</li>
+</ul>
+<hr />
+<p>This resume highlights your extensive experience in both the technical and leadership aspects of medical device development, making you an ideal candidate to lead the development of an innovative surgical robotic system.</p></div>                    </textarea>
+                            </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="note2"
+                        style="z-index: 2;  top: 110px; left:110px; height:500px; width:50%">
+                        <fieldset">
+                            <legend>Notes - List of Team members with all of their details including CVs, Contact
+                                details etc.</legend> <textarea style="height: 100%;width:800px;"
+                                id="mytextarea">                    <div><p>Here's a table of fictitious team members for your project, including their mini-biographies, contact details, and major skills:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Position</strong></th>
+<th><strong>Mini-Biography</strong></th>
+<th><strong>Address</strong></th>
+<th><strong>Contact Email</strong></th>
+<th><strong>Phone Number</strong></th>
+<th><strong>Major Skills</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dr. Emily Carter</strong></td>
+<td>Chief Medical Officer</td>
+<td>Dr. Carter is a renowned hand surgeon with over 15 years of experience in microsurgery. She has published extensively on surgical techniques and innovations.</td>
+<td>123 Surgical Ave, London, UK</td>
+<td>ecarter@example.com</td>
+<td>+44 20 7123 4567</td>
+<td>Hand Surgery, Clinical Trials, Medical Innovation</td>
+</tr>
+<tr>
+<td><strong>Alex White</strong></td>
+<td>Lead Robotics Engineer</td>
+<td>Alex has a decade of experience in developing surgical robots and precision instruments. He has led several successful projects in surgical robotics and AI integration.</td>
+<td>456 Tech Park, Cambridge, UK</td>
+<td>awhite@example.com</td>
+<td>+44 1223 789012</td>
+<td>Robotics Engineering, AI Integration, System Design</td>
+</tr>
+<tr>
+<td><strong>Sophie Reynolds</strong></td>
+<td>Senior Software Developer</td>
+<td>Sophie specializes in developing real-time control systems for medical devices. She has a background in AI and has worked on several AI-driven surgical systems.</td>
+<td>789 Innovation Rd, Oxford, UK</td>
+<td>sreynolds@example.com</td>
+<td>+44 1865 234567</td>
+<td>Software Development, AI Algorithms, Real-time Systems</td>
+</tr>
+<tr>
+<td><strong>Michael Hughes</strong></td>
+<td>Biomedical Imaging Expert</td>
+<td>Michael is an expert in biomedical imaging technologies, with extensive experience in intraoperative 3D scanning and imaging integration for surgical systems.</td>
+<td>321 Health Blvd, Manchester, UK</td>
+<td>mhughes@example.com</td>
+<td>+44 161 3456789</td>
+<td>Biomedical Imaging, 3D Scanning, Image Processing</td>
+</tr>
+<tr>
+<td><strong>Rachel Adams</strong></td>
+<td>Regulatory Affairs Specialist</td>
+<td>Rachel has 12 years of experience in navigating medical device regulations, including CE marking and FDA approvals. She has successfully led multiple devices to market.</td>
+<td>654 Compliance St, Bristol, UK</td>
+<td>radams@example.com</td>
+<td>+44 117 8901234</td>
+<td>Regulatory Compliance, Medical Device Approval, Risk Management</td>
+</tr>
+<tr>
+<td><strong>Johnathan Blake</strong></td>
+<td>Lead Engineer &amp; CEO</td>
+<td>Johnathan Blake is a visionary engineer with over 20 years of experience in robotics and medical device innovation. He has successfully led multiple startups in the medtech space, bringing cutting-edge technologies from concept to market. His expertise in engineering, combined with his strategic leadership, positions him to drive the development of the Automated Scalpel for Hand Surgery (ASHS).</td>
+<td>987 Pioneer Ln, London, UK</td>
+<td>jblake@example.com</td>
+<td>+44 20 7654 3210</td>
+<td>Robotics Engineering, Medical Devices, Strategic Leadership</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Your Role</strong>: As the Lead Engineer and CEO, you will be responsible for overseeing the technical and strategic direction of the project, ensuring all components align with the project's goals.</p>
+<p>This team represents a cross-disciplinary group that brings together the necessary expertise in surgery, robotics, software, imaging, and regulatory affairs to ensure the successful development and eventual market approval of the automated scalpel system.</p></div>                    </textarea>
+                            </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown3"
+                        style="z-index: 3;  top: 160px; left:160px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_MESSENGER Not Supported or not found </legend>
+                            <p>Record of messaging that pertains to the project</p>
+                            <p>GroupForumDiscussionRoboticScalpelsInHandSurgery.md</p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="note4"
+                        style="z-index: 4;  top: 210px; left:210px; height:500px; width:50%">
+                        <fieldset">
+                            <legend>Notes - Malue initiated news feed</legend> <textarea
+                                style="height: 100%;width:800px;"
+                                id="mytextarea">                    <div><h3>Simulated News Feed for Robotic Hand Surgery and Related Technologies</h3>
+<h4><strong>Day 1: September 1, 2024</strong></h4>
+<p><strong>[08:15 AM]</strong> <strong>"Breakthrough in AI-Driven Surgical Planning Tools"</strong><br />
+A team of researchers at MIT has developed a new AI-driven surgical planning tool that enhances the precision of preoperative strategies. This tool uses deep learning to analyze patient-specific data and predict potential complications during surgery. Itâ€™s particularly relevant for complex hand surgeries, where precision is paramount. This technology could be integrated with robotic systems to further refine intraoperative decision-making.</p>
+<p><strong>[10:30 AM]</strong> <strong>"Survey Highlights Surgeons' Frustrations with Current Robotic Tools"</strong><br />
+A recent survey conducted by the American Society of Hand Surgeons reveals growing dissatisfaction with current robotic surgical tools, citing issues such as poor interface design and instability during delicate procedures. The findings underscore the urgent need for more intuitive and reliable robotic systems, aligning perfectly with our project goals.</p>
+<p><strong>[02:00 PM]</strong> <strong>"Nanotechnology in Hand Surgery: The Next Frontier?"</strong><br />
+A study published in the <em>Journal of Advanced Medical Technologies</em> explores the potential of nanotechnology in enhancing the capabilities of surgical tools. Researchers are investigating nanocoatings that could improve the precision and durability of robotic instruments used in microsurgery. This could be a unique feature to incorporate into our robotic scalpel, setting it apart from competitors.</p>
+<hr />
+<h4><strong>Day 2: September 2, 2024</strong></h4>
+<p><strong>[09:00 AM]</strong> <strong>"Real-Time 3D Imaging Systems: A Game Changer for Surgical Precision"</strong><br />
+A new real-time 3D imaging system developed by Stanford University has shown promising results in clinical trials. This system offers unprecedented clarity and detail, allowing surgeons to visualize intricate structures during hand surgery with greater accuracy. Integrating this technology into our robotic scalpel could address one of the key shortcomings identified in existing products like the Mecha-Scalpel.</p>
+<p><strong>[11:45 AM]</strong> <strong>"Ethical Considerations in the Use of AI in Surgery"</strong><br />
+An article in <em>Healthcare AI Weekly</em> discusses the ethical challenges of deploying AI in surgical procedures, including the importance of transparency and surgeon oversight. As we develop our robotic scalpel, itâ€™s crucial to consider these ethical aspects, ensuring that our AI-driven features support surgeons rather than replacing critical human judgment.</p>
+<p><strong>[03:30 PM]</strong> <strong>"Startup Secures $15M in Funding for Next-Gen Surgical Robotics"</strong><br />
+A startup based in Germany has raised $15 million in a Series A funding round to develop next-generation surgical robotics focused on minimally invasive procedures. Their emphasis on affordability and accessibility mirrors our own goals, highlighting the growing demand for cost-effective solutions in the market.</p>
+<hr />
+<h4><strong>Day 3: September 3, 2024</strong></h4>
+<p><strong>[07:45 AM]</strong> <strong>"New AI Model Predicts Surgical Outcomes with 90% Accuracy"</strong><br />
+A research team from the University of Toronto has developed an AI model capable of predicting surgical outcomes with over 90% accuracy by analyzing preoperative and intraoperative data. This technology could be instrumental in enhancing the decision-making capabilities of our robotic scalpel, providing real-time insights to surgeons.</p>
+<p><strong>[10:00 AM]</strong> <strong>"Innovative Robotic Graspers for Enhanced Tissue Handling"</strong><br />
+An article in <em>Surgical Innovation Today</em> highlights the development of new robotic graspers that mimic the delicate touch of a human hand, allowing for more precise manipulation of tissues during surgery. This innovation could be a valuable addition to our robotic scalpel, improving its overall effectiveness in hand surgery.</p>
+<p><strong>[01:15 PM]</strong> <strong>"Surgeons Advocate for Open-Source Robotic Surgery Platforms"</strong><br />
+A group of leading surgeons has called for the development of open-source platforms for robotic surgery, arguing that it would accelerate innovation and reduce costs. This could be an interesting direction for our project, potentially allowing for greater customization and faster adoption of our technology by the surgical community.</p>
+<p><strong>[04:30 PM]</strong> <strong>"Biocompatible Materials for Next-Generation Surgical Tools"</strong><br />
+Research published in <em>Materials Science Advances</em> explores new biocompatible materials that could be used in the construction of surgical tools. These materials not only reduce the risk of rejection but also enhance the durability and functionality of the instruments. Incorporating such materials into our robotic scalpel could give us a competitive edge.</p>
+<hr />
+<h4><strong>Day 4: September 4, 2024</strong></h4>
+<p><strong>[08:30 AM]</strong> <strong>"Challenges in Robotic Surgery: Surgeon Perspectives"</strong><br />
+A panel discussion at the International Conference on Robotic Surgery has shed light on the persistent challenges surgeons face with current robotic systems, including issues with ergonomics, control latency, and the steep learning curve. These insights reinforce the importance of developing a user-centric design for our robotic scalpel.</p>
+<p><strong>[11:00 AM]</strong> <strong>"AI-Powered Surgical Assistants: The Future of OR Efficiency?"</strong><br />
+A feature in <em>MedTech Review</em> discusses the rise of AI-powered surgical assistants that streamline workflows in the operating room. These assistants can handle routine tasks, allowing surgeons to focus on more critical aspects of the surgery. Integrating such functionality into our system could significantly enhance the usability and appeal of our product.</p>
+<p><strong>[02:45 PM]</strong> <strong>"Robotic Surgery in Developing Markets: Opportunities and Challenges"</strong><br />
+An analysis by <em>Global Health Quarterly</em> examines the growing demand for robotic surgery in developing markets, driven by an increasing number of healthcare investments. However, cost remains a significant barrier. Our commitment to affordability could position our robotic scalpel as a preferred choice in these markets, expanding our global reach.</p>
+<p><strong>[05:00 PM]</strong> <strong>"AI in Surgery: Moving Beyond the Hype"</strong><br />
+An editorial in <em>The Lancet Digital Health</em> argues that while AI has great potential in surgery, it must be implemented thoughtfully to avoid over-reliance and ensure patient safety. This perspective aligns with our approach of using AI as a supportive tool rather than a replacement for human expertise in hand surgery.</p>
+<hr />
+<h4><strong>Day 5: September 5, 2024</strong></h4>
+<p><strong>[07:30 AM]</strong> <strong>"Integrating Augmented Reality with Robotic Surgery"</strong><br />
+A collaboration between Harvard Medical School and a leading tech company has resulted in a new augmented reality (AR) system that overlays critical information directly onto the surgical field during robotic procedures. Incorporating AR into our robotic scalpel could offer surgeons an enhanced, immersive experience, further improving precision.</p>
+<p><strong>[09:15 AM]</strong> <strong>"Surgeon-Led Innovation in Robotic Systems"</strong><br />
+A report in <em>Surgeonâ€™s Digest</em> highlights the importance of surgeon involvement in the development of new robotic systems. Products co-developed with surgeons tend to be more practical and effective in clinical settings. Our ongoing collaboration with leading hand surgeons is a key strength that will differentiate our product from others on the market.</p>
+<p><strong>[12:00 PM]</strong> <strong>"Advancements in AI-Powered Haptic Feedback for Robotic Surgery"</strong><br />
+Researchers at Johns Hopkins University have developed an AI-powered haptic feedback system that mimics the tactile sensation of manual surgery in robotic systems. This technology could be crucial in hand surgery, where tactile feedback is often essential for delicate tissue manipulation.</p>
+<p><strong>[03:00 PM]</strong> <strong>"Global Patent Filings for Surgical Robotics Skyrocket"</strong><br />
+A recent report shows a dramatic increase in global patent filings for surgical robotics, indicating intense competition and innovation in this field. Itâ€™s crucial for us to accelerate our development and secure intellectual property to maintain a competitive edge.</p>
+<p><strong>[05:30 PM]</strong> <strong>"Surgeons Demand Better Post-Market Surveillance of Robotic Devices"</strong><br />
+An article in <em>Medical Device Today</em> discusses growing concerns among surgeons about the lack of post-market surveillance for robotic surgical devices. Ensuring our robotic scalpel is supported by comprehensive post-market monitoring could be a unique selling point that builds trust among users.</p>
+<hr />
+<h3>Summary:</h3>
+<p>These curated news items highlight the ongoing challenges and innovations in the field of robotic hand surgery and related technologies. From usability issues with current tools to advancements in AI, imaging, and materials, these updates provide valuable insights that can help shape the development of a truly unique and effective robotic scalpel. By addressing the gaps identified in existing products and incorporating cutting-edge technology, we can position our product as a game-changer in the surgical field.</p></div>                    </textarea>
+                            </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="canvas5"
+                        style="z-index: 5;  top: 260px; left:260px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>Canvas Brainstorming Session</legend> <iframe src="https://miro.com" width="100%"
+                                height="500px" allow="fullscreen; clipboard-read; clipboard-write"
+                                frameborder="0"></iframe>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="pdf6"
+                        style="z-index: 6;  top: 310px; left:310px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>PDF - Publicly available catalog of ACME products</legend> <embed
+                                src="https://stmaluepocsharewesteu.blob.core.windows.net/ideaforgemockupdocuments/Paradigms of Artificial Intelligence Programming Case Studies in Common Lisp.pdf#view=FitH"
+                                width="100%" height="100%" type="application/pdf">
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="web7"
+                        style="z-index: 7;  top: 360px; left:360px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>Website ACME's public website</legend> <iframe src="https://malue.co.uk"
+                                width="100%" height="100%"></iframe>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="pdf8"
+                        style="z-index: 8;  top: 410px; left:20px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>PDF - International Medical Council reviews of ACME products</legend> <embed
+                                src="https://stmaluepocsharewesteu.blob.core.windows.net/ideaforgemockupdocuments/Paradigms of Artificial Intelligence Programming Case Studies in Common Lisp.pdf#view=FitH"
+                                width="100%" height="100%" type="application/pdf">
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="pdf9"
+                        style="z-index: 9;  top: 460px; left:70px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>PDF - A clinical trial of the efficacy of the ACME smart Scalpel</legend> <embed
+                                src="https://stmaluepocsharewesteu.blob.core.windows.net/ideaforgemockupdocuments/PA-W1410 is a portable personal.pdf#view=FitH"
+                                width="100%" height="100%" type="application/pdf">
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="pdf10"
+                        style="z-index: 10;  top: 510px; left:120px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>PDF - Overview of the researches made</legend> <embed
+                                src="https://stmaluepocsharewesteu.blob.core.windows.net/ideaforgemockupdocuments/Paradigms of Artificial Intelligence Programming Case Studies in Common Lisp.pdf#view=FitH"
+                                width="100%" height="100%" type="application/pdf">
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown11"
+                        style="z-index: 11;  top: 560px; left:170px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>Report for founders</p>
+                            <p>Report-for-founders.docx</p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="web12"
+                        style="z-index: 12;  top: 610px; left:220px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>Website Dun & Bradstreet or similar report services</legend> <iframe
+                                src="https://www.example.com/" width="100%" height="100%"></iframe>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown13"
+                        style="z-index: 13;  top: 660px; left:270px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>Report sharing the analysis and stating the strategy for bringing the innovation to
+                                market. </p>
+                            <p>https://malue.sharepoint.com/sites/MalueArchtecture/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FMalueArchtecture%2FShared%20Documents%2FIdea%20Forge%2FWorkedExample%2FPDFs%2FMarket%20Analysis%20for%20a%20Robotic%20Scalpel%20for%20Hand%20Surgery%2Epdf&parent=%2Fsites%2FMalueArchtecture%2FShared%20Documents%2FIdea%20Forge%2FWorkedExample%2FPDFs&p=true&ga=1
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown14"
+                        style="z-index: 14;  top: 710px; left:320px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>Report to founders</p>
+                            <p>https://malue.sharepoint.com/:w:/s/MalueArchtecture/EfsHGUDsQuBHjZKWCXpUQzcBixPKXoK3wZ-d4UoAHt0zeQ?e=3CWQgK&wdLOR=c36FB62F9-6F77-498B-BF9A-7A9734989A18
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown15"
+                        style="z-index: 15;  top: 760px; left:370px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_PLANNER Not Supported or not found </legend>
+                            <p>A very high level plan of the main elements that will need to be done. </p>
+                            <p>High-Level-Gantt-Chart-for-Robotic-Scalpel-Development.png</p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="web16"
+                        style="z-index: 16;  top: 810px; left:20px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>Website Incorporate a new company</legend> <iframe src="https://www.example.com/"
+                                width="100%" height="100%"></iframe>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="pdf17"
+                        style="z-index: 17;  top: 860px; left:70px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>PDF - Clinical trial protocol outlining the requirements</legend> <embed
+                                src="https://malue.sharepoint.com/:w:/s/MalueArchtecture/Ef3DK5yRrc5PsbO0N_LjJ7cBvY2Q5SbHIUu2YW6N1T0oPg?e=qYOJpJ#view=FitH"
+                                width="100%" height="100%" type="application/pdf">
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown18"
+                        style="z-index: 18;  top: 910px; left:120px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>Overview of funding available to support clinical trials in the UK</p>
+                            <p>https://malue.sharepoint.com/:w:/s/MalueArchtecture/Ecuc1RxdOARAi230yVFF2RgBgZigI5MtF0GGXZa7VaSxdQ?e=GGhUyL
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown19"
+                        style="z-index: 19;  top: 960px; left:170px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DB Not Supported or not found </legend>
+                            <p>Search of different expertise across hospitals</p>
+                            <p>https://www.nhs.uk/nhs-services/services-near-you/</p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown20"
+                        style="z-index: 20;  top: 1010px; left:220px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>Invitation to partner on clinical trials</p>
+                            <p>https://malue.sharepoint.com/:w:/s/MalueArchtecture/EXWSE0F-cENCnBcpPVs4BtQBnDbviskWoqeRVjpi-96lxw?e=va2ev4
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown21"
+                        style="z-index: 21;  top: 1060px; left:270px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DB Not Supported or not found </legend>
+                            <p>Customer Relationship Management system</p>
+                            <p>https://malue.sharepoint.com/:w:/s/MalueArchtecture/EYlFzcS9nmROhrpKZwPUF10BeSK9gIRY_eAUjurk4yZoMA?e=DKg4hQ
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown22"
+                        style="z-index: 22;  top: 1110px; left:320px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>A summary of the potential impact of the innovation for protected characteristic groups
+                            </p>
+                            <p>https://malue.sharepoint.com/:w:/s/MalueArchtecture/Ec1xhDCE-U9Fi6aCAj730PEBZqMGWVUWXwki4neX_p5p9w?e=pwgNHx
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown23"
+                        style="z-index: 23;  top: 1160px; left:370px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>An overview of the product, benefits of using it from a clinician and patient
+                                perspective. </p>
+                            <p>https://malue.sharepoint.com/:w:/s/MalueArchtecture/EZUCT9lG4cRJjY8P-Fn3mB4B_ypBcLV7LWKARdOwGe_Ovw?e=4ognYK
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown24"
+                        style="z-index: 24;  top: 1210px; left:20px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_SHEET Not Supported or not found </legend>
+                            <p>An overview of the health economic benefits of using a robotic scalpel</p>
+                            <p>hhttps://malue.sharepoint.com/:w:/s/MalueArchtecture/Ea7Wv9dl4gZHuCQHBllJ-ZwB3Bm7iZexKu9O1T3phN3Uog?e=tt92OQ
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown25"
+                        style="z-index: 25;  top: 1260px; left:70px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_PROCESS Not Supported or not found </legend>
+                            <p>The drawings outline the progression from the initial concept to the final design.</p>
+                            <p>https://malue.sharepoint.com/:u:/s/MalueArchtecture/EROkpViszYpPoauPbYGqTgYBiTTxXSgOc7_LTe_l9MDZxQ?e=VqMTXy
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown26"
+                        style="z-index: 26;  top: 1310px; left:120px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_PROCESS Not Supported or not found </legend>
+                            <p>Review patent library for any existing patents</p>
+                            <p>Intellectual Property Office - GOV.UK (www.gov.uk)</p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown27"
+                        style="z-index: 27;  top: 1360px; left:170px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>Register the design</p>
+                            <p>https://www.gov.uk/government/organisations/intellectual-property-office</p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown28"
+                        style="z-index: 28;  top: 1410px; left:220px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_PLANNER Not Supported or not found </legend>
+                            <p>Regulation plan</p>
+                            <p>https://malue.sharepoint.com/:w:/s/MalueArchtecture/EegJATcpyRdDmOHYW7dTCs4BfH78OnpSM8y51c6CbAYMzA?e=uZYu5a
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown29"
+                        style="z-index: 29;  top: 1460px; left:270px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>An overview of the requirements to meet regulatory standards</p>
+                            <p>https://www.gov.uk/guidance/regulating-medical-devices-in-the-uk</p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown30"
+                        style="z-index: 30;  top: 1510px; left:320px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>An overview of the requirements to meet regulatory standards</p>
+                            <p>https://www.fda.gov/medical-devices</p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown31"
+                        style="z-index: 31;  top: 1560px; left:370px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>An overview of the requirements to meet regulatory standards</p>
+                            <p>https://www.ema.europa.eu/en/human-regulatory-overview/medical-devices</p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown32"
+                        style="z-index: 32;  top: 1610px; left:20px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_PROCESS Not Supported or not found </legend>
+                            <p>An application to protect IP and design of the robot scalpel</p>
+                            <p>https://malue.sharepoint.com/:w:/s/MalueArchtecture/EeLAs4pdmbhLr-0i1mvvCJEB8PJ_LDLEAOsYGALzDp_ikQ?e=V2VmmQ
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown33"
+                        style="z-index: 33;  top: 1660px; left:70px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_PLANNER Not Supported or not found </legend>
+                            <p>A very high level plan of the main elements that will need to be done. </p>
+                            <p>https://malue.sharepoint.com/:x:/s/MalueArchtecture/EYow13ogvHNEtXNnUZmW0GMB1XiU1IVWscv1G41l2c4Gjw?e=1BJkzB
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown34"
+                        style="z-index: 34;  top: 1710px; left:120px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_SHEET Not Supported or not found </legend>
+                            <p>A business case in support of adopting the robot scalpel</p>
+                            <p>https://malue.sharepoint.com/:w:/s/MalueArchtecture/Ef6T5BarVD9CrX1AH6hzQVMBs27wnQLOtPU3zxdvsHV-ag?e=a7lVjS
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown35"
+                        style="z-index: 35;  top: 1760px; left:170px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>Determine which procurement framework to apply for</p>
+                            <p>https://www.sbs.nhs.uk/services/framework-agreements-categories/</p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown36"
+                        style="z-index: 36;  top: 1810px; left:220px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>Single registration to be a supplier to the Government</p>
+                            <p>https://supplierregistration.cabinetoffice.gov.uk/</p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown37"
+                        style="z-index: 37;  top: 1860px; left:270px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>Register for the appropriate procurement framework to beon</p>
+                            <p>https://www.sbs.nhs.uk/services/framework-agreements-categories/</p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown38"
+                        style="z-index: 38;  top: 1910px; left:320px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>Review of the necessary standards required to be on the Government procurement framework
+                            </p>
+                            <p>https://www.gov.uk/government/publications/ppn-0324-standard-selection-questionnaire-sq
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown39"
+                        style="z-index: 39;  top: 1960px; left:370px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_PROCESS Not Supported or not found </legend>
+                            <p>Obtain DUNS Number for supplier registration purposes</p>
+                            <p>https://www.example.com/</p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="web40"
+                        style="z-index: 40;  top: 2010px; left:20px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>Website Evergreen sustainable supplier assessment </legend> <iframe
+                                src="https://www.example.com/" width="100%" height="100%"></iframe>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown41"
+                        style="z-index: 41;  top: 2060px; left:70px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>A checklist for the required competences needed to use the device</p>
+                            <p>https://malue.sharepoint.com/:w:/s/MalueArchtecture/EaP-ggXrhQRAiGb_lhIaunoBfY19oiVh0gtgN8xICReG7w?e=1V6uGE
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown42"
+                        style="z-index: 42;  top: 2110px; left:120px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DB Not Supported or not found </legend>
+                            <p>Template for assessing comptency</p>
+                            <p>https://malue.sharepoint.com/:w:/s/MalueArchtecture/ETAwlIOKn69Al6vEv1HkKP0BktV3_vqLVcH-P6O8tCwurQ?e=P5pr54
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown43"
+                        style="z-index: 43;  top: 2160px; left:170px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>A training module to support upskilling new users</p>
+                            <p></p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown44"
+                        style="z-index: 44;  top: 2210px; left:220px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>Standard operating procedure for using the product from ordering through to disposal</p>
+                            <p>https://malue.sharepoint.com/:w:/s/MalueArchtecture/EbTsKe_RVElJpyzL0luZhiIBZEC8jTfZ7bApfz5fcVJGSQ?e=wTlTgv
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown45"
+                        style="z-index: 45;  top: 2260px; left:270px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_EVALUATION Not Supported or not found </legend>
+                            <p>Evaluate the product</p>
+                            <p></p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown46"
+                        style="z-index: 46;  top: 2310px; left:320px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_REVIEW Not Supported or not found </legend>
+                            <p>Review of the product</p>
+                            <p></p>
+                        </fieldset>
+                    </div>
+                    <div class="tool-wrapper" id="unknown47"
+                        style="z-index: 47;  top: 2360px; left:370px; height:500px; width:50%">
+                        <fieldset>
+                            <legend>MALUE_DOCUMENT Not Supported or not found </legend>
+                            <p>Product Overview </p>
+                            <p></p>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="overlay" id="overlay" onclick="closeDialog()"></div>
+                <div class="search-container" id="searchDialog">
+                    <h2>Tools</h2>
+                    <form>
+                        <div>
+                            <label for="books">Tool invocation</label>
+                        </div>
+                        <br>
+                        <button type="submit">Launch</button>
+                        <button type="button" class="close-btn" onclick="closeDialog()">Close</button>
+                    </form>
+                </div>
+            </div>
         </div>
-</nav>'
+    </div>
+
+
+    <script type="module" src="/static/scripts/script.js"> </script>
+</body>
+
+</html>

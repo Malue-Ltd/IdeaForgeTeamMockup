@@ -19,11 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     createSheetData();
     //setupCanvas();
-    SetupTogglersListeners();
     SetupSpreadsheet();
     SetupNotePad();
     SetupDragAndDrop();
-    setZindexes();
+    setToolWrapperZindexes();
     OutputFieldSetPositions();
     PreventDialogFromClosingWhenClickingInsideThedialog();
     OutputFieldSetPositions();
@@ -86,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
     }
     function OutputFieldSetPositions() {
-        const fieldsets = document.querySelectorAll("fieldset.window");
+        const fieldsets = document.querySelectorAll("div.tool-wrapper");
         console.log(fieldsets);
         for (const element of fieldsets) {
             let rect = element.getBoundingClientRect();
@@ -95,30 +94,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return fieldsets;
     }
-    function SetupTogglersListeners() {
-        let input = document.querySelector("#toggle");
-        input?.addEventListener("change", toggleBox);
-        let togglers = document.getElementsByClassName("caret");
-        for (const element of togglers) {
-            element.addEventListener("click", function () {
-                this.parentElement
-                    .querySelector(".nested");
-                    //.classList.toggle("active");
-                console.log("clicked on nested: " + element.innerHTML)
-                let main_pane = document.querySelector("#main-pane");
-                fetch('/get-main-pane-contents?selected=' + element.innerText)
-                    .then(response => response.text())
-                    .then(data => {
-                        main_pane.innerHTML = data;
-                        SetupSpreadsheet()
-                        SetupNotePad();
-                    })
-                    .catch(error => console.error('Error:', error));
-            });
-        }
-    }
+    
     function SetupDragAndDrop() {
-        interact(".window")
+        interact(".tool-wrapper")
             .draggable({
                 modifiers: [
                     interact.modifiers.snap({
@@ -169,22 +147,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 OutputFieldSetPositions();
             });
     }
-    function setZindexes() {
-        let highestZIndex = 1;
-        const maxZIndex = 10; // Define a maximum threshold
+    function setToolWrapperZindexes() {
+        let highestZIndex = document.querySelectorAll(".tool-wrapper").length;
+        const maxZIndex = 65535; // Define a maximum threshold
 
         function resetZIndices() {
             highestZIndex = 1;
-            const updatedDivs = document.querySelectorAll(".window");
-            updatedDivs.forEach((fieldset) => {
-                fieldset.style.zIndex = 1;
+            const updatedDivs = document.querySelectorAll(".tool-wrapper");
+            updatedDivs.forEach((tool_wrapper) => {
+                tool_wrapper.style.zIndex += 1;
             });
         }
-        const fieldsets = document.querySelectorAll("fieldset");
-        fieldsets.forEach((fieldset) => {
-            fieldset.addEventListener("mousedown", () => {
+        const tool_wrappers = document.querySelectorAll(".tool-wrapper");
+        tool_wrappers.forEach((tool_wrapper) => {
+            tool_wrapper.addEventListener("mousedown", () => {
                 highestZIndex += 1;
-                fieldset.style.zIndex = highestZIndex;
+                tool_wrapper.style.zIndex = highestZIndex;
                 if (highestZIndex >= maxZIndex) {
                     resetZIndices();
                 }
@@ -193,28 +171,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     function reflowBlocks() {
         OutputFieldSetPositions();
-        // const blocks = Array.from(document.querySelectorAll(".window")).map(
-        //     (block) => {
-        //         const rect = block.getBoundingClientRect();
-        //         console.log(rect);
-        //         return {
-        //             element: block,
-        //             x: rect.left,
-        //             y: rect.top,
-        //             width: rect.width,
-        //             height: rect.height,
-        //         };
-        //     }
-        // );
-        // // Assuming blocks are divs with the class "block"
-        // // document.querySelectorAll(".window").forEach((block) => {
-        // //     block.style.position = "absolute";
-        // //     block.style.left = `${block.getBoundingClientRect().left}px`;
-        // //     block.style.top = `${block.getBoundingClientRect().top}px`;
-        // // });
-
-        // // Now trigger the rearrangement logic
-        // resolveOverlaps(blocks);
     }
     function resolveOverlaps(blocks) {
         for (let i = 0; i < blocks.length; i++) {
@@ -349,8 +305,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     .then(response => response.text())
                     .then(data => {
                         main_pane.innerHTML = data;
-                        SetupSpreadsheet()
+                        createSheetData();
+                        //setupCanvas();
+                        SetupSpreadsheet();
                         SetupNotePad();
+                        SetupDragAndDrop();
+                        setToolWrapperZindexes();
+                        OutputFieldSetPositions();
+                        PreventDialogFromClosingWhenClickingInsideThedialog();
+                        OutputFieldSetPositions();
                     })
                     .catch(error => console.error('Error:', error));
     }

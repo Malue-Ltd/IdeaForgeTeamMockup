@@ -13,7 +13,7 @@
             ],
             "Create the Team": [
                 {
-                    "task": "Collect details of the team",
+                    "task": "Collect details of the founder",
                     "description": "The details of the founder",
                     "artifact": "Founder details",
                     "links": null,
