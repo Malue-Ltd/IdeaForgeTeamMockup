@@ -71,7 +71,7 @@ def extract(data, stage, step):
 
     return main_pane_contents                        
 
-def generate_html_items(stage, step):
+def generate_main_pane_items(stage, step):
     main_pane_contents = extract(menu_structure, stage, step)
     zindex = 0
     idSeq = 0
@@ -340,7 +340,7 @@ def proxy(path):
 @app.route('/')
 def show_menu():
     # Call the generate_menu_html function and return the result
-    items_html = generate_html_items('','')
+    items_html = generate_main_pane_items('','')
     menu_html = generate_menu_html(menu_structure)
     html_document = generate_html_document(menu_html,items_html,note_content)
     return html_document
@@ -350,7 +350,7 @@ def get_new_content():
     stage = request.args.get('stage')
     step = request.args.get('step')
     # Return fresh HTML content for the div
-    items_html = generate_html_items(stage, step)
+    items_html = generate_main_pane_items(stage, step)
     return items_html
 
 
