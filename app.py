@@ -3,7 +3,8 @@ import os
 import re
 import subprocess
 import markdown
-from flask import Flask, url_for, request
+from flask import Flask, url_for, request, Response 
+import requests 
 # Sample JSON path (you can replace it with the actual path)
 path = os.path.dirname(os.path.realpath(__file__))
 json_file = f'{path}/menu.json'
@@ -29,17 +30,17 @@ def generate_menu_html(structure):
         html_content += '<div class="sidebar-collapse">'
         html_content += '<div class="tree-menu">'
         for key, value in data.items():
-            if isinstance(value, dict):  # If it's another dictionary, go deeper
+            if isinstance(value, dict):  
                 for sub_key, sub_value in value.items():
                     html_content += f"""<h3 onclick="toggleMenu('{clean_string(sub_key)}','{sub_key}','')">{sub_key}</h3>"""
 
-                    html_content += f"""<ul id="{clean_string(sub_key)}" class="collapsed">"""
+                    html_content += f"""<ul id="{clean_string(sub_key)}" class="">"""
                     for step_key, tasks in sub_value.items():
                         html_content += f"""  <li onclick="toggleMenu(\'{clean_string(step_key)}\',\'{sub_key}\',\'{step_key}\')">{step_key}"""
                         # html_content += f"""    <ul id="{clean_string(step_key)}" class="collapsed">"""
                         # html_content += '    </ul>'
                         html_content += '  </li>'
-                        html_content += '</ul>'
+                    html_content += '</ul>'
         html_content += '</div>'
         html_content += '</nav>'
 
@@ -100,23 +101,23 @@ def generate_html_items(stage, step):
 
             case 'MALUE_PDF_VIEWER' :
                 location = artifactRecord['artefact-locations'][0]
-                html_content += f'<div class="tool-wrapper" id="pdf{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:25px; width: 50%; overflow: hidden;">'
+                html_content += f'<div class="tool-wrapper" id="pdf{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:500px; width: 50%; overflow: hidden;">'
                 html_content += f'<fieldset>'
                 html_content += f'                    <legend>PDF - {description}</legend>'
                 html_content += f'                    <embed src="{location}#zoom=page-fit"'
-                html_content += f'                    height="100%" width="500" type="application/pdf" " >'
+                html_content += f'                    height="100%" width="500" type="application/pdf" >'
                 html_content += f'</fieldset>'
                 html_content += f'</div>'
                 
-            # case 'MALUE_DOCUMENT' :
-            #     location = artifactRecord['artefact-locations'][0]
-            #     html_content += f'<div class="tool-wrapper" id="doc{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:500px; width:50%">'
-            #     html_content += f'<fieldset>'
-            #     html_content += f'                    <legend>Document</legend>'
-            #     html_content += f'                    <iframe src="{location}"</iframe>'
-            #     # html_content += f'                    width="100%" height="100%" >'
-            #     html_content += f'</fieldset>'
-            #     html_content += f'</div>'
+            case 'MALUE_DOCUMENT' :
+                location = artifactRecord['artefact-locations'][0]
+                html_content += f'<div class="tool-wrapper" id="doc{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:500px; width:50%">'
+                html_content += f'<fieldset>'
+                html_content += f'                    <legend>Document</legend>'
+                html_content += f'                    <iframe src="{location}"></iframe>'
+                # html_content += f'                    width="100%" height="100%" >'
+                html_content += f'</fieldset>'
+                html_content += f'</div>'
 
             case 'MALUE_CANVAS':
                 location = artifactRecord['artefact-locations'][0]
@@ -130,6 +131,7 @@ def generate_html_items(stage, step):
 
             case 'MALUE_WEB_VIEWER':
                 location = artifactRecord['artefact-locations'][0]
+                location = 'http://localhost:5000/proxy'
                 html_content += f'<div class="tool-wrapper" id="web{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:500px; width:50%">'
                 html_content += f'<fieldset>'
                 html_content += f'                    <legend>Website  {description}</legend>'
@@ -312,6 +314,29 @@ def generate_html_document(menu_html, items_html, note_content):
 # Main program and routes
 
 app = Flask(__name__)
+SITE_NAME = 'http://gov.uk/'
+
+@app.route('/proxy', defaults={'path': ''},methods=['GET','POST','DELETE'])
+@app.route('/proxy/<path:path>',methods=['GET','POST','DELETE'])
+def proxy(path):
+    global SITE_NAME
+    if request.method=='GET':
+        resp = requests.get(f'{SITE_NAME}{path}')
+        excluded_headers = ['content-encoding', 'content-length', 'transfer-encoding', 'connection']
+        headers = [(name, value) for (name, value) in  resp.raw.headers.items() if name.lower() not in excluded_headers]
+        response = Response(resp.content, resp.status_code, headers)
+        return response
+    elif request.method=='POST':
+        resp = requests.post(f'{SITE_NAME}{path}',json=request.get_json())
+        excluded_headers = ['content-encoding', 'content-length', 'transfer-encoding', 'connection']
+        headers = [(name, value) for (name, value) in resp.raw.headers.items() if name.lower() not in excluded_headers]
+        response = Response(resp.content, resp.status_code, headers)
+        return response
+    elif request.method=='DELETE':
+        resp = requests.delete(f'{SITE_NAME}{path}').content
+        response = Response(resp.content, resp.status_code, headers)
+        return response
+
 @app.route('/')
 def show_menu():
     # Call the generate_menu_html function and return the result
@@ -327,6 +352,7 @@ def get_new_content():
     # Return fresh HTML content for the div
     items_html = generate_html_items(stage, step)
     return items_html
+
 
 if __name__ == '__main__':
     app.run(debug=True)

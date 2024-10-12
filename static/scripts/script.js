@@ -7,16 +7,6 @@
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    var toggler = document.getElementsByClassName("caret");
-    for (var i = 0; i < toggler.length; i++) {
-        toggler[i].addEventListener("click", function () {
-            this.parentElement.querySelector(".nested").classList.toggle("active");
-            this.classList.toggle("caret-down");
-            console.log("adding click nested  ??")
-        });
-    }
-
-
     createSheetData();
     //setupCanvas();
     SetupSpreadsheet();
@@ -93,8 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(`${elementName}, ${rect.top},${rect.left},${rect.height},${rect.width} `);
         }
         return fieldsets;
-    }
-    
+    }    
     function SetupDragAndDrop() {
         interact(".tool-wrapper")
             .draggable({

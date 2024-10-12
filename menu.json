@@ -1,7 +1,7 @@
 {
     "Robot Scalpel": {
         "Initiation": {
-            "What's the Idea": [
+            "What is the Idea": [
                 {
                     "task": "Document Innovation Summary",
                     "description": "A simple, but sophisticated, semi automated scalpel for finger surgery. ",
@@ -31,7 +31,7 @@
             ],
             "Background Research": [
                 {
-                    "task": "Collaboration",
+                    "task": "Messaging",
                     "description": "Record of messaging that pertains to the project",
                     "artifact": "MessageLog",
                     "links": null,
@@ -39,7 +39,7 @@
                     "artefact-locations":["GroupForumDiscussionRoboticScalpelsInHandSurgery.md"]
                 },
                 {
-                    "task": "Collaboration",
+                    "task": "News Feed",
                     "description": "Malue initiated news feed",
                     "artifact": "NewsFeed",
                     "links": null,
@@ -47,7 +47,7 @@
                     "artefact-locations":["Feeds-01.md"]
                 },
                 {
-                    "task": "Collaboration",
+                    "task": "Brainstorming",
                     "description": "Brainstorming Session",
                     "artifact": "Canvas",
                     "links": null,
@@ -64,7 +64,7 @@
                 },
                 {
                     "task": "Investigate Prior art",
-                    "description": "ACME's public website",
+                    "description": "ACMEs public website",
                     "artifact": "Website",
                     "links": null,
                     "tool":"MALUE_WEB_VIEWER",
@@ -343,7 +343,7 @@
                     "description": "Determine which  procurement framework to apply for",
                     "artifact": "Procurement Framework",
                     "links": null,
-                    "tool":"MALUE_DOCUMENT",
+                    "tool":"MALUE_WEB_VIEWER",
                     "artefact-locations":["https://www.sbs.nhs.uk/services/framework-agreements-categories/"]
                 },
                 {
@@ -351,7 +351,7 @@
                     "description": "Single registration to be a supplier to the Government",
                     "artifact": "Government Supplier Registration",
                     "links": null,
-                    "tool":"MALUE_DOCUMENT",
+                    "tool":"MALUE_WEB_VIEWER",
                     "artefact-locations":["https://supplierregistration.cabinetoffice.gov.uk/"]
                 },
                 {
@@ -359,7 +359,7 @@
                     "description": "Register for the appropriate procurement framework to beon",
                     "artifact": "Procurement Framework",
                     "links": null,
-                    "tool":"MALUE_DOCUMENT",
+                    "tool":"MALUE_WEB_VIEWER",
                     "artefact-locations":["https://www.sbs.nhs.uk/services/framework-agreements-categories/"]
                 },
                 {
@@ -378,7 +378,7 @@
                     "artifact": "DUNS Number",
                     "links": null,
                     "tool":"MALUE_PROCESS",
-                    "artefact-locations":["https://www.example.com/"]
+                    "artefact-locations":["https://www.dnb.co.uk/duns-number/lookup.html/"]
                 }
             ],
             "Sustainability": [
@@ -388,7 +388,7 @@
                     "artifact": "Registration document ",
                     "links": null,
                     "tool":"MALUE_WEB_VIEWER",
-                    "artefact-locations":["https://www.example.com/"]
+                    "artefact-locations":["https://www.england.nhs.uk/nhs-commercial/central-commercial-function-ccf/evergreen/"]
                 }
             ],
             "Competency Framework": [
