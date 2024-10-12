@@ -290,7 +290,8 @@ document.addEventListener("DOMContentLoaded", function () {
             level.classList.toggle('collapsed');
         };
         let main_pane = document.querySelector("#main-pane");
-                fetch('/get-main-pane-contents?stage=' + stage + '&step=' + step)
+                //fetch('/get-main-pane-contents?stage=' + stage + '&step=' + step)
+                fetch('/document-list?stage=' + stage + '&step=' + step)
                     .then(response => response.text())
                     .then(data => {
                         main_pane.innerHTML = data;

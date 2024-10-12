@@ -3,7 +3,7 @@ import os
 import re
 import subprocess
 import markdown
-from flask import Flask, url_for, request, Response 
+from flask import Flask, url_for, request, Response , render_template , make_response
 import requests 
 # Sample JSON path (you can replace it with the actual path)
 path = os.path.dirname(os.path.realpath(__file__))
@@ -34,7 +34,7 @@ def generate_menu_html(structure):
                 for sub_key, sub_value in value.items():
                     html_content += f"""<h3 onclick="toggleMenu('{clean_string(sub_key)}','{sub_key}','')">{sub_key}</h3>"""
 
-                    html_content += f"""<ul id="{clean_string(sub_key)}" class="">"""
+                    html_content += f"""<ul id="{clean_string(sub_key)}" class="collapsed">"""
                     for step_key, tasks in sub_value.items():
                         html_content += f"""  <li onclick="toggleMenu(\'{clean_string(step_key)}\',\'{sub_key}\',\'{step_key}\')">{step_key}"""
                         # html_content += f"""    <ul id="{clean_string(step_key)}" class="collapsed">"""
@@ -158,157 +158,24 @@ def generate_main_pane_items(stage, step):
     html_content += f'</div>'
     return html_content
 
-
 def generate_html_document(menu_html, items_html, note_content):
-    return f"""
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Innovations</title>
-        <link href="{url_for('static', filename='font-awesome/css/font-awesome.css')}" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{url_for('static', filename='style.css')}">
-        <link href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css" rel="stylesheet" >
-        <link href="https://unpkg.com/x-data-spreadsheet@1.1.5/dist/xspreadsheet.css" rel="stylesheet" >
-        
-        <script src="{url_for('static', filename='scripts/interact.min.js')}"></script>
-        <script src="https://unpkg.com/x-data-spreadsheet@1.1.5/dist/xspreadsheet.js"></script>
-        <script src="{url_for('static', filename='scripts/tinymce/js/tinymce/tinymce.min.js')}"></script>
-        
-    </head>
-   <body>
-   <div id="wrapper">
-        {menu_html}
-        <div id="page-wrapper" class="gray-bg">        
-            <div class="animated fadeInRight">
-                <div style="border: black;">
-                    <nav class="navbar">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-sign-out"></i> Log out</a> 
-                            <li><a href="#evaluations">Evaluations</a></li>
-                            <li><a href="#iIdeaForge">Idea Forge</a></li>
-                            <li><a href="#reviews">Reviews</a></li>
-                            <li><a href="#library">Library</a></li>
-                            <li><a href="#dashboard">Dashboard</a></li>
-                            
-                        </ul>
-                    </nav>
-                </div>
-                <div class="navbar rounded-rect">
-                    <ul>
-                        <li>
-                            <a href="#web" onclick="openDialog('web')" alt="web">
-                                <figure>
-                                    <img src="{url_for('static', filename='icons/web.svg')}" alt="web">
-                                    <figcaption>Web</figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#chat" onclick="openDialog('chat')" alt="chat">
-                                <figure>
-                                    <img src="{url_for('static', filename='icons/chat.svg')}" alt="chat">
-                                    <figcaption>Chat</figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#search" onclick="openDialog('web')">
-                                <figure>
-                                    <img src="{url_for('static', filename='icons/search.svg')}" alt="search">
-                                    <figcaption>Search</figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#forum" onclick="openDialog('forum')">
-                                <figure>
-                                    <img src="{url_for('static', filename='icons/forum.svg')}" alt="forum">
-                                    <figcaption>Forum</figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#books" onclick="openDialog('books')">
-                                <figure>
-                                    <img src="{url_for('static', filename='icons/books.svg')}" alt="books">
-                                    <figcaption>Books</figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#academicPapers" onclick="openDialog('academicpapers')">
-                                <figure>
-                                    <img src="{url_for('static', filename='icons/academicPapers.svg')}" alt="academicpapers">
-                                    <figcaption>Academic Papers</figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#wikipedia" onclick="openDialog('wikipedia')">
-                                <figure>
-                                    <img src="{url_for('static', filename='icons/wikipedia_svg_logo.svg')}" alt="wikipedia">
-                                    <figcaption>Wikipedia</figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#youtube" onclick="openDialog('youtube')">
-                                <figure>
-                                    <img src="{url_for('static', filename='icons/youtubelogo.svg')}" alt="youtubelogo">
-                                    <figcaption>YouTube</figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#document" onclick="openDialog('document')">
-                                <figure>
-                                    <img src="{url_for('static', filename='icons/document.svg')}" alt="documentlogo">
-                                    <figcaption>Document</figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#sheet" onclick="openDialog('sheet')">
-                                <figure>
-                                    <img src="{url_for('static', filename='icons/spreadsheet.svg')}" alt="sheetlogo">
-                                    <figcaption>Spreadsheet</figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#planner" onclick="openDialog('planner')">
-                                <figure>
-                                    <img src="{url_for('static', filename='icons/gantt-chart.svg')}" alt="plannerlogo">
-                                    <figcaption>Planner</figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                    {items_html}                  
-                <div class="overlay" id="overlay" onclick="closeDialog()"></div>
-                <div class="search-container" id="searchDialog">
-                    <h2>Tools</h2>
-                    <form>
-                        <div>                            
-                            <label for="books">Tool invocation</label>                            
-                        </div>
-                        <br>
-                        <button type="submit">Launch</button>
-                        <button type="button" class="close-btn" onclick="closeDialog()">Close</button>
-                    </form>
-                </div>
-            </div>           
-        </div>
-    </div>
+    data = {
+        "menu_html" : menu_html, 
+        "items_html" : items_html, 
+        "note_content" : note_content
+    }
+    response = make_response(render_template("main.html", **data))
+    # response.headers["Content-Security-Policy"] = "default-src 'self';"
+    return response
+    
+def generate_document_list_item(stage, step, main_pane_contents):
+    data = {
+        "stage": stage,
+        "step": step,
+        "main_pane_contents" : main_pane_contents
+    }
+    return render_template("document-list.html", **data)
 
-   
-    <script type="module" src="{url_for('static', filename='scripts/script.js')}"> </script>
-    </body>
-    </html>
-    """
 
 #################################################################################
 # Main program and routes
@@ -344,6 +211,17 @@ def show_menu():
     menu_html = generate_menu_html(menu_structure)
     html_document = generate_html_document(menu_html,items_html,note_content)
     return html_document
+
+@app.route('/document-list')
+def get_document_list():
+    stage = request.args.get('stage')
+    step = request.args.get('step')
+    # Return fresh HTML content for the div
+    main_pane_contents = extract(menu_structure, stage, step)
+     
+    items_html = generate_document_list_item(stage, step, main_pane_contents)
+
+    return items_html    
 
 @app.route('/get-main-pane-contents')
 def get_new_content():
