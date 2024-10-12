@@ -1,7 +1,10 @@
-<div>
+<div style="border: solid black 2px; height: 100%; width: 100%;">
     <ul>        
         {% for item in main_pane_contents %}
-            <li>{{item['tool']}} - {{item['description']}}</li>
+            <li>{{ item['stage']}}
+                <button onclick="openArtifact('{{ item['stage'] }}', '{{ item['step'] }}' , '{{ item['id'] }}')">press</button>
+            </li>
         {% endfor %}
     </ul>
 </div>
+

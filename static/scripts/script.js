@@ -35,7 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
     function PreventDialogFromClosingWhenClickingInsideThedialog() {
-        document.getElementById("searchDialog")
+        document.getElementById("popupDoclist")
+            .addEventListener("click", function (event) {
+                event.stopPropagation();
+            });
+        document.getElementById("popupDialog")
             .addEventListener("click", function (event) {
                 event.stopPropagation();
             });
@@ -195,11 +199,38 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.toggle("collapsed");
     }
     function openDialog(source) {
-        document.getElementById("searchDialog").style.display = "block";
+        document.getElementById("popupDialog").style.display = "block";
         document.getElementById("overlay").style.display = "block";
     }
+    function openArtifact(stage, step, id) {
+        document.getElementById("popupDoclist").style.display = "block";
+        let tempdata = '';
+        fetch('/artifact-details?stage=' + stage + '&step=' + step + '&id=' + id)
+                    .then(response => response.text())
+                    .then(data => {
+                        tempdata = data;
+                        let popupDialogHtml = document.getElementById("main-pane");
+                        popupDialogHtml.innerHTML = tempdata;
+                        createSheetData();
+                        //setupCanvas();
+                        SetupSpreadsheet();
+                        SetupNotePad();
+                        SetupDragAndDrop();
+                        setToolWrapperZindexes();
+                        OutputFieldSetPositions();
+                        PreventDialogFromClosingWhenClickingInsideThedialog();
+                        OutputFieldSetPositions();
+                    })
+                    .catch(error => console.error('Error:', error));
+        
+        document.getElementById("overlay").style.display = "block";
+    }
+    function closeArtifact() {
+        document.getElementById("popupDoclist").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+    }
     function closeDialog() {
-        document.getElementById("searchDialog").style.display = "none";
+        document.getElementById("popupDialog").style.display = "none";
         document.getElementById("overlay").style.display = "none";
     }
     function setupCanvas() {
@@ -289,8 +320,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if(level != null){
             level.classList.toggle('collapsed');
         };
-        let main_pane = document.querySelector("#main-pane");
-                //fetch('/get-main-pane-contents?stage=' + stage + '&step=' + step)
+        let main_pane = document.querySelector("#list-pane");
                 fetch('/document-list?stage=' + stage + '&step=' + step)
                     .then(response => response.text())
                     .then(data => {
@@ -307,6 +337,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     })
                     .catch(error => console.error('Error:', error));
     }
+    window.openArtifact = openArtifact;
+    window.closeArtifact = closeArtifact;
     window.toggleMenu = toggleMenu;
     window.closeDialog = closeDialog;
     window.openDialog = openDialog;
