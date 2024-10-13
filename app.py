@@ -265,7 +265,7 @@ def show_menu():
     items_html = '<div style="position: relative;height: 100%;overflow-y: hidden; ">'
     items_html += '<div id="list-pane"  class="scrollable-div doclist-content"style="position: relative;">'
     items_html += '</div>'
-    items_html += '<div id="main-pane" style="position: relative;height: 100vh;overflow-y: hidden; ">'
+    items_html += '<div id="main-pane" style="position: relative;height: 100vh;overflow-y: hidden; border: solid black 3px; ">'
     items_html += '<iframe src="https://xmind.ai/embed/DASmVuOe?sheet-id=1df9858b-5171-48dc-97f2-e5054bcbdc99" width="100%" height="900px" frameborder="0" scrolling="no" allow="fullscreen"></iframe>'
     items_html += '</div>'
     items_html += '</div>'
