@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+	<head>
+		<dateCreated>Sun Oct 13 2024 17:01:31 GMT+0100 (British Summer Time)</dateCreated>
+		<dateModified>Sun Oct 13 2024 17:01:31 GMT+0100 (British Summer Time)</dateModified>
+	</head>
+	<body>
+		<outline text="Example
+Idea Forge
+Process">
+			<outline text="Initiation">
+				<outline text="Steps">
+					<outline text="What&apos;s your idea?">
+						<outline text="Note Editor">
+							<outline text="Subtopic 1" type="link" _url="http://www.google.com"></outline>
+						</outline>
+					</outline>
+					<outline text="Team Members">
+						<outline text="Contact Manager"></outline>
+					</outline>
+					<outline text="Outline Plan">
+						<outline text="Malue Infinite Canvas">
+							<outline text="Team Members">
+								<outline text="Contact Manager"></outline>
+							</outline>
+							<outline text="Infinte Canvas UI
+Component"></outline>
+						</outline>
+						<outline text="Kanban Board">
+							<outline text="Kanban UI"></outline>
+						</outline>
+					</outline>
+					<outline text="Research">
+						<outline text="Asset / Research Search ">
+							<outline text="Web">
+								<outline text="Browser"></outline>
+							</outline>
+							<outline text="Books">
+								<outline text="Malue Asset Repository
+UI"></outline>
+							</outline>
+							<outline text="Academic Papers">
+								<outline text="Malue Asset Repository
+UI"></outline>
+							</outline>
+							<outline text="Wikipedia">
+								<outline text="Browser"></outline>
+							</outline>
+						</outline>
+					</outline>
+				</outline>
+			</outline>
+			<outline text="Development">
+				<outline text="Steps">
+					<outline text="Obtain the financial support required to develop the solution"></outline>
+					<outline text="Outline the strategy for how you will obtain a return on the investment – how much will you sell the solution for, who to and how quickly will you be able to sell it and at what scale?"></outline>
+					<outline text="Develop a minimum viable product to be able to test the value to the customer"></outline>
+					<outline text="Create a prototype"></outline>
+					<outline text="Identify willing participants and hosts of a pre-clinical tests"></outline>
+					<outline text="Review research funding grants to support the testing process"></outline>
+					<outline text="Identify who your main customers will be "></outline>
+					<outline text="Building on the value proposition, test the proposed solution in the market"></outline>
+					<outline text="Outline the benefits to the market"></outline>
+					<outline text="Create a marketing and sales strategy"></outline>
+					<outline text=""></outline>
+				</outline>
+			</outline>
+			<outline text="Evidence">
+				<outline text="Steps">
+					<outline text="Complete an ethics application, if necessary"></outline>
+					<outline text="Complete an environmental impact assessment on implementing the proposed solution"></outline>
+					<outline text="Identify partners to work with to conduct the trial"></outline>
+					<outline text="Source appropriate funding for the trial"></outline>
+					<outline text="Ensure trial methodology is robust and provides data for all of the necessary value proposition points outlined."></outline>
+					<outline text="Complete a human factors impact assessment "></outline>
+					<outline text="Gather as much data as possible to identify the true impact of solution implementation"></outline>
+				</outline>
+			</outline>
+			<outline text="Regulation">
+				<outline text="N/A"></outline>
+			</outline>
+			<outline text="Commissioning 
+&amp; Adoption">
+				<outline text="N/A"></outline>
+			</outline>
+			<outline text="Steps	">
+				<outline text=" Identify unmet need (clinical or operational)">
+					<outline text="Asset / Research Search ">
+						<outline text="Web">
+							<outline text="Browser"></outline>
+						</outline>
+						<outline text="Books">
+							<outline text="Malue Asset Repository
+UI"></outline>
+						</outline>
+						<outline text="Academic Papers">
+							<outline text="Malue Asset Repository
+UI"></outline>
+						</outline>
+						<outline text="Wikipedia">
+							<outline text="Browser"></outline>
+						</outline>
+					</outline>
+				</outline>
+				<outline text=" Create proposed solution outline">
+					<outline text="Document Authoring">
+						<outline text="Word"></outline>
+						<outline text="Notes Editor
+UI Component"></outline>
+					</outline>
+				</outline>
+				<outline text=" Show how the proposed innovation addresses the unmet need.
+">
+					<outline text="Document Authoring">
+						<outline text="Word"></outline>
+						<outline text="Notes Editor
+UI Component"></outline>
+					</outline>
+				</outline>
+				<outline text="Create the value proposition to key stakeholders (end user, buyer and commissioner)">
+					<outline text="Spreadsheet">
+						<outline text="Excel (embedded)"></outline>
+						<outline text="Basic Spreadsheet
+UI Component"></outline>
+					</outline>
+					<outline text="Document Authoring">
+						<outline text="Word"></outline>
+						<outline text="Notes Editor
+UI Component"></outline>
+					</outline>
+				</outline>
+				<outline text=" Complete a current state map of the care pathway">
+					<outline text="Infinite Canvas">
+						<outline text="Canvas UI 
+Component"></outline>
+					</outline>
+				</outline>
+				<outline text=" Identify the right IP protection for the proposed innovation">
+					<outline text="Asset / Research Search ">
+						<outline text="Web">
+							<outline text="Browser"></outline>
+						</outline>
+						<outline text="Books">
+							<outline text="Malue Asset Repository
+UI"></outline>
+						</outline>
+						<outline text="Academic Papers">
+							<outline text="Malue Asset Repository
+UI"></outline>
+						</outline>
+						<outline text="Wikipedia">
+							<outline text="Browser"></outline>
+						</outline>
+					</outline>
+				</outline>
+				<outline text="Conduct a search to confirm that there is no infringement on any existing innovations">
+					<outline text="Web">
+						<outline text="Browser"></outline>
+					</outline>
+				</outline>
+				<outline text="Involve patients and the public in the development of the proposed solution">
+					<outline text="Evaluations"></outline>
+				</outline>
+				<outline text="Work with established PPIE groups to support all stages of development and implement a policy and engagement plan for how that will be managed">
+					<outline text="Forum">
+						<outline text="Forum UI 
+Component"></outline>
+					</outline>
+				</outline>
+				<outline text="Determine the best business model for developing the solution (social enterprise, limited company etc.)"></outline>
+				<outline text="What financial support is needed to get the solution created and implemented?"></outline>
+				<outline text=" Can you access external investment money, loan or family and friends?"></outline>
+				<outline text=" What skills, knowledge and expertise do you need to develop the solution?"></outline>
+				<outline text="Do you need to recruit to develop the solution further?"></outline>
+			</outline>
+			<outline text="Tools">
+				<outline text="Messaging">
+					<outline text="Messaging UI 
+Component"></outline>
+				</outline>
+				<outline text="Forum">
+					<outline text="Forum UI 
+Component"></outline>
+				</outline>
+				<outline text="AI Assistant">
+					<outline text="Malue Interactive
+AI Control"></outline>
+				</outline>
+				<outline text="Analytics">
+					<outline text="Report / Chart UI
+Component"></outline>
+				</outline>
+				<outline text="Spreadsheet">
+					<outline text="Excel (embedded)"></outline>
+					<outline text="Basic Spreadsheet
+UI Component"></outline>
+				</outline>
+				<outline text="Document Authoring">
+					<outline text="Word"></outline>
+					<outline text="Notes Editor
+UI Component"></outline>
+				</outline>
+			</outline>
+		</outline>
+	</body>
+</opml>

@@ -1,0 +1,468 @@
+[
+  {
+    "text": "Example Idea Forge Process",
+    "children": [
+      {
+        "text": "Initiation",
+        "children": [
+          {
+            "text": "Steps",
+            "children": [
+              {
+                "text": "What's your idea?",
+                "children": [
+                  {
+                    "text": "Note Editor",
+                    "children": [
+                      {
+                        "text": "Subtopic 1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "text": "Team Members",
+                "children": [
+                  {
+                    "text": "Contact Manager"
+                  }
+                ]
+              },
+              {
+                "text": "Outline Plan",
+                "children": [
+                  {
+                    "text": "Malue Infinite Canvas",
+                    "children": [
+                      {
+                        "text": "Team Members",
+                        "children": [
+                          {
+                            "text": "Contact Manager"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "Infinte Canvas UI Component"
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Kanban Board",
+                    "children": [
+                      {
+                        "text": "Kanban UI"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "text": "Research",
+                "children": [
+                  {
+                    "text": "Asset / Research Search ",
+                    "children": [
+                      {
+                        "text": "Web",
+                        "children": [
+                          {
+                            "text": "Browser"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "Books",
+                        "children": [
+                          {
+                            "text": "Malue Asset Repository UI"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "Academic Papers",
+                        "children": [
+                          {
+                            "text": "Malue Asset Repository UI"
+                          }
+                        ]
+                      },
+                      {
+                        "text": "Wikipedia",
+                        "children": [
+                          {
+                            "text": "Browser"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Development",
+        "children": [
+          {
+            "text": "Steps",
+            "children": [
+              {
+                "text": "Obtain the financial support required to develop the solution"
+              },
+              {
+                "text": "Outline the strategy for how you will obtain a return on the investment \u00e2\u20ac\u201c how much will you sell the solution for, who to and how quickly will you be able to sell it and at what scale?"
+              },
+              {
+                "text": "Develop a minimum viable product to be able to test the value to the customer"
+              },
+              {
+                "text": "Create a prototype"
+              },
+              {
+                "text": "Identify willing participants and hosts of a pre-clinical tests"
+              },
+              {
+                "text": "Review research funding grants to support the testing process"
+              },
+              {
+                "text": "Identify who your main customers will be "
+              },
+              {
+                "text": "Building on the value proposition, test the proposed solution in the market"
+              },
+              {
+                "text": "Outline the benefits to the market"
+              },
+              {
+                "text": "Create a marketing and sales strategy"
+              },
+              {
+                "text": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Evidence",
+        "children": [
+          {
+            "text": "Steps",
+            "children": [
+              {
+                "text": "Complete an ethics application, if necessary"
+              },
+              {
+                "text": "Complete an environmental impact assessment on implementing the proposed solution"
+              },
+              {
+                "text": "Identify partners to work with to conduct the trial"
+              },
+              {
+                "text": "Source appropriate funding for the trial"
+              },
+              {
+                "text": "Ensure trial methodology is robust and provides data for all of the necessary value proposition points outlined."
+              },
+              {
+                "text": "Complete a human factors impact assessment "
+              },
+              {
+                "text": "Gather as much data as possible to identify the true impact of solution implementation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Regulation",
+        "children": [
+          {
+            "text": "N/A"
+          }
+        ]
+      },
+      {
+        "text": "Commissioning  & Adoption",
+        "children": [
+          {
+            "text": "N/A"
+          }
+        ]
+      },
+      {
+        "text": "Steps ",
+        "children": [
+          {
+            "text": " Identify unmet need (clinical or operational)",
+            "children": [
+              {
+                "text": "Asset / Research Search ",
+                "children": [
+                  {
+                    "text": "Web",
+                    "children": [
+                      {
+                        "text": "Browser"
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Books",
+                    "children": [
+                      {
+                        "text": "Malue Asset Repository UI"
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Academic Papers",
+                    "children": [
+                      {
+                        "text": "Malue Asset Repository UI"
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Wikipedia",
+                    "children": [
+                      {
+                        "text": "Browser"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": " Create proposed solution outline",
+            "children": [
+              {
+                "text": "Document Authoring",
+                "children": [
+                  {
+                    "text": "Word"
+                  },
+                  {
+                    "text": "Notes Editor UI Component"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": " Show how the proposed innovation addresses the unmet need. ",
+            "children": [
+              {
+                "text": "Document Authoring",
+                "children": [
+                  {
+                    "text": "Word"
+                  },
+                  {
+                    "text": "Notes Editor UI Component"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Create the value proposition to key stakeholders (end user, buyer and commissioner)",
+            "children": [
+              {
+                "text": "Spreadsheet",
+                "children": [
+                  {
+                    "text": "Excel (embedded)"
+                  },
+                  {
+                    "text": "Basic Spreadsheet UI Component"
+                  }
+                ]
+              },
+              {
+                "text": "Document Authoring",
+                "children": [
+                  {
+                    "text": "Word"
+                  },
+                  {
+                    "text": "Notes Editor UI Component"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": " Complete a current state map of the care pathway",
+            "children": [
+              {
+                "text": "Infinite Canvas",
+                "children": [
+                  {
+                    "text": "Canvas UI  Component"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": " Identify the right IP protection for the proposed innovation",
+            "children": [
+              {
+                "text": "Asset / Research Search ",
+                "children": [
+                  {
+                    "text": "Web",
+                    "children": [
+                      {
+                        "text": "Browser"
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Books",
+                    "children": [
+                      {
+                        "text": "Malue Asset Repository UI"
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Academic Papers",
+                    "children": [
+                      {
+                        "text": "Malue Asset Repository UI"
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Wikipedia",
+                    "children": [
+                      {
+                        "text": "Browser"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Conduct a search to confirm that there is no infringement on any existing innovations",
+            "children": [
+              {
+                "text": "Web",
+                "children": [
+                  {
+                    "text": "Browser"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Involve patients and the public in the development of the proposed solution",
+            "children": [
+              {
+                "text": "Evaluations"
+              }
+            ]
+          },
+          {
+            "text": "Work with established PPIE groups to support all stages of development and implement a policy and engagement plan for how that will be managed",
+            "children": [
+              {
+                "text": "Forum",
+                "children": [
+                  {
+                    "text": "Forum UI  Component"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Determine the best business model for developing the solution (social enterprise, limited company etc.)"
+          },
+          {
+            "text": "What financial support is needed to get the solution created and implemented?"
+          },
+          {
+            "text": " Can you access external investment money, loan or family and friends?"
+          },
+          {
+            "text": " What skills, knowledge and expertise do you need to develop the solution?"
+          },
+          {
+            "text": "Do you need to recruit to develop the solution further?"
+          }
+        ]
+      },
+      {
+        "text": "Tools",
+        "children": [
+          {
+            "text": "Messaging",
+            "children": [
+              {
+                "text": "Messaging UI  Component"
+              }
+            ]
+          },
+          {
+            "text": "Forum",
+            "children": [
+              {
+                "text": "Forum UI  Component"
+              }
+            ]
+          },
+          {
+            "text": "AI Assistant",
+            "children": [
+              {
+                "text": "Malue Interactive AI Control"
+              }
+            ]
+          },
+          {
+            "text": "Analytics",
+            "children": [
+              {
+                "text": "Report / Chart UI Component"
+              }
+            ]
+          },
+          {
+            "text": "Spreadsheet",
+            "children": [
+              {
+                "text": "Excel (embedded)"
+              },
+              {
+                "text": "Basic Spreadsheet UI Component"
+              }
+            ]
+          },
+          {
+            "text": "Document Authoring",
+            "children": [
+              {
+                "text": "Word"
+              },
+              {
+                "text": "Notes Editor UI Component"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
