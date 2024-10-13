@@ -237,6 +237,9 @@ document.addEventListener("DOMContentLoaded", function () {
             case "document":
                 window.location.href = "ms-word:ofe|u|https://stmaluepocsharewesteu.blob.core.windows.net/ideaforgemockupdocuments/blank.docx|s|https://malue.sharepoint.com/:f:/s/ProofofConcept-Initial/";
                 break;
+            case "workflow":
+                window.open("http://localhost:13000/workflows/definitions/9d644b4c0b3914e/edit");
+                break;
             default:
                 alert("launching "+ source);
         }
