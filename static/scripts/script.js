@@ -428,6 +428,14 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch(error => console.error('Error:', error));
     }
+    function openNewWindow() {
+        window.open(
+            "http://localhost:13000/workflows/definitions/9d644b4c0b3914e/edit", 
+            "_blank", 
+            "width=800,height=600,scrollbars=yes,resizable=yes"
+        );
+    }
+    window.openNewWindow = openNewWindow;
     window.disposeOfArtifactDisplay = disposeOfArtifactDisplay;
     window.closePdf = closePdf;
     window.closeUnsupported = closeUnsupported;
