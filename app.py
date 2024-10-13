@@ -7,13 +7,54 @@ from flask import Flask, url_for, request, Response , render_template , make_res
 import requests 
 
 
-# Sample JSON path (you can replace it with the actual path)
+def count_ids(obj):
+    count = 0
+    if isinstance(obj, dict):
+        # Check if "id" is in the dictionary and count it if present
+        if "id" in obj:
+            count += 1
+        # Recursively count "id" in each value
+        for value in obj.values():
+            count += count_ids(value)
+    elif isinstance(obj, list):
+        # Recursively count "id" in each item of the list
+        for item in obj:
+            count += count_ids(item)
+    return count
+# Function to mark an ID as used
+def mark_as_used(id_value):
+    global used_ids
+    used_ids[int(id_value)] = True
+
+
+# Function to check if an ID has been used
+def is_used(id_value):
+    global used_ids
+    return used_ids[int(id_value)]
+    
+
+# Function to clear the usage indicator
+def clear_usage(id_value):
+    global used_ids
+    used_ids[int(id_value)] = False
+   
+zindex = 0
+idSeq = 0
+ypos = 10
+xpos = 10
+
 path = os.path.dirname(os.path.realpath(__file__))
 json_file = f'{path}/menu.json'
 note_file = 'initialteam.md'
 # Load the JSON structure
 with open(json_file, 'r') as f:
     menu_structure = json.load(f)
+
+ids = count_ids(menu_structure)  
+
+used_ids = [False] * ids # Initially, all IDs are unused (False)
+
+
 
 # command = [r"mmdc.cmd", "-i", f"{path}/artefacts/{note_file}", "-o", f"{path}/artefacts/out_{note_file}"]
 # # Run the command and capture the output
@@ -23,7 +64,8 @@ with open(json_file, 'r') as f:
 #     html = markdown.markdown(note.read(),extensions=['extra'])
 #     note_content = html
 note_content = 'empty note'   
-   
+
+  
 # Define the generate_menu_html function
 def generate_menu_html(structure):
     # Helper function to recursively build the tree menu
@@ -75,9 +117,12 @@ def extract(data, stage, step):
     return main_pane_contents                        
 
 def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
-    html_content = ''
+    # if is_used(id):
+    #     return ''
+    html_content = '<div class="tool-resize">'
     matchItem = artifactRecord['tool']
     description = artifactRecord['description']
+    mark_as_used(id)
     match matchItem:
         case 'MALUE_NOTE' | 'MALUE_FEED' | 'MALUE_CONTACTS' | 'MALUE_CONTACT': 
             location = path + '\\static\\documents\\' + artifactRecord['artefact-locations'][0]
@@ -89,7 +134,10 @@ def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
                 note_content = ''  
             html_content += f'<div class="tool-wrapper" id="note{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:500px; width:50%">'
             html_content += f'<fieldset>'
-            html_content += f'                    <legend>Notes - {description}</legend>'
+            html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
+            html_content += f'                    Notes - {description}'
+            html_content += f'                    <span class="close-icon" onclick="closeNote({idSeq})">×</span>'
+            html_content += f'                    </legend>'
             html_content += f'                    <textarea style="height: 100%;width:100%;" id="mytextarea">'
             html_content += f'                    <div>{note_content}</div>'
             html_content += f'                    </textarea>'
@@ -98,11 +146,19 @@ def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
 
         case 'MALUE_PDF_VIEWER' :
             location = artifactRecord['artefact-locations'][0]
-            html_content += f'<div class="tool-wrapper" id="pdf{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:500px; width: 50%; overflow: hidden;">'
+            html_content += f'<div class="tool-wrapper" id="pdf{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:500px; width: 50%; ;">'
             html_content += f'<fieldset>'
-            html_content += f'                    <legend>PDF - {description}</legend>'
+            html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
+            html_content += f'                    PDF - {description}'
+            html_content += f'                    <span class="close-icon" onclick="closePdf({idSeq})">×</span>'
+            html_content += f'                    </legend>'
             html_content += f'                    <embed src="{location}#zoom=page-fit"'
             html_content += f'                    height="100%" width="500" type="application/pdf" >'
+            html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
+            html_content += f'                    PDF - {description}'
+            html_content += f'                    <span class="close-icon" onclick="closePdf({idSeq})">×</span>'
+            html_content += f'                    </legend>'
+
             html_content += f'</fieldset>'
             html_content += f'</div>'
             
@@ -110,7 +166,10 @@ def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
             location = artifactRecord['artefact-locations'][0]
             html_content += f'<div class="tool-wrapper" id="doc{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:500px; width:50%">'
             html_content += f'<fieldset>'
-            html_content += f'                    <legend>Document</legend>'
+            html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
+            html_content += f'                    Document - {description}'
+            html_content += f'                    <span class="close-icon" onclick="closeDoc({idSeq})">×</span>'
+            html_content += f'                    </legend>'
             html_content += f'                    <iframe src="{location}"></iframe>'
             # html_content += f'                    width="100%" height="100%" >'
             html_content += f'</fieldset>'
@@ -121,7 +180,10 @@ def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
             
             html_content += f'<div class="tool-wrapper" id="canvas{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:500px; width:50%">'
             html_content += f'<fieldset>'
-            html_content += f'                    <legend>Canvas  {description}</legend>'
+            html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
+            html_content += f'                    Canvas - {description}'
+            html_content += f'                    <span class="close-icon" onclick="closeCanvas({idSeq})">×</span>'
+            html_content += f'                    </legend>'
             html_content += f'                    <iframe width="768" height="432" src="https://miro.com/app/live-embed/uXjVMzWlxxY=/?moveToViewport=-3874,-2438,7747,4875&embedId=397718520920&autoplay=true&embedAutoplay=true" frameborder="0" interaction=off scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>'
             html_content += f'</fieldset>'
             html_content += f'</div>'
@@ -131,7 +193,10 @@ def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
             location = 'http://localhost:5000/proxy'
             html_content += f'<div class="tool-wrapper" id="web{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:500px; width:50%">'
             html_content += f'<fieldset>'
-            html_content += f'                    <legend>Website  {description}</legend>'
+            html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
+            html_content += f'                    Website - {description}'
+            html_content += f'                    <span class="close-icon" onclick="closeWeb({idSeq})">×</span>'
+            html_content += f'                    </legend>'
             html_content += f'                    <iframe src="{location}" width="100%" height="100%"></iframe>'
             html_content += f'</fieldset>'
             html_content += f'</div>'
@@ -140,11 +205,15 @@ def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
             location = artifactRecord['artefact-locations'][0]
             html_content += f'<div class="tool-wrapper" id="unknown{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:100px; width:500px">'
             html_content += f'<fieldset>'
-            html_content += f'                    <legend>{matchItem} Not Supported or not found </legend>'
+            html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
+            html_content += f'                    {matchItem} Not Supported or not found '
+            html_content += f'                    <span class="close-icon" onclick="closeUnsupported({idSeq})">×</span>'
+            html_content += f'                    </legend>'
             html_content += f'                    <p>{description}</p>'
             html_content += f'                    <p>{location}</p>'
             html_content += f'</fieldset>'
             html_content += f'</div>'
+    html_content += '<div>'
     return html_content
 
 def generate_html_document(menu_html, items_html, note_content):
@@ -200,10 +269,8 @@ def proxy(path):
 
 @app.route('/')
 def show_menu():
-    # Call the generate_menu_html function and return the result
-    
-    items_html = '<div><div id="list-pane" style="position: relative;"></div><div id="main-pane" style="position: relative;"></div></div>'
-
+    items_html = '<div><div id="list-pane"  class="scrollable-div"style="position: relative;height: 200px;"></div><div id="main-pane" style="position: relative;height: 100%"></div></div>'
+  
     menu_html = generate_menu_html(menu_structure)
     html_document = generate_html_document(menu_html,items_html,note_content)
     return html_document
@@ -216,29 +283,34 @@ def get_artifactData():
     # Return fresh HTML content for the div
     main_pane_contents = extract(menu_structure, stage, step)
     artifactRecords = [item for item in main_pane_contents if item.get("id") == int(id)][0]
-
-
-    zindex = 0
-    idSeq = 0
-    ypos = 10
-    xpos = 10
+    global zindex, idSeq, ypos, xpos
     items_html = render_artifact_item(artifactRecords,stage,step,id, zindex,idSeq,ypos,xpos)
-
+    zindex += 1
+    idSeq += 1
+    ypos += 50
+    xpos += 50
     return items_html    
 
 @app.route('/document-list')
 def get_document_list():
-    stage = request.args.get('stage')
-    step = request.args.get('step')
-    # Return fresh HTML content for the div
-    main_pane_contents = extract(menu_structure, stage, step)
+    global zindex, idSeq, ypos, xpos
     zindex = 0
     idSeq = 0
     ypos = 10
     xpos = 10
+    stage = request.args.get('stage')
+    step = request.args.get('step')
+    # Return fresh HTML content for the div
+    main_pane_contents = extract(menu_structure, stage, step)
+    
     items_html = generate_document_list_item(stage, step, main_pane_contents)
 
     return items_html    
+
+@app.route('/disposeOfArtifactDisplay')
+def disposeOfArtifactDisplay():
+    id = request.args.get('id')
+    clear_usage(id)
 
 if __name__ == '__main__':
     app.run(debug=True)

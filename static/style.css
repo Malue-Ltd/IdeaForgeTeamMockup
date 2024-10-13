@@ -2,6 +2,51 @@ html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+.scrollable-div {
+    width: 100%;           /* Set desired width */
+    height: 300px;         /* Set a fixed height */
+    overflow-y: scroll;        /* Adds scrollbars when content overflows */
+         /* Optional: padding for inner spacing */
+    border-bottom: solid black 2px;
+    overflow-x: hidden;
+}
+.draggable {
+    width: 25%;
+    min-height: 6.5em;
+    margin: 1rem 0 0 1rem;
+    background-color: #29e;
+    color: white;
+    border-radius: 0.75em;
+    padding: 4%;
+    touch-action: none;
+    user-select: none;
+  }
+.resizable {
+    width: 120px;
+    border-radius: 0.75rem;
+    padding: 20px;
+    margin: 1rem;
+    background-color: #29e;
+    color: white;
+    font-size: 20px;
+    font-family: sans-serif;
+    overflow: hidden;
+  
+    touch-action: none;
+  
+    /* This makes things *much* easier */
+    box-sizing: border-box;
+  }
+
+.close-icon {
+    font-size: 1.2em; /* Adjust size as needed */
+    cursor: pointer;
+    margin-left: auto;
+    color: #333; /* Set color as needed */
+    padding: 0 5px; /* Optional: adjust spacing */
+}
+
+
 .tool-wrapper{
     position: absolute;
     border: 2px solid #2c3e50;

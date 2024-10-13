@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function SetupSpreadsheet() {
         const myData = localStorage.getItem("sheetdata");
         let sheet = document.getElementById("sheet");
-        if(sheet){
+        if (sheet) {
             let widthOfBox = 500;//sheet.offsetWidth;
             console.log(widthOfBox);
             const options = {
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
             x_spreadsheet("#xspreadsheet", options).loadData(JSON.parse(myData));
         }
 
-        
+
     }
     function OutputFieldSetPositions() {
         const fieldsets = document.querySelectorAll("div.tool-wrapper");
@@ -87,59 +87,46 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(`${elementName}, ${rect.top},${rect.left},${rect.height},${rect.width} `);
         }
         return fieldsets;
-    }    
+    }
     function SetupDragAndDrop() {
+        const position = { x: 0, y: 0 }
         interact(".tool-wrapper")
             .draggable({
-                modifiers: [
-                    interact.modifiers.snap({
-                        targets: [interact.snappers.grid({ x: 10, y: 10 })],
-                        range: Infinity,
-                        relativePoints: [{ x: 0, y: 0 }],
-                    }),
-                ],
-                inertia: true,
-                onmove: function (event) {
-                    let target = event.target;
-                    let x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
-                    let y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
+                listeners: {
+                    start(event) {
+                        console.log(event.type, event.target)
+                    },
+                    move(event) {
+                        position.x += event.dx
+                        position.y += event.dy
 
-                    target.style.transform = "translate(" + x + "px, " + y + "px)";
-                    target.setAttribute("data-x", x);
-                    target.setAttribute("data-y", y);
-
+                        event.target.style.transform =
+                            `translate(${position.x}px, ${position.y}px)`
+                    },
                 },
             })
-            .resizable({
-                edges: { left: true, right: true, bottom: true, top: true },
-                modifiers: [
-                    interact.modifiers.snapSize({
-                        targets: [
-                            { width: 10 },
-                            interact.snappers.grid({ width: 10, height: 10 }),
-                        ],
-                    }),
-                ],
-                inertia: true,
-            })
-            .on("resizemove", function (event) {
-                let target = event.target;
-                let x = parseFloat(target.getAttribute("data-x")) || 0;
-                let y = parseFloat(target.getAttribute("data-y")) || 0;
+        // interact(".tool-resize")
+        //     .resizable({
+        //         edges: { top: false, left: false, bottom: true, right: true },
+        //         listeners: {
+        //             move: function (event) {
+        //                 let { x, y } = event.target.dataset
 
-                target.style.width = event.rect.width + "px";
-                target.style.height = event.rect.height + "px";
+        //                 x = (parseFloat(x) || 0) + event.deltaRect.left
+        //                 y = (parseFloat(y) || 0) + event.deltaRect.top
 
-                x += event.deltaRect.left;
-                y += event.deltaRect.top;
+        //                 Object.assign(event.target.style, {
+        //                     width: `${event.rect.width}px`,
+        //                     height: `${event.rect.height}px`,
+        //                     transform: `translate(${x}px, ${y}px)`
+        //                 })
 
-                target.style.transform = "translate(" + x + "px," + y + "px)";
-
-                target.setAttribute("data-x", x);
-                target.setAttribute("data-y", y);
-                OutputFieldSetPositions();
-            });
+        //                 Object.assign(event.target.dataset, { x, y })
+        //             }
+        //         }
+        //     })
     }
+
     function setToolWrapperZindexes() {
         let highestZIndex = document.querySelectorAll(".tool-wrapper").length;
         const maxZIndex = 65535; // Define a maximum threshold
@@ -203,27 +190,29 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("overlay").style.display = "block";
     }
     function openArtifact(stage, step, id) {
-        document.getElementById("popupDoclist").style.display = "block";
+
         let tempdata = '';
         fetch('/artifact-details?stage=' + stage + '&step=' + step + '&id=' + id)
-                    .then(response => response.text())
-                    .then(data => {
-                        tempdata = data;
-                        let popupDialogHtml = document.getElementById("main-pane");
-                        popupDialogHtml.innerHTML = tempdata;
-                        createSheetData();
-                        //setupCanvas();
-                        SetupSpreadsheet();
-                        SetupNotePad();
-                        SetupDragAndDrop();
-                        setToolWrapperZindexes();
-                        OutputFieldSetPositions();
-                        PreventDialogFromClosingWhenClickingInsideThedialog();
-                        OutputFieldSetPositions();
-                    })
-                    .catch(error => console.error('Error:', error));
-        
-        document.getElementById("overlay").style.display = "block";
+            .then(response => response.text())
+            .then(data => {
+                tempdata = data;
+                const child = document.createElement('div');
+                child.innerHTML = tempdata;
+                let popupDialogHtml = document.getElementById("main-pane");
+                popupDialogHtml.append(child);
+                createSheetData();
+                //setupCanvas();
+                SetupSpreadsheet();
+                SetupNotePad();
+                SetupDragAndDrop();
+                setToolWrapperZindexes();
+                OutputFieldSetPositions();
+                PreventDialogFromClosingWhenClickingInsideThedialog();
+                OutputFieldSetPositions();
+            })
+            .catch(error => console.error('Error:', error));
+
+        document.getElementById("popupDoclist").style.display = "block";
     }
     function closeArtifact() {
         document.getElementById("popupDoclist").style.display = "none";
@@ -312,31 +301,83 @@ document.addEventListener("DOMContentLoaded", function () {
             { name: "sheet-test" },];
         localStorage.setItem("sheetdata", JSON.stringify(myData));
     }
-    function toggleMenu(levelId,stage,step) {
+    function toggleMenu(levelId, stage, step) {
         const level = document.getElementById(levelId);
         const currentDate = new Date();
         const milliseconds = currentDate.getMilliseconds();
         console.log(`Milliseconds: ${milliseconds}, ${levelId} , ${stage} , ${step})`);
-        if(level != null){
+
+        document.getElementById("popupDoclist").style.display = "block";
+        if (level != null) {
             level.classList.toggle('collapsed');
         };
+        let main = document.getElementById("main-pane");
+        main.innerHTML = '';
         let main_pane = document.querySelector("#list-pane");
-                fetch('/document-list?stage=' + stage + '&step=' + step)
-                    .then(response => response.text())
-                    .then(data => {
-                        main_pane.innerHTML = data;
-                        createSheetData();
-                        //setupCanvas();
-                        SetupSpreadsheet();
-                        SetupNotePad();
-                        SetupDragAndDrop();
-                        setToolWrapperZindexes();
-                        OutputFieldSetPositions();
-                        PreventDialogFromClosingWhenClickingInsideThedialog();
-                        OutputFieldSetPositions();
-                    })
-                    .catch(error => console.error('Error:', error));
+        fetch('/document-list?stage=' + stage + '&step=' + step)
+            .then(response => response.text())
+            .then(data => {
+                main_pane.innerHTML = data;
+                createSheetData();
+                //setupCanvas();
+                SetupSpreadsheet();
+                SetupNotePad();
+                SetupDragAndDrop();
+                setToolWrapperZindexes();
+                OutputFieldSetPositions();
+                PreventDialogFromClosingWhenClickingInsideThedialog();
+                OutputFieldSetPositions();
+            })
+            .catch(error => console.error('Error:', error));
     }
+    function closeNote(idSeq) {
+        document.getElementById("note" + idSeq).style.display = "none"; // or use `.remove()` to delete it
+        disposeOfArtifactDisplay(idSeq)
+    }
+    function closeDoc(idSeq) {
+        document.getElementById("doc" + idSeq).style.display = "none"; // or use `.remove()` to delete it
+        disposeOfArtifactDisplay(idSeq)
+    }
+    function closeCanvas(idSeq) {
+        document.getElementById("canvas" + idSeq).style.display = "none"; // or use `.remove()` to delete it
+        disposeOfArtifactDisplay(idSeq)
+    }
+    function closeWeb(idSeq) {
+        document.getElementById("web" + idSeq).style.display = "none"; // or use `.remove()` to delete it
+        disposeOfArtifactDisplay(idSeq)
+    }
+    function closeUnsupported(idSeq) {
+        document.getElementById("unknown" + idSeq).style.display = "none"; // or use `.remove()` to delete it
+        disposeOfArtifactDisplay(idSeq)
+    }
+    function closePdf(idSeq) {
+        document.getElementById("pdf" + idSeq).style.display = "none"; // or use `.remove()` to delete it
+        disposeOfArtifactDisplay(idSeq)
+
+    }
+    function disposeOfArtifactDisplay(id) {
+        fetch('/disposeOfArtifactDisplay?id=' + id)
+            .then(response => response.text())
+            .then(data => {
+                createSheetData();
+                //setupCanvas();
+                SetupSpreadsheet();
+                SetupNotePad();
+                SetupDragAndDrop();
+                setToolWrapperZindexes();
+                OutputFieldSetPositions();
+                PreventDialogFromClosingWhenClickingInsideThedialog();
+                OutputFieldSetPositions();
+            })
+            .catch(error => console.error('Error:', error));
+    }
+    window.disposeOfArtifactDisplay = disposeOfArtifactDisplay;
+    window.closePdf = closePdf;
+    window.closeUnsupported = closeUnsupported;
+    window.closeDoc = closeDoc;
+    window.closeCanvas = closeCanvas;
+    window.closeWeb = closeWeb;
+    window.closeNote = closeNote;
     window.openArtifact = openArtifact;
     window.closeArtifact = closeArtifact;
     window.toggleMenu = toggleMenu;
