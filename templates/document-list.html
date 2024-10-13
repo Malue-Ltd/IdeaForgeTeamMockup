@@ -1,10 +1,113 @@
-<div >
-    <ul>        
-        {% for item in main_pane_contents %}
-            <li>{{ item['stage']}} {{ item['step']}} {{ item['task']}} 
-                <button onclick="openArtifact('{{ item['stage'] }}', '{{ item['step'] }}' , '{{ item['id'] }}')">press</button>
-            </li>
-        {% endfor %}
-    </ul>
+<div class="table-heading"">
+    <h2>Artefacts</h2>
+    <button class="header-button" onclick="yourButtonFunction()">Add Task</button>
 </div>
 
+<div class="scrollable-table">
+    <table>
+        <thead>
+            <tr>
+                <th>Stage</th>
+                <th>Step</th>
+                <th>Task</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in main_pane_contents %}
+                <tr>
+                    <td>{{ item['stage'] }}</td>
+                    <td>{{ item['step'] }}</td>
+                    <td>{{ item['task'] }}</td>
+                    <td>
+                        <button onclick="openArtifact('{{ item['stage'] }}', '{{ item['step'] }}', '{{ item['id'] }}')">Press</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<style>
+.table-heading {
+    position: relative; /* Enables positioning of the button */
+    padding: 10px;
+    background-color: #2c3e50;
+    color: white;
+    margin-bottom: 1px;
+    text-align: center;
+    
+}
+
+.table-heading h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.table-heading p {
+   
+    font-size: 1em;
+    color: white;
+}
+
+.header-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.header-button:hover {
+    background-color: #777;
+}
+    
+    .scrollable-table {
+    /* max-height: 400px; Set this to your desired scrollable area height */
+    overflow-y: auto;
+    border: 1px solid #2c3e50;
+}
+
+.scrollable-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.scrollable-table th,
+.scrollable-table td {
+    padding: 5px;
+    text-align: left;
+    border: 1px solid #2c3e50; /* Dark grey border */
+    white-space: nowrap; /* Prevent content from wrapping */
+}
+
+.scrollable-table th {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: bold;
+    position: sticky;
+    top: 0; /* Keep headers visible when scrolling */
+    z-index: 1;
+}
+
+.scrollable-table td {
+    background-color: white;
+    color: #000;
+}
+
+.scrollable-table button {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.scrollable-table button:hover {
+    background-color: #555;
+}
+
+</style>

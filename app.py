@@ -6,6 +6,20 @@ import markdown
 from flask import Flask, url_for, request, Response , render_template , make_response
 import requests 
 
+zindex = 0
+idSeq = 0
+ypos = 10
+xpos = 10
+
+path = os.path.dirname(os.path.realpath(__file__))
+json_file = f'{path}/menu.json'
+note_file = 'initialteam.md'
+# Load the JSON structure
+with open(json_file, 'r') as f:
+    menu_structure = json.load(f)
+
+note_content = 'empty note'
+
 
 def count_ids(obj):
     count = 0
@@ -25,33 +39,16 @@ def count_ids(obj):
 def mark_as_used(id_value):
     global used_ids
     used_ids[int(id_value)] = True
-
-
 # Function to check if an ID has been used
 def is_used(id_value):
     global used_ids
     return used_ids[int(id_value)]
-    
-
 # Function to clear the usage indicator
 def clear_usage(id_value):
     global used_ids
     used_ids[int(id_value)] = False
    
-zindex = 0
-idSeq = 0
-ypos = 10
-xpos = 10
-
-path = os.path.dirname(os.path.realpath(__file__))
-json_file = f'{path}/menu.json'
-note_file = 'initialteam.md'
-# Load the JSON structure
-with open(json_file, 'r') as f:
-    menu_structure = json.load(f)
-
 ids = count_ids(menu_structure)  
-
 used_ids = [False] * ids # Initially, all IDs are unused (False)
 
 
@@ -63,7 +60,7 @@ used_ids = [False] * ids # Initially, all IDs are unused (False)
 # with open(f"{path}/artefacts//out_{note_file}", 'r' ) as note:
 #     html = markdown.markdown(note.read(),extensions=['extra'])
 #     note_content = html
-note_content = 'empty note'   
+   
 
   
 # Define the generate_menu_html function
@@ -119,7 +116,7 @@ def extract(data, stage, step):
 def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
     # if is_used(id):
     #     return ''
-    html_content = '<div class="tool-resize">'
+    html_content = '<div >'
     matchItem = artifactRecord['tool']
     description = artifactRecord['description']
     mark_as_used(id)
@@ -132,7 +129,7 @@ def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
                         note_content = markdown.markdown(note_content,extensions=['extra'])
             except:
                 note_content = ''  
-            html_content += f'<div class="tool-wrapper" id="note{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:500px; width:50%">'
+            html_content += f'<div class="tool-wrapper" id="note{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px;width:50%">'
             html_content += f'<fieldset>'
             html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
             html_content += f'                    Notes - {description}'
@@ -150,14 +147,10 @@ def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
             html_content += f'<fieldset>'
             html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
             html_content += f'                    PDF - {description}'
-            html_content += f'                    <span class="close-icon" onclick="closePdf({idSeq})">×</span>'
+            html_content += f'                    <span class="close-icon" onclick="closePdf({idSeq})">❌</span>'
             html_content += f'                    </legend>'
             html_content += f'                    <embed src="{location}#zoom=page-fit"'
             html_content += f'                    height="100%" width="500" type="application/pdf" >'
-            html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
-            html_content += f'                    PDF - {description}'
-            html_content += f'                    <span class="close-icon" onclick="closePdf({idSeq})">×</span>'
-            html_content += f'                    </legend>'
 
             html_content += f'</fieldset>'
             html_content += f'</div>'
@@ -168,7 +161,7 @@ def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
             html_content += f'<fieldset>'
             html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
             html_content += f'                    Document - {description}'
-            html_content += f'                    <span class="close-icon" onclick="closeDoc({idSeq})">×</span>'
+            html_content += f'                    <span class="close-icon" onclick="closeDoc({idSeq})">❌</span>'
             html_content += f'                    </legend>'
             html_content += f'                    <iframe src="{location}"></iframe>'
             # html_content += f'                    width="100%" height="100%" >'
@@ -182,7 +175,7 @@ def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
             html_content += f'<fieldset>'
             html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
             html_content += f'                    Canvas - {description}'
-            html_content += f'                    <span class="close-icon" onclick="closeCanvas({idSeq})">×</span>'
+            html_content += f'                    <span class="close-icon" onclick="closeCanvas({idSeq})">❌</span>'
             html_content += f'                    </legend>'
             html_content += f'                    <iframe width="768" height="432" src="https://miro.com/app/live-embed/uXjVMzWlxxY=/?moveToViewport=-3874,-2438,7747,4875&embedId=397718520920&autoplay=true&embedAutoplay=true" frameborder="0" interaction=off scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>'
             html_content += f'</fieldset>'
@@ -195,7 +188,7 @@ def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
             html_content += f'<fieldset>'
             html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
             html_content += f'                    Website - {description}'
-            html_content += f'                    <span class="close-icon" onclick="closeWeb({idSeq})">×</span>'
+            html_content += f'                    <span class="close-icon" onclick="closeWeb({idSeq})">❌</span>'
             html_content += f'                    </legend>'
             html_content += f'                    <iframe src="{location}" width="100%" height="100%"></iframe>'
             html_content += f'</fieldset>'
@@ -207,7 +200,7 @@ def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
             html_content += f'<fieldset>'
             html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
             html_content += f'                    {matchItem} Not Supported or not found '
-            html_content += f'                    <span class="close-icon" onclick="closeUnsupported({idSeq})">×</span>'
+            html_content += f'                    <span class="close-icon" onclick="closeUnsupported({idSeq})">❌</span>'
             html_content += f'                    </legend>'
             html_content += f'                    <p>{description}</p>'
             html_content += f'                    <p>{location}</p>'
@@ -269,7 +262,12 @@ def proxy(path):
 
 @app.route('/')
 def show_menu():
-    items_html = '<div><div id="list-pane"  class="scrollable-div"style="position: relative;height: 200px;"></div><div id="main-pane" style="position: relative;height: 100%"></div></div>'
+    items_html = '<div style="position: relative;height: 100%;overflow-y: hidden; ">'
+    items_html += '<div id="list-pane"  class="scrollable-div doclist-content"style="position: relative;">'
+    items_html += '</div>'
+    items_html += '<div id="main-pane" style="position: relative;height: 100vh;overflow-y: hidden; ">'
+    items_html += '</div>'
+    items_html += '</div>'
   
     menu_html = generate_menu_html(menu_structure)
     html_document = generate_html_document(menu_html,items_html,note_content)

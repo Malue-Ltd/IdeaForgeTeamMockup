@@ -128,6 +128,15 @@
                                 </figure>
                             </a>
                         </li>
+                        <li>
+                            <a href="#workflow" onclick="openDialog('workflow')">
+                                <figure>
+                                    <img src="{{url_for('static', filename='icons/workflow.svg')}}"
+                                        alt="plannerlogo">
+                                    <figcaption>Workflow</figcaption>
+                                </figure>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 {{items_html | safe}}
@@ -138,10 +147,10 @@
             <h2>Tools</h2>
             <form>
                 <div>
-                    <label for="books">Tool invocation</label>
+                    <label for="books" id="toolLaunchLabel">Tool invocation</label>
                 </div>
                 <br>
-                <button type="submit">Launch</button>
+                <button type="submit" id="launchApp">Launch</button>
                 <button type="button" class="close-btn" onclick="closeDialog()">Close</button>
             </form>
         </div>

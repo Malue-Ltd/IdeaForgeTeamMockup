@@ -17,6 +17,41 @@ document.addEventListener("DOMContentLoaded", function () {
     PreventDialogFromClosingWhenClickingInsideThedialog();
     OutputFieldSetPositions();
 
+    const draggableDiv = document.getElementById("list-pane");
+    const resizeHandle = document.createElement("div");
+    resizeHandle.className = "resize-handle";
+    draggableDiv.appendChild(resizeHandle);
+
+    function animateDescend() {
+        draggableDiv.style.top = "0px"; // Adjust the final top position as needed
+    }
+
+    let isResizing = false;
+    let startY, startHeight;
+
+    resizeHandle.addEventListener("mousedown", function (e) {
+        isResizing = true;
+        startY = e.clientY;
+        startHeight = parseInt(window.getComputedStyle(draggableDiv).height, 10);
+        document.documentElement.style.cursor = "ns-resize"; // Change cursor globally
+    });
+
+    document.addEventListener("mousemove", function (e) {
+        if (isResizing) {
+            const newHeight = startHeight + (e.clientY - startY);
+            draggableDiv.style.height = `${newHeight}px`;
+        }
+    });
+
+    document.addEventListener("mouseup", function () {
+        isResizing = false;
+        document.documentElement.style.cursor = ""; // Reset cursor
+    });
+
+    // Trigger descend animation when needed
+    // animateDescend();
+
+
     function toggleBox() {
         // If the checkbox is checked, display the output text
         let checked = (document.getElementById("toggle"))?.checked;
@@ -126,7 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
         //         }
         //     })
     }
-
     function setToolWrapperZindexes() {
         let highestZIndex = document.querySelectorAll(".tool-wrapper").length;
         const maxZIndex = 65535; // Define a maximum threshold
@@ -187,8 +221,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     function openDialog(source) {
         document.getElementById("popupDialog").style.display = "block";
+        const actionButton = document.getElementById("launchApp");
+        actionButton.onclick = function() {
+            launchApp(source);
+        };
+
+        document.getElementById("toolLaunchLabel").innerText= "Launch "+source;
         document.getElementById("overlay").style.display = "block";
     }
+    function launchApp(source){        
+        switch (source){
+            case "sheet":
+                window.location.href = "ms-excel:ofe|u|https://malue.sharepoint.com/:x:/s/MalueArchtecture/EfcQgnJDmmFBt2XT8bYJo1cBoQu0MMR8Y3nxVbyKVRoHdw?e=efeFIg|s|https://malue.sharepoint.com/:x:/s/MalueArchtecture/";
+                break;
+            case "document":
+                window.location.href = "ms-word:ofe|u|https://stmaluepocsharewesteu.blob.core.windows.net/ideaforgemockupdocuments/blank.docx|s|https://malue.sharepoint.com/:f:/s/ProofofConcept-Initial/";
+                break;
+            default:
+                alert("launching "+ source);
+        }
+    }
+
     function openArtifact(stage, step, id) {
 
         let tempdata = '';
@@ -329,6 +382,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 OutputFieldSetPositions();
             })
             .catch(error => console.error('Error:', error));
+        animateDescend();
     }
     function closeNote(idSeq) {
         document.getElementById("note" + idSeq).style.display = "none"; // or use `.remove()` to delete it
