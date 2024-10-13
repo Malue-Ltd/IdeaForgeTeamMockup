@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function openArtifact(stage, step, id) {
+    function openArtifact(stage, step, id, tool) {
 
         let tempdata = '';
         fetch('/artifact-details?stage=' + stage + '&step=' + step + '&id=' + id)
@@ -269,6 +269,9 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.error('Error:', error));
 
         document.getElementById("popupDoclist").style.display = "block";
+        if(tool == 'MALUE_PLANNER'){
+             displayChart();
+        };
     }
     function closeArtifact() {
         document.getElementById("popupDoclist").style.display = "none";
@@ -412,6 +415,11 @@ document.addEventListener("DOMContentLoaded", function () {
         disposeOfArtifactDisplay(idSeq)
 
     }
+    function closePlanner(idSeq) {
+        document.getElementById("planner" + idSeq).style.display = "none"; // or use `.remove()` to delete it
+        disposeOfArtifactDisplay(idSeq)
+
+    }
     function disposeOfArtifactDisplay(id) {
         fetch('/disposeOfArtifactDisplay?id=' + id)
             .then(response => response.text())
@@ -435,6 +443,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "width=800,height=600,scrollbars=yes,resizable=yes"
         );
     }
+    window.closePlanner = closePlanner;
     window.openNewWindow = openNewWindow;
     window.disposeOfArtifactDisplay = disposeOfArtifactDisplay;
     window.closePdf = closePdf;

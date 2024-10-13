@@ -193,7 +193,18 @@ def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
             html_content += f'                    <iframe src="{location}" width="100%" height="100%"></iframe>'
             html_content += f'</fieldset>'
             html_content += f'</div>'
+        case 'MALUE_PLANNER':
+            location = artifactRecord['artefact-locations'][0]
+            html_content += f'<div class="tool-wrapper" id="planner{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:500px; width:50%">'
+            html_content += f'<fieldset>'
+            html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
+            html_content += f'                    Planner - {description}'
+            html_content += f'                    <span class="close-icon" onclick="closePlanner({idSeq})">❌</span>'
+            html_content += f'                    </legend>'
+            html_content += f'                    <div id="chart" style="background: white;"></div>'
             
+            html_content += f'</fieldset>'
+            html_content += f'</div>'
         case _ :
             location = artifactRecord['artefact-locations'][0]
             html_content += f'<div class="tool-wrapper" id="unknown{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:100px; width:500px">'
@@ -310,6 +321,7 @@ def get_document_list():
 def disposeOfArtifactDisplay():
     id = request.args.get('id')
     clear_usage(id)
+    return "Succss", 200
 
 if __name__ == '__main__':
     app.run(debug=True)

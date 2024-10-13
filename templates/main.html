@@ -9,11 +9,11 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css" rel="stylesheet">
     <link href="https://unpkg.com/x-data-spreadsheet@1.1.5/dist/xspreadsheet.css" rel="stylesheet">
-
+    
     <script src="{{url_for('static', filename='scripts/interact.min.js')}}"></script>
     <script src="https://unpkg.com/x-data-spreadsheet@1.1.5/dist/xspreadsheet.js"></script>
     <script src="{{url_for('static', filename='scripts/tinymce/js/tinymce/tinymce.min.js')}}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 
 <body>
@@ -160,7 +160,8 @@
             </div>
         </div>
     </div>
-
+    
+    <script src="{{url_for('static', filename='scripts/index.js')}}"></script>
     <script type="module" src="{{url_for('static', filename='scripts/script.js')}}"> </script>
 </body>
 

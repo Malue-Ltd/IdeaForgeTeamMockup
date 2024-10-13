@@ -10,7 +10,9 @@
                 <th>Stage</th>
                 <th>Step</th>
                 <th>Task</th>
+                <th>Tool</th>
                 <th>Action</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -19,8 +21,9 @@
                     <td>{{ item['stage'] }}</td>
                     <td>{{ item['step'] }}</td>
                     <td>{{ item['task'] }}</td>
+                    <td>{{ item['tool'] }}</td>
                     <td>
-                        <button onclick="openArtifact('{{ item['stage'] }}', '{{ item['step'] }}', '{{ item['id'] }}')">Press</button>
+                        <button onclick="openArtifact('{{ item['stage'] }}', '{{ item['step'] }}', '{{ item['id'] }}', '{{ item['tool'] }}')">Press</button>
                     </td>
                 </tr>
             {% endfor %}
