@@ -222,15 +222,15 @@ document.addEventListener("DOMContentLoaded", function () {
     function openDialog(source) {
         document.getElementById("popupDialog").style.display = "block";
         const actionButton = document.getElementById("launchApp");
-        actionButton.onclick = function() {
+        actionButton.onclick = function () {
             launchApp(source);
         };
 
-        document.getElementById("toolLaunchLabel").innerText= "Launch "+source;
+        document.getElementById("toolLaunchLabel").innerText = "Launch " + source;
         document.getElementById("overlay").style.display = "block";
     }
-    function launchApp(source){        
-        switch (source){
+    function launchApp(source) {
+        switch (source) {
             case "sheet":
                 window.location.href = "ms-excel:ofe|u|https://malue.sharepoint.com/:x:/s/MalueArchtecture/EfcQgnJDmmFBt2XT8bYJo1cBoQu0MMR8Y3nxVbyKVRoHdw?e=efeFIg|s|https://malue.sharepoint.com/:x:/s/MalueArchtecture/";
                 break;
@@ -241,37 +241,77 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.open("http://localhost:13000/workflows/definitions/9d644b4c0b3914e/edit");
                 break;
             default:
-                alert("launching "+ source);
+                alert("launching " + source);
         }
     }
 
     function openArtifact(stage, step, id, tool) {
+        switch (tool) {
+            case "MALUE_PROCESS": {
+                fetch('/artifact-details?stage=' + stage + '&step=' + step + '&id=' + id)
+                .then(response => response.text())
+                .then(data => {
+                    let tempdata = data;
+                    
+                    const newWindow = window.open('', '_blank', 'width=800,height=600');
+                    newWindow.document.open();
+                    newWindow.document.write(`
+                        <html>
+                            <head>
+                                <title>New Window</title>
+                                <style>
+                                    <link rel="stylesheet" type="text/css" href="../static/style.css">
+                                </style>
+                            </head>
+                            <body>
+                                <div id="content">${tempdata}</div>
+                                <script type="module" src="static/scripts/script.js"> </script>
+                            </body>
+                        </html>
+                    `);
+                    newWindow.document.close();
 
-        let tempdata = '';
-        fetch('/artifact-details?stage=' + stage + '&step=' + step + '&id=' + id)
-            .then(response => response.text())
-            .then(data => {
-                tempdata = data;
-                const child = document.createElement('div');
-                child.innerHTML = tempdata;
-                let popupDialogHtml = document.getElementById("main-pane");
-                popupDialogHtml.append(child);
-                createSheetData();
-                //setupCanvas();
-                SetupSpreadsheet();
-                SetupNotePad();
-                SetupDragAndDrop();
-                setToolWrapperZindexes();
-                OutputFieldSetPositions();
-                PreventDialogFromClosingWhenClickingInsideThedialog();
-                OutputFieldSetPositions();
-            })
-            .catch(error => console.error('Error:', error));
-
+                    createSheetData();
+                    //setupCanvas();
+                    SetupSpreadsheet();
+                    SetupNotePad();
+                    SetupDragAndDrop();
+                    setToolWrapperZindexes();
+                    OutputFieldSetPositions();
+                    PreventDialogFromClosingWhenClickingInsideThedialog();
+                    OutputFieldSetPositions();
+                })
+                .catch(error => console.error('Error:', error));
+                break;
+            }
+            default: {
+                let tempdata = '';
+                fetch('/artifact-details?stage=' + stage + '&step=' + step + '&id=' + id)
+                    .then(response => response.text())
+                    .then(data => {
+                        tempdata = data;
+                        const child = document.createElement('div');
+                        child.innerHTML = tempdata;
+                        let popupDialogHtml = document.getElementById("main-pane");
+                        popupDialogHtml.append(child);
+                        if(tool ==  "MALUE_PLANNER"){
+                            displayChart();
+                        }
+                        createSheetData();
+                        //setupCanvas();
+                        SetupSpreadsheet();
+                        SetupNotePad();
+                        SetupDragAndDrop();
+                        setToolWrapperZindexes();
+                        OutputFieldSetPositions();
+                        PreventDialogFromClosingWhenClickingInsideThedialog();
+                        OutputFieldSetPositions();
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+        }
         document.getElementById("popupDoclist").style.display = "block";
-        if(tool == 'MALUE_PLANNER'){
-             displayChart();
-        };
+        
     }
     function closeArtifact() {
         document.getElementById("popupDoclist").style.display = "none";
@@ -438,11 +478,173 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     function openNewWindow() {
         window.open(
-            "http://localhost:13000/workflows/definitions/9d644b4c0b3914e/edit", 
-            "_blank", 
+            "http://localhost:13000/workflows/definitions/bf063a1ee72a7877/edit",
+            "_blank",
             "width=800,height=600,scrollbars=yes,resizable=yes"
         );
     }
+    function displayChart() {
+        var options = {
+            series: [
+                {
+                    name: 'Bob',
+                    data: [
+                        {
+                            x: 'Design',
+                            y: [
+                                new Date('2019-03-05').getTime(),
+                                new Date('2019-03-08').getTime()
+                            ]
+                        },
+                        {
+                            x: 'Code',
+                            y: [
+                                new Date('2019-03-02').getTime(),
+                                new Date('2019-03-05').getTime()
+                            ]
+                        },
+                        {
+                            x: 'Code',
+                            y: [
+                                new Date('2019-03-05').getTime(),
+                                new Date('2019-03-07').getTime()
+                            ]
+                        },
+                        {
+                            x: 'Test',
+                            y: [
+                                new Date('2019-03-03').getTime(),
+                                new Date('2019-03-09').getTime()
+                            ]
+                        },
+                        {
+                            x: 'Test',
+                            y: [
+                                new Date('2019-03-08').getTime(),
+                                new Date('2019-03-11').getTime()
+                            ]
+                        },
+                        {
+                            x: 'Validation',
+                            y: [
+                                new Date('2019-03-11').getTime(),
+                                new Date('2019-03-16').getTime()
+                            ]
+                        },
+                        {
+                            x: 'Design',
+                            y: [
+                                new Date('2019-03-01').getTime(),
+                                new Date('2019-03-03').getTime()
+                            ],
+                        }
+                    ]
+                },
+                {
+                    name: 'Joe',
+                    data: [
+                        {
+                            x: 'Design',
+                            y: [
+                                new Date('2019-03-02').getTime(),
+                                new Date('2019-03-05').getTime()
+                            ]
+                        },
+                        {
+                            x: 'Test',
+                            y: [
+                                new Date('2019-03-06').getTime(),
+                                new Date('2019-03-16').getTime()
+                            ],
+                            goals: [
+                                {
+                                    name: 'Break',
+                                    value: new Date('2019-03-10').getTime(),
+                                    strokeColor: '#CD2F2A'
+                                }
+                            ]
+                        },
+                        {
+                            x: 'Code',
+                            y: [
+                                new Date('2019-03-03').getTime(),
+                                new Date('2019-03-07').getTime()
+                            ]
+                        },
+                        {
+                            x: 'Deployment',
+                            y: [
+                                new Date('2019-03-20').getTime(),
+                                new Date('2019-03-22').getTime()
+                            ]
+                        },
+                        {
+                            x: 'Design',
+                            y: [
+                                new Date('2019-03-10').getTime(),
+                                new Date('2019-03-16').getTime()
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: 'Dan',
+                    data: [
+                        {
+                            x: 'Code',
+                            y: [
+                                new Date('2019-03-10').getTime(),
+                                new Date('2019-03-17').getTime()
+                            ]
+                        },
+                        {
+                            x: 'Validation',
+                            y: [
+                                new Date('2019-03-05').getTime(),
+                                new Date('2019-03-09').getTime()
+                            ],
+                            goals: [
+                                {
+                                    name: 'Break',
+                                    value: new Date('2019-03-07').getTime(),
+                                    strokeColor: '#CD2F2A'
+                                }
+                            ]
+                        },
+                    ]
+                }
+            ],
+            chart: {
+                height: 450,
+                type: 'rangeBar'
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: true,
+                    barHeight: '80%'
+                }
+            },
+            xaxis: {
+                type: 'datetime'
+            },
+            stroke: {
+                width: 1
+            },
+            fill: {
+                type: 'solid',
+                opacity: 0.6
+            },
+            legend: {
+                position: 'top',
+                horizontalAlign: 'left'
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+
+    }
+    window.displayChart = displayChart;
     window.closePlanner = closePlanner;
     window.openNewWindow = openNewWindow;
     window.disposeOfArtifactDisplay = disposeOfArtifactDisplay;

@@ -10,7 +10,7 @@ html, body {
 
 .doclist-content {
     width: 100%;
-    max-height: 200px; /* Maximum height */
+    max-height: 250px; /* Maximum height */
     border: 2px solid black;
     position: fixed;
     top: 0;

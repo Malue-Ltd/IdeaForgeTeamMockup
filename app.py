@@ -1,7 +1,9 @@
+
+# %%
 import json
 import os
 import re
-import subprocess
+# import subprocess
 import markdown
 from flask import Flask, url_for, request, Response , render_template , make_response
 import requests 
@@ -21,34 +23,36 @@ with open(json_file, 'r') as f:
 note_content = 'empty note'
 
 
-def count_ids(obj):
+def count_ids(obj : object) -> int:
     count = 0
     if isinstance(obj, dict):
         # Check if "id" is in the dictionary and count it if present
-        if "id" in obj:
+        my_dict: dict[str, str] = obj
+        if "id" in my_dict:
             count += 1
         # Recursively count "id" in each value
-        for value in obj.values():
+        for value in my_dict.values():
             count += count_ids(value)
     elif isinstance(obj, list):
-        # Recursively count "id" in each item of the list
-        for item in obj:
+        # Recursively count "id" in each item of the list\
+        my_list : list[str] = obj
+        for item in my_list:
             count += count_ids(item)
     return count
 # Function to mark an ID as used
-def mark_as_used(id_value):
+def mark_as_used(id_value : int):
     global used_ids
     used_ids[int(id_value)] = True
 # Function to check if an ID has been used
-def is_used(id_value):
+def is_used(id_value : int):
     global used_ids
     return used_ids[int(id_value)]
 # Function to clear the usage indicator
-def clear_usage(id_value):
+def clear_usage(id_value : int):
     global used_ids
     used_ids[int(id_value)] = False
    
-ids = count_ids(menu_structure)  
+ids = count_ids(menu_structure ) 
 used_ids = [False] * ids # Initially, all IDs are unused (False)
 
 
@@ -64,13 +68,13 @@ used_ids = [False] * ids # Initially, all IDs are unused (False)
 
   
 # Define the generate_menu_html function
-def generate_menu_html(structure):
+def generate_menu_html(structure : list[dict[str, str]] ) -> str:
     # Helper function to recursively build the tree menu
-    def build_tree(data):
+    def build_tree(data : list[dict[str, str]]): 
         html_content =  '<nav class="navbar-default navbar-static-side" role="navigation">'
         html_content += '<div class="sidebar-collapse">'
         html_content += '<div class="tree-menu">'
-        for key, value in data.items():
+        for key , value in data.items():   # type: ignore
             if isinstance(value, dict):  
                 for sub_key, sub_value in value.items():
                     html_content += f"""<h3 onclick="toggleMenu('{clean_string(sub_key)}','{sub_key}','')">{sub_key}</h3>"""
@@ -88,37 +92,41 @@ def generate_menu_html(structure):
         return html_content
     return build_tree(structure)
 
-def clean_string(stringToBeCleaned):
+def clean_string(stringToBeCleaned : str) -> str:
     return (re.sub(r'[^a-zA-Z0-9]', '', stringToBeCleaned)).upper()
 
-def extract(data, stage, step):
-    main_pane_contents= []
-    for key, value in data.items():
-            if isinstance(value, dict):  # If it's another dictionary, go deeper               
-                for sub_key, sub_value in value.items():
-                    if sub_key == stage or stage == "":
-                        print(sub_key)
-                        for step_key, tasks in sub_value.items():  
-                            if step_key == step or step == "":      
-                                for task in tasks:                                     
-                                    main_pane_contents.append({ 'stage':               sub_key,
-                                                                'step':                step_key,
-                                                                'task':                task["task"],
-                                                                'description':         task["description"],
-                                                                'artifact' :           task["artifact"],
-                                                                'tool':                task["tool"],
-                                                                'artefact-locations' : task["artefact-locations"],
-                                                                'id' :                 task["id"]                                                          
-                                                                })
+def extract(data : dict[str, object], stage : str | None, step : str | None) -> list[dict[str, object]]:
+    main_pane_contents : list[dict[str, object]] = []
+    for _, value in data.items():
+        value : dict[str,object]
+        items  = value.items()           
+        for sub_key, sub_value in items:
+            
+            sub_key : str
+            sub_value : object
+            if sub_key == stage or stage == "":
+                print(sub_key)
+                for step_key, tasks in sub_value.items():  
+                    if step_key == step or step == "":      
+                        for task in tasks:                                     
+                            main_pane_contents.append({ 'stage':               sub_key,
+                                                        'step':                step_key,
+                                                        'task':                task["task"],
+                                                        'description':         task["description"],
+                                                        'artifact' :           task["artifact"],
+                                                        'tool':                task["tool"],
+                                                        'artefact-locations' : task["artefact-locations"],
+                                                        'id' :                 task["id"]                                                          
+                                                        })
 
     return main_pane_contents                        
 
-def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
+def render_artifact_item(artifactRecord : dict[str,str] ,stage : str,step : str,id : int, zindex : int, idSeq : int,ypos : int, xpos : int):
     # if is_used(id):
     #     return ''
     html_content = '<div >'
-    matchItem = artifactRecord['tool']
-    description = artifactRecord['description']
+    matchItem: str = artifactRecord['tool']
+    description : str = artifactRecord['description']
     mark_as_used(id)
     match matchItem:
         case 'MALUE_NOTE' | 'MALUE_FEED' | 'MALUE_CONTACTS' | 'MALUE_CONTACT': 
@@ -205,6 +213,19 @@ def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
             
             html_content += f'</fieldset>'
             html_content += f'</div>'
+
+        case 'MALUE_PROCESS':
+            location = artifactRecord['artefact-locations'][0]
+            html_content += f'<div class="tool-wrapper" id="process{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:500px; width:50%">'
+            html_content += f'<fieldset>'
+            html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
+            html_content += f'                    Process - {description}'
+            html_content += f'                    <span class="close-icon" onclick="closeProcess({idSeq})">❌</span>'
+            html_content += f'                    </legend>'
+            html_content += f'                    <div >Process</div>'
+            
+            html_content += f'</fieldset>'
+            html_content += f'</div>'
         case _ :
             location = artifactRecord['artefact-locations'][0]
             html_content += f'<div class="tool-wrapper" id="unknown{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:100px; width:500px">'
@@ -220,7 +241,7 @@ def render_artifact_item(artifactRecord,stage,step,id, zindex,idSeq,ypos,xpos):
     html_content += '<div>'
     return html_content
 
-def generate_html_document(menu_html, items_html, note_content):
+def generate_html_document(menu_html : str, items_html : str, note_content : str):
     data = {
         "menu_html" : menu_html, 
         "items_html" : items_html, 
@@ -230,8 +251,8 @@ def generate_html_document(menu_html, items_html, note_content):
     # response.headers["Content-Security-Policy"] = "default-src 'self';"
     return render_template("main.html", **data)
     
-def generate_document_list_item(stage, step, main_pane_contents):
-    data = {
+def generate_document_list_item(stage : str, step : str, main_pane_contents : list[dict[str,object]]):
+    data : dict[str,object] = {
         "stage": stage,
         "step": step,
         "main_pane_contents" : main_pane_contents
@@ -244,15 +265,15 @@ def generate_document_list_item(stage, step, main_pane_contents):
 
 app = Flask(__name__)
 
-app.jinja_env.globals['render_artifact_item'] = render_artifact_item
-app.jinja_env.globals['generate_document_list_item'] = generate_document_list_item
+app.jinja_env.globals ['render_artifact_item'] = render_artifact_item  # type: ignore
+app.jinja_env.globals['generate_document_list_item'] = generate_document_list_item # type: ignore
 
 
 SITE_NAME = 'http://gov.uk/'
 
-@app.route('/proxy', defaults={'path': ''},methods=['GET','POST','DELETE'])
-@app.route('/proxy/<path:path>', methods=['GET','POST','DELETE'])
-def proxy(path):
+@app.route('/proxy', defaults={'path': ''},methods=['GET','POST','DELETE']) # type: ignore
+@app.route('/proxy/<path:path>', methods=['GET','POST','DELETE']) # type: ignore
+def proxy(path : str):
     global SITE_NAME
     if request.method=='GET':
         resp = requests.get(f'{SITE_NAME}{path}')
@@ -268,7 +289,7 @@ def proxy(path):
         return response
     elif request.method=='DELETE':
         resp = requests.delete(f'{SITE_NAME}{path}').content
-        response = Response(resp.content, resp.status_code, headers)
+        response = Response(resp.content, resp.status_code, headers) # type: ignore
         return response
 
 @app.route('/')
@@ -291,10 +312,12 @@ def get_artifactData():
     step = request.args.get('step')
     id   = request.args.get('id')
     # Return fresh HTML content for the div
-    main_pane_contents = extract(menu_structure, stage, step)
-    artifactRecords = [item for item in main_pane_contents if item.get("id") == int(id)][0]
+    main_pane_contents  = extract(menu_structure , stage, step) # type: ignore
+    
+    artifactRecords : dict[str,object] = [item for item in main_pane_contents if item.get("id") == int(id)][0] # type: ignore
+    
     global zindex, idSeq, ypos, xpos
-    items_html = render_artifact_item(artifactRecords,stage,step,id, zindex,idSeq,ypos,xpos)
+    items_html = render_artifact_item(artifactRecords,stage,step,id,zindex,idSeq,ypos,xpos) # type: ignore
     zindex += 1
     idSeq += 1
     ypos += 50
@@ -303,23 +326,23 @@ def get_artifactData():
 
 @app.route('/document-list')
 def get_document_list():
-    global zindex, idSeq, ypos, xpos
+    global zindex, idSeq, ypos, xpos, menu_structure
     zindex = 0
     idSeq = 0
     ypos = 10
     xpos = 10
-    stage = request.args.get('stage')
-    step = request.args.get('step')
+    stage : str | None = request.args.get('stage')
+    step  : str | None = request.args.get('step')
     # Return fresh HTML content for the div
-    main_pane_contents = extract(menu_structure, stage, step)
+    main_pane_contents : list[dict[str, object]] = extract(menu_structure, stage, step)
     
-    items_html = generate_document_list_item(stage, step, main_pane_contents)
+    items_html = generate_document_list_item(stage or '', step or '' ,  main_pane_contents )
 
     return items_html    
 
 @app.route('/disposeOfArtifactDisplay')
 def disposeOfArtifactDisplay():
-    id = request.args.get('id')
+    id : int = int(request.args.get('id') or '')
     clear_usage(id)
     return "Succss", 200
 
