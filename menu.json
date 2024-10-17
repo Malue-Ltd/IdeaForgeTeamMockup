@@ -9,6 +9,7 @@
                     "artifact": "Innovation Summary",
                     "links": "https://www.google.com",
                     "tool":"MALUE_NOTE",
+					"tooloutsideWorkbench":true,
                     "artefact-locations":["Initiation-Summary.md"]
                 }
             ],
@@ -20,6 +21,7 @@
                     "artifact": "Founder details",
                     "links": null,
                     "tool":"MALUE_CONTACT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["Johnathan Blake.md"]
                 },
                 {
@@ -29,6 +31,7 @@
                     "artifact": "Team Contacts",
                     "links": null,
                     "tool":"MALUE_CONTACTS",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["Initial Team.md"]
                 }
             ],
@@ -40,6 +43,7 @@
                     "artifact": "MessageLog",
                     "links": null,
                     "tool":"MALUE_MESSENGER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["GroupForumDiscussionRoboticScalpelsInHandSurgery.md"]
                 },
                 {
@@ -49,6 +53,7 @@
                     "artifact": "NewsFeed",
                     "links": null,
                     "tool":"MALUE_FEED",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["Feeds-01.md"]
                 },
                 {
@@ -58,6 +63,7 @@
                     "artifact": "Canvas",
                     "links": null,
                     "tool":"MALUE_CANVAS",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["BrainstormingSession.md"]
                 },
                 {
@@ -67,6 +73,7 @@
                     "artifact": "Catalog",
                     "links": null,
                     "tool":"MALUE_PDF_VIEWER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://stmaluepocsharewesteu.blob.core.windows.net/ideaforgemockupdocuments/Paradigms of Artificial Intelligence Programming Case Studies in Common Lisp.pdf"]
                 },
                 {
@@ -76,6 +83,7 @@
                     "artifact": "Website",
                     "links": null,
                     "tool":"MALUE_WEB_VIEWER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.co.uk"]
                 },
                 {
@@ -85,6 +93,7 @@
                     "artifact": "Reviews",
                     "links": null,
                     "tool":"MALUE_PDF_VIEWER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://stmaluepocsharewesteu.blob.core.windows.net/ideaforgemockupdocuments/Paradigms of Artificial Intelligence Programming Case Studies in Common Lisp.pdf"]
                 },
                 {
@@ -94,6 +103,7 @@
                     "artifact": "Clinical Trial",
                     "links": null,
                     "tool":"MALUE_PDF_VIEWER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://stmaluepocsharewesteu.blob.core.windows.net/ideaforgemockupdocuments/PA-W1410 is a portable personal.pdf"]
                 },
                 {
@@ -103,6 +113,7 @@
                     "artifact": "Research Summary",
                     "links": null,
                     "tool":"MALUE_PDF_VIEWER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://stmaluepocsharewesteu.blob.core.windows.net/ideaforgemockupdocuments/Paradigms of Artificial Intelligence Programming Case Studies in Common Lisp.pdf"]
                 },
                 {
@@ -112,6 +123,7 @@
                     "artifact": "Research Findings",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["Report-for-founders.docx"]
                 },
                 {
@@ -121,6 +133,7 @@
                     "artifact": "Website",
                     "links": null,
                     "tool":"MALUE_WEB_VIEWER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://www.example.com/"]
                 }
             ],
@@ -132,6 +145,7 @@
                     "artifact": "Market Findings",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.sharepoint.com/sites/MalueArchtecture/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FMalueArchtecture%2FShared%20Documents%2FIdea%20Forge%2FWorkedExample%2FPDFs%2FMarket%20Analysis%20for%20a%20Robotic%20Scalpel%20for%20Hand%20Surgery%2Epdf&parent=%2Fsites%2FMalueArchtecture%2FShared%20Documents%2FIdea%20Forge%2FWorkedExample%2FPDFs&p=true&ga=1"]
                 }
             ],
@@ -143,6 +157,7 @@
                     "artifact": "Research Findings",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EfsHGUDsQuBHjZKWCXpUQzcBixPKXoK3wZ-d4UoAHt0zeQ?e=3CWQgK&wdLOR=c36FB62F9-6F77-498B-BF9A-7A9734989A18"]
                 }
             ],
@@ -154,6 +169,7 @@
                     "artifact": "Outline Plan",
                     "links": null,
                     "tool":"MALUE_PLANNER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["High-Level-Gantt-Chart-for-Robotic-Scalpel-Development.png"]
                 }
             ],
@@ -165,6 +181,7 @@
                     "artifact": "Business Set up",
                     "links": null,
                     "tool":"MALUE_WEB_VIEWER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://www.example.com/"]
                 }
             ]
@@ -178,6 +195,7 @@
                     "artifact": "Clinical Trial/ Research protocol",
                     "links": null,
                     "tool":"MALUE_PDF_VIEWER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/Ef3DK5yRrc5PsbO0N_LjJ7cBvY2Q5SbHIUu2YW6N1T0oPg?e=qYOJpJ"]
                 }
             ],
@@ -189,6 +207,7 @@
                     "artifact": "Funding sources",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/Ecuc1RxdOARAi230yVFF2RgBgZigI5MtF0GGXZa7VaSxdQ?e=GGhUyL"]
                 }
             ],
@@ -200,6 +219,7 @@
                     "artifact": "Search",
                     "links": null,
                     "tool":"MALUE_DB",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":[ "https://www.nhs.uk/nhs-services/services-near-you/",
                                             "https://www.bssh.ac.uk/",
                                             "https://www.nihr.ac.uk/",
@@ -214,6 +234,7 @@
                     "artifact": "Partnership request",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EXWSE0F-cENCnBcpPVs4BtQBnDbviskWoqeRVjpi-96lxw?e=va2ev4"]
                 }
             ],
@@ -225,6 +246,7 @@
                     "artifact": "CRM",
                     "links": null,
                     "tool":"MALUE_DB",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EYlFzcS9nmROhrpKZwPUF10BeSK9gIRY_eAUjurk4yZoMA?e=DKg4hQ"]
                 }
             ],
@@ -236,6 +258,7 @@
                     "artifact": "EHIA Template",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/Ec1xhDCE-U9Fi6aCAj730PEBZqMGWVUWXwki4neX_p5p9w?e=pwgNHx"]
                 }
             ],
@@ -247,6 +270,7 @@
                     "artifact": "Case study",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EZUCT9lG4cRJjY8P-Fn3mB4B_ypBcLV7LWKARdOwGe_Ovw?e=4ognYK"]
                 }
             ],
@@ -258,6 +282,7 @@
                     "artifact": "Health Economic Case Study",
                     "links": null,
                     "tool":"MALUE_SHEET",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["hhttps://malue.sharepoint.com/:w:/s/MalueArchtecture/Ea7Wv9dl4gZHuCQHBllJ-ZwB3Bm7iZexKu9O1T3phN3Uog?e=tt92OQ"]
                 }
             ]
@@ -271,6 +296,7 @@
                     "artifact": "Product design",
                     "links": null,
                     "tool":"MALUE_PROCESS",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":[  "https://malue.sharepoint.com/:u:/s/MalueArchtecture/EROkpViszYpPoauPbYGqTgYBiTTxXSgOc7_LTe_l9MDZxQ?e=VqMTXy",
                                             "https://malue.sharepoint.com/:u:/s/MalueArchtecture/Ee8P2QgOl-dJnY_w5vfVYV0BC_eF3FdD3Fgqkp8F7xb8eQ?e=LgaQdZ"]
                 }
@@ -283,6 +309,7 @@
                     "artifact": "IP/Patent search",
                     "links": null,
                     "tool":"MALUE_PROCESS",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["Intellectual Property Office - GOV.UK (www.gov.uk)"]
                 }
             ],
@@ -294,6 +321,7 @@
                     "artifact": "IP/Patent registration",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://www.gov.uk/government/organisations/intellectual-property-office"]
                 }
             ]
@@ -307,6 +335,7 @@
                     "artifact": "Outline Plan",
                     "links": null,
                     "tool":"MALUE_PLANNER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EegJATcpyRdDmOHYW7dTCs4BfH78OnpSM8y51c6CbAYMzA?e=uZYu5a "]
                 },
                 {
@@ -316,6 +345,7 @@
                     "artifact": "Medical device regulations",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://www.gov.uk/guidance/regulating-medical-devices-in-the-uk"]
                 },
                 {
@@ -325,6 +355,7 @@
                     "artifact": "Medical device regulations",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://www.fda.gov/medical-devices"]
                 },
                 {
@@ -334,6 +365,7 @@
                     "artifact": "Medical device regulations",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://www.ema.europa.eu/en/human-regulatory-overview/medical-devices"]
                 }
             ],
@@ -345,6 +377,7 @@
                     "artifact": "Patent Application",
                     "links": null,
                     "tool":"MALUE_PROCESS",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EeLAs4pdmbhLr-0i1mvvCJEB8PJ_LDLEAOsYGALzDp_ikQ?e=V2VmmQ"]
                 }
             ]
@@ -358,6 +391,7 @@
                     "artifact": "Outline Plan",
                     "links": null,
                     "tool":"MALUE_PLANNER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.sharepoint.com/:x:/s/MalueArchtecture/EYow13ogvHNEtXNnUZmW0GMB1XiU1IVWscv1G41l2c4Gjw?e=1BJkzB"]
                 }
             ],
@@ -369,6 +403,7 @@
                     "artifact": "Business Case template",
                     "links": null,
                     "tool":"MALUE_SHEET",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/Ef6T5BarVD9CrX1AH6hzQVMBs27wnQLOtPU3zxdvsHV-ag?e=a7lVjS"]
                 }
             ],
@@ -380,6 +415,7 @@
                     "artifact": "Procurement Framework",
                     "links": null,
                     "tool":"MALUE_WEB_VIEWER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://www.sbs.nhs.uk/services/framework-agreements-categories/"]
                 },
                 {
@@ -389,6 +425,7 @@
                     "artifact": "Government Supplier Registration",
                     "links": null,
                     "tool":"MALUE_WEB_VIEWER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://supplierregistration.cabinetoffice.gov.uk/"]
                 },
                 {
@@ -398,6 +435,7 @@
                     "artifact": "Procurement Framework",
                     "links": null,
                     "tool":"MALUE_WEB_VIEWER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://www.sbs.nhs.uk/services/framework-agreements-categories/"]
                 },
                 {
@@ -407,6 +445,7 @@
                     "artifact": "Procurement Standards",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://www.gov.uk/government/publications/ppn-0324-standard-selection-questionnaire-sq"]
                 }
             ],
@@ -418,6 +457,7 @@
                     "artifact": "DUNS Number",
                     "links": null,
                     "tool":"MALUE_PROCESS",
+					"tooloutsideWorkbench":true,
                     "artefact-locations":["https://www.dnb.co.uk/duns-number/lookup.html/"]
                 }
             ],
@@ -429,6 +469,7 @@
                     "artifact": "Registration document ",
                     "links": null,
                     "tool":"MALUE_WEB_VIEWER",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://www.england.nhs.uk/nhs-commercial/central-commercial-function-ccf/evergreen/"]
                 }
             ],
@@ -440,6 +481,7 @@
                     "artifact": "Competence Framework",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EaP-ggXrhQRAiGb_lhIaunoBfY19oiVh0gtgN8xICReG7w?e=1V6uGE"]
                 }
             ],
@@ -451,6 +493,7 @@
                     "artifact": "Assessment checklist",
                     "links": null,
                     "tool":"MALUE_DB",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/ETAwlIOKn69Al6vEv1HkKP0BktV3_vqLVcH-P6O8tCwurQ?e=P5pr54"]
                 }
             ],
@@ -462,6 +505,7 @@
                     "artifact": "Training module",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":[""]
                 }
             ],
@@ -473,6 +517,7 @@
                     "artifact": "SOP",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":["https://malue.sharepoint.com/:w:/s/MalueArchtecture/EbTsKe_RVElJpyzL0luZhiIBZEC8jTfZ7bApfz5fcVJGSQ?e=wTlTgv"]
                 }
             ],
@@ -484,6 +529,7 @@
                     "artifact": "Evaluation",
                     "links": null,
                     "tool":"MALUE_EVALUATION",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":[""]
                 }
             ],
@@ -495,6 +541,7 @@
                     "artifact": "Review",
                     "links": null,
                     "tool":"MALUE_REVIEW",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":[""]
                 }
             ],
@@ -506,6 +553,7 @@
                     "artifact": "Product overview",
                     "links": null,
                     "tool":"MALUE_DOCUMENT",
+					"tooloutsideWorkbench":false,
                     "artefact-locations":[""]
                 }
             ]

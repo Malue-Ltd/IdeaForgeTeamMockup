@@ -7,6 +7,7 @@
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("enteriong script" + ( new Date()));
     createSheetData();
     //setupCanvas();
     SetupSpreadsheet();
@@ -245,30 +246,58 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function openArtifact(stage, step, id, tool) {
-        switch (tool) {
-            case "MALUE_PROCESS": {
-                fetch('/artifact-details?stage=' + stage + '&step=' + step + '&id=' + id)
+    function openArtifact(stage, step, id, tool, toolOutsideProcess) {
+        if (toolOutsideProcess.toLowerCase() === 'true') {
+            fetch('/artifact-details?stage=' + stage + '&step=' + step + '&id=' + id)
                 .then(response => response.text())
                 .then(data => {
                     let tempdata = data;
-                    
-                    const newWindow = window.open('', '_blank', 'width=800,height=600');
+                    const width = 800;
+                    const height = 600;
+
+                    // Get current window's dimensions and position
+                    const currentLeft = window.screenX;
+                    const currentTop = window.screenY;
+                    const currentWidth = window.innerWidth;
+                    const currentHeight = window.innerHeight;
+
+                    // Calculate centered position for the new window
+                    const left = currentLeft + (currentWidth - width) / 2;
+                    const top = currentTop + (currentHeight - height) / 2;
+
+                    // Open the new window centered on the current window
+                    const newWindow = window.open('about:blank', '_blank', `width=${width},height=${height},left=${left},top=${top})`);
+
+
                     newWindow.document.open();
                     newWindow.document.write(`
-                        <html>
+                        <!DOCTYPE html>
+                        <html  lang="en">
                             <head>
-                                <title>New Window</title>
-                                <style>
-                                    <link rel="stylesheet" type="text/css" href="../static/style.css">
-                                </style>
+                                <title> ${step}</title>
+                                <link rel="stylesheet" type="text/css" href="static/style.css">
+                                <script src="static/scripts/tinymce/js/tinymce/tinymce.min.js"></script>
+                                <link href="static/font-awesome/css/font-awesome.css" rel="stylesheet">
+                                <link rel="stylesheet" type="text/css" href="static/style.css">
+                                <link href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css" rel="stylesheet">
+                                <link href="https://unpkg.com/x-data-spreadsheet@1.1.5/dist/xspreadsheet.css" rel="stylesheet">
+                                
+                                <script src="static/scripts/interact.min.js"></script>
+                                <script src="https://unpkg.com/x-data-spreadsheet@1.1.5/dist/xspreadsheet.js"></script>
+                                <script src="static/scripts/tinymce/js/tinymce/tinymce.min.js"></script>
+                                <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
                             </head>
                             <body>
-                                <div id="content">${tempdata}</div>
-                                <script type="module" src="static/scripts/script.js"> </script>
+                                <div id="content"></div>
+                                
+                                <script>
+                                    document.getElementById("content").innerHTML = \`${tempdata}\`;
+                                </script>
+                                <script type="module" src="static/scripts/popoutscript.js"> </script>
                             </body>
                         </html>
                     `);
+                    //newWindow.history.replaceState(null, '', 'https://malue.co.uk');
                     newWindow.document.close();
 
                     createSheetData();
@@ -282,37 +311,36 @@ document.addEventListener("DOMContentLoaded", function () {
                     OutputFieldSetPositions();
                 })
                 .catch(error => console.error('Error:', error));
-                break;
-            }
-            default: {
-                let tempdata = '';
-                fetch('/artifact-details?stage=' + stage + '&step=' + step + '&id=' + id)
-                    .then(response => response.text())
-                    .then(data => {
-                        tempdata = data;
-                        const child = document.createElement('div');
-                        child.innerHTML = tempdata;
-                        let popupDialogHtml = document.getElementById("main-pane");
-                        popupDialogHtml.append(child);
-                        if(tool ==  "MALUE_PLANNER"){
-                            displayChart();
-                        }
-                        createSheetData();
-                        //setupCanvas();
-                        SetupSpreadsheet();
-                        SetupNotePad();
-                        SetupDragAndDrop();
-                        setToolWrapperZindexes();
-                        OutputFieldSetPositions();
-                        PreventDialogFromClosingWhenClickingInsideThedialog();
-                        OutputFieldSetPositions();
-                    })
-                    .catch(error => console.error('Error:', error));
-            }
         }
+        else {
+            let tempdata = '';
+            fetch('/artifact-details?stage=' + stage + '&step=' + step + '&id=' + id)
+                .then(response => response.text())
+                .then(data => {
+                    tempdata = data;
+                    const child = document.createElement('div');
+                    child.innerHTML = tempdata;
+                    let popupDialogHtml = document.getElementById("main-pane");
+                    popupDialogHtml.append(child);
+                    if (tool == "MALUE_PLANNER") {
+                        displayChart();
+                    }
+                    createSheetData();
+                    //setupCanvas();
+                    SetupSpreadsheet();
+                    SetupNotePad();
+                    SetupDragAndDrop();
+                    setToolWrapperZindexes();
+                    OutputFieldSetPositions();
+                    PreventDialogFromClosingWhenClickingInsideThedialog();
+                    OutputFieldSetPositions();
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
         document.getElementById("popupDoclist").style.display = "block";
-        
     }
+
     function closeArtifact() {
         document.getElementById("popupDoclist").style.display = "none";
         document.getElementById("overlay").style.display = "none";
@@ -457,6 +485,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     function closePlanner(idSeq) {
         document.getElementById("planner" + idSeq).style.display = "none"; // or use `.remove()` to delete it
+        disposeOfArtifactDisplay(idSeq)
+
+    }
+    function closeProcess(idSeq) {
+        document.getElementById("process" + idSeq).style.display = "none"; // or use `.remove()` to delete it
         disposeOfArtifactDisplay(idSeq)
 
     }
@@ -646,6 +679,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     window.displayChart = displayChart;
     window.closePlanner = closePlanner;
+    window.closeProcess = closeProcess;
     window.openNewWindow = openNewWindow;
     window.disposeOfArtifactDisplay = disposeOfArtifactDisplay;
     window.closePdf = closePdf;

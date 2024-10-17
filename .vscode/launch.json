@@ -5,6 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            
+            "program": "D:/Dropbox/source/IdeaForge/mockup/gs1/bin/Debug/net8.0//gs1.dll>",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
             "name": "Python Debugger: Flask",
             "type": "debugpy",
             "request": "launch",
@@ -19,8 +30,40 @@
                 "--no-reload"
             ],
             "jinja": true,
+            "autoStartBrowser": true,
+            "justMyCode": false
+        },
+        {
+            "name": "Edge: Attach to Running Web Page",
+            "type": "msedge",
+            "request": "attach",
+            "url": "http://localhost:5000", 
+            "webRoot": "${workspaceFolder}"
+            
+
+        },
+        
+        {
+            "name": "Proxy test Python Debugger: Flask",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "flask",
+            "env": {
+                "FLASK_APP": "trials/proxytest.py",
+                "FLASK_DEBUG": "1"
+            },
+            "args": [
+                "run"
+            ],
+            "jinja": true,
             "autoStartBrowser": false,
             "justMyCode": false
         }
-    ]
+    ],
+    "compounds": [
+    {
+      "name": "Python + Edge",
+      "configurations": ["Python Debugger: Flask", "Edge: Attach to Running Web Page"]
+    }
+  ],
 }

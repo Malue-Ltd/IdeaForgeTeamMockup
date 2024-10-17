@@ -116,7 +116,8 @@ def extract(data : dict[str, object], stage : str | None, step : str | None) -> 
                                                         'artifact' :           task["artifact"],
                                                         'tool':                task["tool"],
                                                         'artefact-locations' : task["artefact-locations"],
-                                                        'id' :                 task["id"]                                                          
+                                                        'id' :                 task["id"] ,
+                                                        'tooloutsideWorkbench':  task["tooloutsideWorkbench"]
                                                         })
 
     return main_pane_contents                        
@@ -191,7 +192,7 @@ def render_artifact_item(artifactRecord : dict[str,str] ,stage : str,step : str,
 
         case 'MALUE_WEB_VIEWER':
             location = artifactRecord['artefact-locations'][0]
-            location = 'http://localhost:5000/proxy'
+            location = f'http://localhost:5000/proxy/{location}'
             html_content += f'<div class="tool-wrapper" id="web{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:500px; width:50%">'
             html_content += f'<fieldset>'
             html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
@@ -216,7 +217,8 @@ def render_artifact_item(artifactRecord : dict[str,str] ,stage : str,step : str,
 
         case 'MALUE_PROCESS':
             location = artifactRecord['artefact-locations'][0]
-            html_content += f'<div class="tool-wrapper" id="process{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:500px; width:50%">'
+            xpos = ypos = 0
+            html_content += f'<div class="tool-wrapper" id="process{idSeq}" style="z-index: {zindex};  top: {ypos}px; left:{xpos}px; height:100%; ">'
             html_content += f'<fieldset>'
             html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
             html_content += f'                    Process - {description}'
@@ -269,28 +271,28 @@ app.jinja_env.globals ['render_artifact_item'] = render_artifact_item  # type: i
 app.jinja_env.globals['generate_document_list_item'] = generate_document_list_item # type: ignore
 
 
-SITE_NAME = 'http://gov.uk/'
 
-@app.route('/proxy', defaults={'path': ''},methods=['GET','POST','DELETE']) # type: ignore
-@app.route('/proxy/<path:path>', methods=['GET','POST','DELETE']) # type: ignore
-def proxy(path : str):
-    global SITE_NAME
-    if request.method=='GET':
-        resp = requests.get(f'{SITE_NAME}{path}')
-        excluded_headers = ['content-encoding', 'content-length', 'transfer-encoding', 'connection']
-        headers = [(name, value) for (name, value) in  resp.raw.headers.items() if name.lower() not in excluded_headers]
-        response = Response(resp.content, resp.status_code, headers)
-        return response
-    elif request.method=='POST':
-        resp = requests.post(f'{SITE_NAME}{path}',json=request.get_json())
-        excluded_headers = ['content-encoding', 'content-length', 'transfer-encoding', 'connection']
-        headers = [(name, value) for (name, value) in resp.raw.headers.items() if name.lower() not in excluded_headers]
-        response = Response(resp.content, resp.status_code, headers)
-        return response
-    elif request.method=='DELETE':
-        resp = requests.delete(f'{SITE_NAME}{path}').content
-        response = Response(resp.content, resp.status_code, headers) # type: ignore
-        return response
+@app.route('/proxy/', defaults={'path': ''}, methods=['GET', 'POST'])
+@app.route('/proxy/<path:path>', methods=['GET','POST','DELETE'])
+def proxy(path): # type: ignore
+    # Construct the URL to the third-party site
+    target_url = f"{request.path}"
+    target_url = target_url[7:]
+    # Forward request headers and data as needed
+    headers = {key: value for key, value in request.headers if key != 'Host'}
+    if request.method == 'POST':
+        resp = requests.post(target_url, headers=headers, data=request.get_data(), cookies=request.cookies)
+    else:
+        resp = requests.get(target_url)
+
+    # Modify headers to allow embedding
+    excluded_headers = ['content-encoding', 'content-length', 'transfer-encoding', 'connection']
+    headers = [(name, value) for (name, value) in resp.raw.headers.items() if name.lower() not in excluded_headers]
+    headers.append(('x-frame-options', 'ALLOWALL'))
+    headers.append(('content-security-policy', ''))
+
+    # Return the response to the client
+    return Response(resp.content, resp.status_code, headers)
 
 @app.route('/')
 def show_menu():

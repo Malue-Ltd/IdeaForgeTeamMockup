@@ -23,7 +23,7 @@
                     <td>{{ item['task'] }}</td>
                     <td>{{ item['tool'] }}</td>
                     <td>
-                        <button onclick="openArtifact('{{ item['stage'] }}', '{{ item['step'] }}', '{{ item['id'] }}', '{{ item['tool'] }}')">Press</button>
+                        <button onclick="openArtifact('{{ item['stage'] }}', '{{ item['step'] }}', '{{ item['id'] }}', '{{ item['tool'] }}', '{{ item['tooloutsideWorkbench'] }}')">Press</button>
                     </td>
                 </tr>
             {% endfor %}
