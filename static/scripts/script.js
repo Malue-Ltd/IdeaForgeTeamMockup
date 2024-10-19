@@ -439,7 +439,9 @@ document.addEventListener("DOMContentLoaded", function () {
             level.classList.toggle('collapsed');
         };
         let main = document.getElementById("main-pane");
-        main.innerHTML = '';
+        main.innerHTML = '<div style="width:2000px;height:100vh;border: solid black 2px;"><img src="static/images/inprogressworkflow.png" alt="workflow" width="200">';
+        main.innerHTML += '</div>';
+
         let main_pane = document.querySelector("#list-pane");
         fetch('/document-list?stage=' + stage + '&step=' + step)
             .then(response => response.text())
@@ -516,6 +518,10 @@ document.addEventListener("DOMContentLoaded", function () {
             "width=800,height=600,scrollbars=yes,resizable=yes"
         );
     }
+    function popoutWindow(idSeq){
+        alert("popout");
+    }
+
     function displayChart() {
         var options = {
             series: [
@@ -677,6 +683,7 @@ document.addEventListener("DOMContentLoaded", function () {
         chart.render();
 
     }
+    window.popoutWindow = popoutWindow;
     window.displayChart = displayChart;
     window.closePlanner = closePlanner;
     window.closeProcess = closeProcess;

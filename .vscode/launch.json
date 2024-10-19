@@ -16,32 +16,27 @@
             "console": "internalConsole"
         },
         {
-            "name": "Python Debugger: Flask",
+            "name": "Python: Flask",
             "type": "debugpy",
             "request": "launch",
-            "module": "flask",
-            "env": {
-                "FLASK_APP": "app.py",
-                "FLASK_DEBUG": "1"
-            },
-            "args": [
-                "run",
-                "--no-debugger",
-                "--no-reload"
-            ],
+            "program": "${workspaceFolder}/app.py",  // Your Python app entry point
+            "args": ["run"],
             "jinja": true,
-            "autoStartBrowser": true,
-            "justMyCode": false
-        },
-        {
-            "name": "Edge: Attach to Running Web Page",
+            "console": "integratedTerminal",
+            "env": {
+              "FLASK_APP": "${workspaceFolder}/app.py"
+            }
+          },
+          {
+            "name": "Edge: Launch",
             "type": "msedge",
-            "request": "attach",
-            "url": "http://localhost:5000", 
-            "webRoot": "${workspaceFolder}"
-            
-
-        },
+            "request": "launch",
+            "url": "http://localhost:5000", // Adjust the port based on your Flask app
+            "webRoot": "${workspaceFolder}/",
+            "skipFiles": ["<eval>/**"],
+            "sourceMaps": true,
+            "trace": true
+          },
         
         {
             "name": "Proxy test Python Debugger: Flask",
@@ -63,7 +58,7 @@
     "compounds": [
     {
       "name": "Python + Edge",
-      "configurations": ["Python Debugger: Flask", "Edge: Attach to Running Web Page"]
+      "configurations": ["Python: Flask", "Edge: Launch"]
     }
   ],
 }

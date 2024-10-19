@@ -143,6 +143,8 @@ def render_artifact_item(artifactRecord : dict[str,str] ,stage : str,step : str,
             html_content += f'                    <legend style="display: flex; justify-content: space-between; align-items: center;">'
             html_content += f'                    Notes - {description}'
             html_content += f'                    <span class="close-icon" onclick="closeNote({idSeq})">❌</span>'
+            html_content += f'                    <span class="close-icon" onclick="popoutWindow({idSeq})">➕</span>'
+
             html_content += f'                    </legend>'
             html_content += f'                    <textarea style="height: 100%;width:100%;" id="mytextarea">'
             html_content += f'                    <div>{note_content}</div>'
@@ -300,8 +302,9 @@ def show_menu():
     items_html += '<div id="list-pane"  class="scrollable-div doclist-content"style="position: relative;">'
     items_html += '</div>'
     items_html += '<div id="main-pane" style="position: relative;height: 100vh;overflow-y: hidden; border: solid black 3px; ">'
-    items_html += '<iframe src="https://xmind.ai/embed/DASmVuOe?sheet-id=1df9858b-5171-48dc-97f2-e5054bcbdc99" width="100%" height="900px" frameborder="0" scrolling="no" allow="fullscreen"></iframe>'
-    items_html += '</div>'
+    
+    items_html += '<iframe  src="https://xmind.ai/embed/DASmVuOe?sheet-id=1df9858b-5171-48dc-97f2-e5054bcbdc99" width="100%" height="900px" frameborder="0" scrolling="no" allow="fullscreen"></iframe>'
+   
     items_html += '</div>'
   
     menu_html = generate_menu_html(menu_structure)
@@ -323,7 +326,7 @@ def get_artifactData():
     zindex += 1
     idSeq += 1
     ypos += 50
-    xpos += 50
+    xpos += 150
     return items_html    
 
 @app.route('/document-list')
@@ -332,7 +335,7 @@ def get_document_list():
     zindex = 0
     idSeq = 0
     ypos = 10
-    xpos = 10
+    xpos = 150
     stage : str | None = request.args.get('stage')
     step  : str | None = request.args.get('step')
     # Return fresh HTML content for the div
