@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "chrome-remote-interface": "^0.33.2",
     "mermaid-cli": "^0.2.4"
   }
 }
